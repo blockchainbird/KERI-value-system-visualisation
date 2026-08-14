@@ -493,6 +493,12 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   pointer-events: none;
 }
 .link.highlight .link-line { stroke: #9fb6d9; stroke-opacity: 1; }
+.link-arrow {
+  fill: #6a7894;
+  stroke: none;
+  pointer-events: none;
+}
+.link.highlight .link-arrow { fill: #c5d4ec; }
 .link.dimmed { opacity: 0.2; }
 
 .node circle { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1px; cursor: pointer; }

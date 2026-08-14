@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 const nodeRadius = (d) => 5 + d.weight * 1.8;
 const linkWidth = (d) => 0.8 + d.weight * 1.1;
 const linkDistance = (d) => 130 - d.weight * 25;
+const arrowSize = (d) => 8 + (d.weight ?? 1) * 1.2;
 
 /**
  * Creates the force-directed graph inside the given <svg> element.
@@ -67,6 +68,41 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
       source: typeof d.source === 'object' ? d.source.id : d.source,
       target: typeof d.target === 'object' ? d.target.id : d.target,
     };
+  }
+
+  // Visible line stops at the node circles so the arrow sits on the rim, not under it.
+  function visibleLinkEnds(d) {
+    const x1 = d.source.x ?? 0;
+    const y1 = d.source.y ?? 0;
+    const x2 = d.target.x ?? 0;
+    const y2 = d.target.y ?? 0;
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const dist = Math.hypot(dx, dy) || 1;
+    const start = nodeRadius(d.source);
+    const end = nodeRadius(d.target) + arrowSize(d) * 0.35;
+    return {
+      x1: x1 + (dx / dist) * start,
+      y1: y1 + (dy / dist) * start,
+      x2: x2 - (dx / dist) * end,
+      y2: y2 - (dy / dist) * end,
+    };
+  }
+
+  function arrowPath(d) {
+    const { x1, y1, x2, y2 } = visibleLinkEnds(d);
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const dist = Math.hypot(dx, dy) || 1;
+    const ux = dx / dist;
+    const uy = dy / dist;
+    const size = arrowSize(d);
+    const baseX = x2 - ux * size;
+    const baseY = y2 - uy * size;
+    const px = -uy;
+    const py = ux;
+    const half = size * 0.42;
+    return `M${x2},${y2} L${baseX + px * half},${baseY + py * half} L${baseX - px * half},${baseY - py * half} Z`;
   }
 
   function neighborIds(id) {
@@ -193,6 +229,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
         const g = enter.append('g').attr('class', 'link');
         g.append('line').attr('class', 'link-hit');
         g.append('line').attr('class', 'link-line');
+        g.append('path').attr('class', 'link-arrow');
         return g;
       });
 
@@ -261,13 +298,21 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
   }
 
   function ticked() {
-    const place = (sel) => sel
-      .attr('x1', (d) => d.source.x)
-      .attr('y1', (d) => d.source.y)
-      .attr('x2', (d) => d.target.x)
-      .attr('y2', (d) => d.target.y);
-    place(linkSel.select('.link-hit'));
-    place(linkSel.select('.link-line'));
+    linkSel.each(function (d) {
+      const g = d3.select(this);
+      g.select('.link-hit')
+        .attr('x1', d.source.x)
+        .attr('y1', d.source.y)
+        .attr('x2', d.target.x)
+        .attr('y2', d.target.y);
+      const p = visibleLinkEnds(d);
+      g.select('.link-line')
+        .attr('x1', p.x1)
+        .attr('y1', p.y1)
+        .attr('x2', p.x2)
+        .attr('y2', p.y2);
+      g.select('.link-arrow').attr('d', arrowPath(d));
+    });
     nodeSel.attr('transform', (d) => `translate(${d.x},${d.y})`);
   }
 

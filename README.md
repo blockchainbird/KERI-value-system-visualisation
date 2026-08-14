@@ -29,9 +29,10 @@ npm run live        # build and rsync to dwarshuis.com/test/KERI-value-system-vi
 - **Node size** reflects the node's weight. The fetch script derives it from the number of
   connections (3–9); it stays editable per node in the UI.
 - **Link thickness** reflects the link's weight (1–3). Links come from the sheet's
-  **Vertices** tab (Source, Destination, Connection Context, Personas). Hover a link
-  to read its connection context. The Nodes tab's "Vertices / referenced tags" column
-  is used only as a fallback for edges not yet listed on the Vertices tab.
+  **Vertices** tab (Source, Destination, Connection Context, Personas) and are drawn
+  as arrows from source to destination. Hover a link to read its connection context.
+  The Nodes tab's "Vertices / referenced tags" column is used only as a fallback for
+  edges not yet listed on the Vertices tab.
 - Hover a node to see its description and highlight its neighbours. Drag nodes, pan and zoom
   freely, and use **Fit** to re-centre.
 
