@@ -200,6 +200,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
   searchInput.oninput = renderSearch;
   searchInput.onkeydown = (event) => {
     if (event.key === 'Escape') {
+      event.stopPropagation();
       searchInput.value = '';
       renderSearch();
     }

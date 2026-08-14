@@ -35,7 +35,7 @@ npm run live        # build and rsync to dwarshuis.com/test/KERI-value-system-vi
 
 ## Editing the graph
 
-Use the edit panel on the left:
+Use the slide-in editor (left-edge **Editor** tab, bottom-right **Editor** button, or click a node):
 
 - **Nodes** — select a node (dropdown or click in the graph) to edit its id, label, group,
   weight, tag (`conscientious` / `mature`), and description. `+` adds a node, `−` deletes the

@@ -17,6 +17,31 @@ for (const clip of clipsData.clips) {
   }
 }
 
+const panel = document.getElementById('panel');
+const panelHandle = document.getElementById('panel-handle');
+const btnPanelOpen = document.getElementById('btn-panel-open');
+const btnPanelClose = document.getElementById('btn-panel-close');
+
+function setPanelOpen(open) {
+  panel.classList.toggle('is-open', open);
+  document.getElementById('app').classList.toggle('panel-open', open);
+  panel.toggleAttribute('inert', !open);
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  panelHandle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  panelHandle.title = open ? 'Close editor' : 'Open editor';
+}
+
+function openPanel() { setPanelOpen(true); }
+function closePanel() { setPanelOpen(false); }
+function togglePanel() { setPanelOpen(!panel.classList.contains('is-open')); }
+
+panelHandle.onclick = togglePanel;
+btnPanelOpen.onclick = openPanel;
+btnPanelClose.onclick = closePanel;
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closePanel();
+});
+
 const graph = createGraph(document.getElementById('graph'), {
   onNodeClick: (id) => editor.selectNode(id),
   getClipCount: (id) => clipCountByTag.get(id) ?? 0,
@@ -25,7 +50,10 @@ const graph = createGraph(document.getElementById('graph'), {
 const editor = createEditor({
   getModel: () => model,
   onChange: render,
-  onSelectNode: (id) => graph.setSelected(id),
+  onSelectNode: (id) => {
+    graph.setSelected(id);
+    if (id) openPanel();
+  },
   onSearch: (ids) => graph.setSearchHighlight(ids),
   clips: clipsData,
 });

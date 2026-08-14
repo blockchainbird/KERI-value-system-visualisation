@@ -8,96 +8,105 @@
 </head>
 <body>
   <div id="app">
-    <aside id="panel">
-      <div id="panel-main">
-      <header id="panel-header">
-        <h1>KERI Value System</h1>
-        <p class="subtitle">
-          Source:
-          <a href="https://github.com/keri-foundation/CONF26-subtitles/issues/21" target="_blank" rel="noopener">
-            CONF26-subtitles #21
-          </a>
-        </p>
-      </header>
-
-      <section class="panel-section" id="file-section">
-        <h2>Data file</h2>
-        <div class="button-row">
-          <button id="btn-load" title="Load a graph JSON file from disk">Load…</button>
-          <button id="btn-save" title="Save the current graph to a JSON file">Save…</button>
-          <button id="btn-reset" title="Restore the bundled default dataset">Reset</button>
-        </div>
-        <p class="hint" id="file-hint"></p>
-      </section>
-
-      <section class="panel-section" id="search-section">
-        <h2>Search</h2>
-        <input id="search-input" type="search" placeholder="Search nodes by tag, description…" autocomplete="off" />
-        <ul id="search-results" class="hidden"></ul>
-      </section>
-
-      <section class="panel-section" id="node-section">
-        <h2>Nodes <span class="count" id="node-count"></span></h2>
-        <div class="row">
-          <select id="node-select"></select>
-          <button id="btn-add-node" class="small" title="Add a new node">+</button>
-          <button id="btn-del-node" class="small danger" title="Delete selected node and its links">−</button>
-        </div>
-        <div id="node-form" class="form hidden">
-          <label>Id <input id="node-id" type="text" /></label>
-          <label>Label <input id="node-label" type="text" /></label>
-          <label>Group <select id="node-group"></select></label>
-          <label>Weight (1–10) <input id="node-weight" type="range" min="1" max="10" step="1" />
-            <span class="range-value" id="node-weight-value"></span></label>
-          <label>Tag
-            <select id="node-tag">
-              <option value="">— none —</option>
-              <option value="conscientious">conscientious</option>
-              <option value="mature">mature</option>
-            </select>
-          </label>
-          <label>Description <textarea id="node-description" rows="4"></textarea></label>
-        </div>
-      </section>
-
-      <section class="panel-section" id="clips-section">
-        <h2>Clips <span class="count" id="clip-count"></span></h2>
-        <p class="hint" id="clips-hint"></p>
-        <ul id="clip-list"></ul>
-      </section>
-      </div>
-
-      <section class="panel-section" id="link-section">
-        <h2>Links <span class="count" id="link-count"></span></h2>
-        <div class="form" id="link-add-form">
-          <div class="row">
-            <select id="link-source"></select>
-            <span class="arrow">→</span>
-            <select id="link-target"></select>
-          </div>
-          <div class="row">
-            <label class="inline">Weight
-              <select id="link-weight">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </label>
-            <button id="btn-add-link" class="small">Add link</button>
-          </div>
-        </div>
-        <ul id="link-list"></ul>
-      </section>
-    </aside>
-
     <main id="graph-container">
       <svg id="graph"></svg>
       <div id="legend"></div>
       <div id="tooltip" class="hidden"></div>
       <div id="graph-controls">
+        <button id="btn-panel-open" type="button" title="Open editor">Editor</button>
         <button id="btn-zoom-fit" title="Fit graph to view">Fit</button>
       </div>
     </main>
+
+    <button id="panel-handle" type="button" aria-expanded="false" aria-controls="panel" title="Open editor">
+      Editor
+    </button>
+
+    <aside id="panel" aria-hidden="true" inert>
+
+      <header id="panel-header">
+        <div id="panel-header-text">
+          <h1>KERI Value System</h1>
+          <p class="subtitle">
+            Source:
+            <a href="https://github.com/keri-foundation/CONF26-subtitles/issues/21" target="_blank" rel="noopener">
+              CONF26-subtitles #21
+            </a>
+          </p>
+        </div>
+        <div id="file-section">
+          <div class="button-row">
+            <button id="btn-load" title="Load a graph JSON file from disk">Load…</button>
+            <button id="btn-save" title="Save the current graph to a JSON file">Save…</button>
+            <button id="btn-reset" title="Restore the bundled default dataset">Reset</button>
+          </div>
+          <p class="hint" id="file-hint"></p>
+        </div>
+        <button id="btn-panel-close" type="button" title="Close editor">Close</button>
+      </header>
+
+      <div id="panel-columns">
+        <section class="panel-section" id="node-section">
+          <h2>Nodes <span class="count" id="node-count"></span></h2>
+          <div id="search-section">
+            <input id="search-input" type="search" placeholder="Search nodes by tag, description…" autocomplete="off" />
+            <ul id="search-results" class="hidden"></ul>
+          </div>
+          <div class="row">
+            <select id="node-select"></select>
+            <button id="btn-add-node" class="small" title="Add a new node">+</button>
+            <button id="btn-del-node" class="small danger" title="Delete selected node and its links">−</button>
+          </div>
+          <div id="node-form" class="form hidden">
+            <label>Id <input id="node-id" type="text" /></label>
+            <label>Label <input id="node-label" type="text" /></label>
+            <label>Group <select id="node-group"></select></label>
+            <label>Tag
+              <select id="node-tag">
+                <option value="">— none —</option>
+                <option value="conscientious">conscientious</option>
+                <option value="mature">mature</option>
+              </select>
+            </label>
+            <label class="span-2">Weight (1–10)
+              <span class="weight-row">
+                <input id="node-weight" type="range" min="1" max="10" step="1" />
+                <span class="range-value" id="node-weight-value"></span>
+              </span>
+            </label>
+            <label class="span-2">Description <textarea id="node-description" rows="4"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel-section" id="clips-section">
+          <h2>Clips <span class="count" id="clip-count"></span></h2>
+          <p class="hint" id="clips-hint"></p>
+          <ul id="clip-list"></ul>
+        </section>
+
+        <section class="panel-section" id="link-section">
+          <h2>Links <span class="count" id="link-count"></span></h2>
+          <div class="form" id="link-add-form">
+            <div class="row">
+              <select id="link-source"></select>
+              <span class="arrow">→</span>
+              <select id="link-target"></select>
+            </div>
+            <div class="row">
+              <label class="inline">Weight
+                <select id="link-weight">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+              <button id="btn-add-link" class="small">Add link</button>
+            </div>
+          </div>
+          <ul id="link-list"></ul>
+        </section>
+      </div>
+    </aside>
   </div>
   <script type="module" src="/src/main.js"></script>
 </body>
