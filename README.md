@@ -1,28 +1,31 @@
 # KERI Value System Visualisation
 
-An interactive, weighted force-directed graph (D3.js) of the KERI value system, extracted from
+An interactive, weighted force-directed graph (D3.js) of the KERI value system. The data comes
+from a published
+[Google Sheet (CSV)](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?output=csv)
+that evolved out of
 [keri-foundation/CONF26-subtitles#21](https://github.com/keri-foundation/CONF26-subtitles/issues/21).
 
-The dataset is work in progress — the graph is built to be easy to extend as new terms and
-sub-issues are added.
+The dataset is work in progress — the graph is built to be easy to update as terms are added
+to the sheet.
 
 ## Quick start
 
 ```bash
 npm install
-npm run dev      # opens a dev server, usually http://localhost:5173
-npm run build    # production build in dist/
+npm run dev         # opens a dev server, usually http://localhost:5173
+npm run fetch-data  # re-download the sheet CSV and regenerate the dataset
+npm run build       # production build in dist/
 ```
 
 ## What you see
 
-- **Nodes** are terms from the issue: human values (Trustworthiness, Sovereignty, …),
-  engineering principles (Security First, Fault Tolerance, …), and the mnemonic value points
-  (SECUFIRST, SAFETY, RECOUPEERS, …), colour-coded by group (see legend).
-- **Node size** reflects the node's weight (importance, 1–10).
-- **Link thickness** reflects the link's weight (strength of relation, 1–3). Links were derived
-  from the `~` cross-references in the issue text, plus a curated mapping of engineering
-  principles to human values and value points.
+- **Nodes** are the tags from the sheet (SECUFIRST, SAFETY, RECOUPEERS, …), colour-coded by
+  their Type column: KERISuite unique values, more common values, and common absent values.
+- **Node size** reflects the node's weight. The fetch script derives it from the number of
+  connections (3–9); it stays editable per node in the UI.
+- **Link thickness** reflects the link's weight (1–3). Links come from the sheet's
+  "Vertices / referenced tags" column (all weight 1 by default).
 - Hover a node to see its description and highlight its neighbours. Drag nodes, pan and zoom
   freely, and use **Fit** to re-centre.
 
@@ -46,6 +49,16 @@ Use the edit panel on the left:
   fallback) and validates it before rendering.
 - **Reset** restores the bundled default dataset.
 
+## Updating from the Google Sheet
+
+`npm run fetch-data` downloads the published CSV and regenerates
+`src/data/keri-values.json`. It parses each row's Tag, Description, referenced tags, and Type;
+extracts `{conscientious}` / `{mature}` markers into the node's tag field; creates one link per
+referenced tag (skipping unknown references with a warning); and derives node weights from
+connectivity. New Type values in the sheet automatically become new groups with a fallback
+colour. Manual weight tweaks made in the edit panel live in the saved JSON files, so re-running
+the script overwrites only the bundled default dataset.
+
 ## Configuring the dataset
 
 The default dataset lives in `src/data/keri-values.json` and is plain JSON:
@@ -60,16 +73,18 @@ The default dataset lives in `src/data/keri-values.json` and is plain JSON:
 }
 ```
 
-To add new terms (e.g. from the "SEGMENTS…" sub-issues), either edit this file directly, or use
-the edit panel and save the result — a saved file can be re-loaded later or committed back as
-the new `src/data/keri-values.json`. New groups can be added in `groups` (id, label, colour) and
-used immediately by nodes.
+To add new terms, the preferred route is adding rows to the Google Sheet and running
+`npm run fetch-data`. Alternatively, edit this file directly or use the edit panel and save the
+result — a saved file can be re-loaded later or committed back as the new
+`src/data/keri-values.json`. New groups can be added in `groups` (id, label, colour) and used
+immediately by nodes.
 
 ## Project layout
 
 | File | Purpose |
 | --- | --- |
 | `src/data/keri-values.json` | The dataset (nodes, links, groups, metadata) |
+| `scripts/fetch-data.mjs` | Regenerates the dataset from the published sheet CSV |
 | `src/graph.js` | D3 force simulation and rendering |
 | `src/editor.js` | Edit panel (node/link CRUD) |
 | `src/fileio.js` | HTML5 file save/load with validation |

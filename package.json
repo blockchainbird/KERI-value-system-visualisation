@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "fetch-data": "node scripts/fetch-data.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
