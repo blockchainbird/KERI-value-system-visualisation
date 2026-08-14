@@ -11,12 +11,15 @@ to the sheet.
 
 ## Quick start
 
+Live: [dwarshuis.com/test/KERI-value-system-visualisation](https://dwarshuis.com/test/KERI-value-system-visualisation/)
+
 ```bash
 npm install
 npm run dev         # opens a dev server, usually http://localhost:5173
 npm run fetch-data  # re-download the sheet CSV and regenerate the dataset
 npm run fetch-clips # re-parse the SEGMENTS sub-issues and regenerate the clips
 npm run build       # production build in dist/
+npm run live        # build and rsync to dwarshuis.com/test/KERI-value-system-visualisation/
 ```
 
 ## What you see
