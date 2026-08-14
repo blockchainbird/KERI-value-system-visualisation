@@ -4,7 +4,7 @@
  * source/target ids) and calls onChange() after every mutation so the
  * graph re-renders.
  */
-export function createEditor({ getModel, onChange, onSelectNode, onSearch }) {
+export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips }) {
   const el = (id) => document.getElementById(id);
 
   const searchInput = el('search-input');
@@ -96,6 +96,60 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch }) {
     }
   }
 
+  function formatTime(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    const mmss = `${m}:${String(s).padStart(2, '0')}`;
+    return h ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : mmss;
+  }
+
+  function renderClips() {
+    const clipList = el('clip-list');
+    const clipsHint = el('clips-hint');
+    const clipCount = el('clip-count');
+    clipList.innerHTML = '';
+
+    if (!clips || !clips.clips.length) {
+      clipCount.textContent = '';
+      clipsHint.textContent = 'No clips dataset loaded.';
+      return;
+    }
+    if (!selectedNodeId) {
+      clipCount.textContent = `(${clips.clips.length})`;
+      clipsHint.textContent = 'Select a node to see video clips tagged with it.';
+      return;
+    }
+
+    const nodeClips = clips.clips.filter((c) => c.tags.includes(selectedNodeId));
+    clipCount.textContent = `(${nodeClips.length})`;
+    clipsHint.textContent = nodeClips.length ? '' : 'No clips tagged with this node yet.';
+
+    for (const clip of nodeClips) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `${clips.meta.galleryUrl}#${clip.videoId}&t=${clip.start}&e=${clip.end}`;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.title = `${clip.quote}\n\nOpens the video gallery at ${formatTime(clip.start)} (from issue #${clip.issue})`;
+
+      const quote = document.createElement('span');
+      quote.className = 'clip-quote';
+      quote.textContent = clip.quote || clip.talk;
+
+      const meta = document.createElement('span');
+      meta.className = 'clip-meta';
+      const time = document.createElement('span');
+      time.className = 'clip-time';
+      time.textContent = `▶ ${formatTime(clip.start)}–${formatTime(clip.end)}`;
+      meta.append(time, document.createTextNode(` · ${clip.speaker} — ${clip.talk}`));
+
+      a.append(quote, meta);
+      li.appendChild(a);
+      clipList.appendChild(li);
+    }
+  }
+
   function renderCounts() {
     el('node-count').textContent = `(${model().nodes.length})`;
     el('link-count').textContent = selectedNodeId
@@ -161,6 +215,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch }) {
     renderNodeForm();
     renderLinkList();
     renderCounts();
+    renderClips();
     renderSearch();
   }
 

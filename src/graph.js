@@ -8,7 +8,7 @@ const linkDistance = (d) => 130 - d.weight * 25;
  * Creates the force-directed graph inside the given <svg> element.
  * Returns an API to re-render when data changes and to control selection/zoom.
  */
-export function createGraph(svgEl, { onNodeClick } = {}) {
+export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
   const svg = d3.select(svgEl);
   const container = svgEl.parentElement;
   const tooltip = container.querySelector('#tooltip');
@@ -67,10 +67,11 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
 
   function showTooltip(event, d) {
     const rect = container.getBoundingClientRect();
+    const clipCount = getClipCount?.(d.id) ?? 0;
     tooltip.innerHTML = `
       <div class="tt-title">${d.label}</div>
       <div class="tt-meta">${data.groups[d.group]?.label ?? d.group}
-        · weight ${d.weight}${d.tag ? ` · {${d.tag}}` : ''}</div>
+        · weight ${d.weight}${d.tag ? ` · {${d.tag}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
       <div>${d.description ?? ''}</div>`;
     tooltip.classList.remove('hidden');
     const x = Math.min(event.clientX - rect.left + 14, rect.width - 340);

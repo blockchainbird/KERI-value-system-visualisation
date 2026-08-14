@@ -1,0 +1,3721 @@
+{
+  "meta": {
+    "source": "https://github.com/keri-foundation/CONF26-subtitles/issues/21",
+    "galleryUrl": "https://keri.foundation/confs/2026/videos/",
+    "generated": "2026-08-14",
+    "notes": "Generated from the SEGMENTS sub-issues by scripts/fetch-clips.mjs. Only segments mentioning at least one value tag are included. A clip link is <galleryUrl>#<videoId>&t=<start>&e=<end>."
+  },
+  "clips": [
+    {
+      "id": "30-1",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 28,
+      "end": 105,
+      "quote": "Legal workflows. We blend the worlds of legal tech and digital identity primarily using decentralized identity. No blockchain",
+      "tags": [
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "30-2",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 133,
+      "end": 219,
+      "quote": "Collapse legal and operational parts of contract in the same contract credential",
+      "tags": [
+        "REALMPRAGM",
+        "INCLUSIVE",
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "30-3",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 219,
+      "end": 278,
+      "quote": "Different contracts that give authority to do transactions on a market, instantly verifiable to third parties. Reduce transaction costs. Have a shared cryptographic and legal root of trust.",
+      "tags": [
+        "VERCOMTMT",
+        "BIZEFFCASE",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "30-4",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 309,
+      "end": 380,
+      "quote": "Difference between vLEI ACDCs and contract credentials: vLEI more specific, this more generally applicable. W3C VCs are limited",
+      "tags": [
+        "INCLUSIVE",
+        "UNBROCHAIN",
+        "LEGOVPOL",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "30-5",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 380,
+      "end": 493,
+      "quote": "Model the legal relationship that is embodied in contract one-to-one mappings and all signed",
+      "tags": [
+        "CANMODELRW",
+        "PROVCONTXT",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "30-6",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 493,
+      "end": 630,
+      "quote": "Why KERI? Manage keystate separately chain of title breach of contract cascade consequences (automatically revoke authorization)",
+      "tags": [
+        "EASEOFUSE",
+        "NOSHARSECR",
+        "1PERSCONTR",
+        "UNBROCHAIN",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "30-7",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 630,
+      "end": 1017,
+      "quote": "From contract to credential, three-layer model All assets should have an identity Chained delegation 394 Build chains that can automate legal processes. Demo.",
+      "tags": [
+        "CANMODELRW",
+        "PROVCONTXT",
+        "INCLUSIVE",
+        "UNBROCHAIN"
+      ]
+    },
+    {
+      "id": "30-8",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1017,
+      "end": 1093,
+      "quote": "You don't need a central registry anymore. It cuts down on much infrastructure that's currently required.",
+      "tags": [
+        "BIZEFFCASE",
+        "GRALIFCONF"
+      ]
+    },
+    {
+      "id": "30-9",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1093,
+      "end": 1219,
+      "quote": "Litigation over contractual provisions and evidentiary rules -> contract credentials re a real solution",
+      "tags": [
+        "SPACTRILL",
+        "VERCOMTMT",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "30-10",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1219,
+      "end": 1370,
+      "quote": "It's really powerful when you start thinking about it in these granular ways with focus on commercial transaction elements",
+      "tags": [
+        "CANMODELRW",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "30-11",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1704,
+      "end": 1772,
+      "quote": "History of Switchchord being far ahead of its time, nobody understood, cared or wanted it",
+      "tags": [
+        "MARKETPEN"
+      ]
+    },
+    {
+      "id": "30-12",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1772,
+      "end": 1875,
+      "quote": "of the apartment complex example: see easy to breach! We need to start thinking differently.",
+      "tags": [
+        "SAFETY",
+        "BIZEFFCASE",
+        "OTHUNSAFE",
+        "REALMPRAGM"
+      ]
+    },
+    {
+      "id": "30-13",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 1975,
+      "end": 2073,
+      "quote": "What about enforceability? It's all integrated. But you'll still need a hybrid approach.",
+      "tags": [
+        "CANMODELRW",
+        "GRASPEASY"
+      ]
+    },
+    {
+      "id": "30-14",
+      "issue": 30,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/30",
+      "videoId": "contract-credentials-verifiable-identity-cole-davis",
+      "videoTitle": "Contract Credentials & Verifiable Identity - Cole Davis",
+      "talk": "Contract Credentials & Verifiable Identity",
+      "speaker": "Cole Davis",
+      "start": 2073,
+      "end": 2133,
+      "quote": "Put KERISuite under the hood of business case implementations",
+      "tags": [
+        "MATURITY"
+      ]
+    },
+    {
+      "id": "31-1",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 39,
+      "end": 236,
+      "quote": "Introductory overview by a walk-through of Video demo SEDI conference: ACDCs act like passkeys:",
+      "tags": [
+        "SECUFIRST",
+        "NOSHARSECR",
+        "PERPETUAL",
+        "ATSCALE",
+        "NOWSTACK",
+        "VERNOTVAL",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "31-2",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 236,
+      "end": 427,
+      "quote": "HL7 FHIR: create authorizations for parties in an exchange of data that has a chosen limited context. payer-to-payer data exchange, growing number of connections needed, accelerated by vLEI integration",
+      "tags": [
+        "LEGOVPOL",
+        "PROVCONTXT",
+        "1PERSCONTR",
+        "NOWSTACK",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "31-3",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 427,
+      "end": 579,
+      "quote": "OAuth2.0 legacy but essential for interoperability, RACK -> full security between endpoints 47-days time-out of X.509 certification hits you; and your connections! replace X.509 with vLEI",
+      "tags": [
+        "SECUFIRST",
+        "UNBROCHAIN",
+        "VERNOTVAL",
+        "EASEOFUSE",
+        "MARKETPEN",
+        "ATSCALE",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "31-4",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 579,
+      "end": 750,
+      "quote": "UDAP profiles augmented with KERI to replace X.509 and its spin-off, the process and the perks explained, including credential offer",
+      "tags": [
+        "GRALIFCONF"
+      ]
+    },
+    {
+      "id": "31-5",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 758,
+      "end": 853,
+      "quote": "dynamic client registration with vLEI upselling RACK enable connectedness as trust at scale",
+      "tags": [
+        "NOSHARSECR",
+        "NOWSTACK",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "31-6",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 853,
+      "end": 978,
+      "quote": "Authorization code flow: log in with - and leverage vLEI credentials From regular FHIR flow to KERI/ACDC flow. Hyper churn your credentials and flood the systems that serve you with the ACDC ->",
+      "tags": [
+        "NOWSTACK",
+        "1PERSCONTR",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "31-7",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 978,
+      "end": 1118,
+      "quote": "IPEX issuance and presentation exchange protocol, step by step explained contractually protected disclosure Credential Offer Commitment: user offers the terms and conditions, no data exposed; server signs, then data exposed",
+      "tags": [
+        "GRALIFCONF",
+        "LEGOVPOL",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "31-8",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 1118,
+      "end": 1219,
+      "quote": "signed agreement message and full grant: win win situation: user benefits but counterparts get cryptographically verifiable data!",
+      "tags": [
+        "VERCOMTMT"
+      ]
+    },
+    {
+      "id": "31-9",
+      "issue": 31,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/31",
+      "videoId": "acdcs-for-authorization-phil-feairheller",
+      "videoTitle": "ACDCs for Authorization - Phil Feairheller",
+      "talk": "ACDCs for Authorization",
+      "speaker": "Phil Feairheller",
+      "start": 1219,
+      "end": 1301,
+      "quote": "ACDC Authorization Server continued: truly distributed identity provider appliance. ACDC payload to OIDC claims mapping.",
+      "tags": [
+        "NOWSTACK",
+        "MARKETPEN"
+      ]
+    },
+    {
+      "id": "32-1",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 577,
+      "end": 818,
+      "quote": "DID:Web: vunetable to all common attacks History explained why no binding and no key history was added to DID:web.",
+      "tags": [
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "32-2",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 818,
+      "end": 1169,
+      "quote": "DID:Webs separates discoverability from verifiability.",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "32-3",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 1170,
+      "end": 1349,
+      "quote": "In DID:Webs, the DID document is always a derivative of some KERI Event Stream. Explicit verfiability is unique to DID:webs",
+      "tags": [
+        "VERNOTVAL",
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "32-4",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 1349,
+      "end": 1547,
+      "quote": "DID:Webvh signs an implicit authorization, DID:Webs always has at least one ACDC explicitly proving authorization.",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "32-5",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 1547,
+      "end": 1646,
+      "quote": "The other thing that DID:Webvh does not do as well as DID:Webs is the long-term long-lived multi-decade identifier problem.",
+      "tags": [
+        "PERPETUAL",
+        "CANMODELRW",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "32-6",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 1684,
+      "end": 1766,
+      "quote": "Verification method",
+      "tags": [
+        "INCLUSIVE",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "32-7",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 1766,
+      "end": 1971,
+      "quote": "Parameter Version ID ->",
+      "tags": [
+        "UNBROCHAIN"
+      ]
+    },
+    {
+      "id": "32-8",
+      "issue": 32,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/32",
+      "videoId": "keri-bridge-to-the-did-world-jonathan-rayback",
+      "videoTitle": "KERI Bridge to the DID World - Jonathan Rayback",
+      "talk": "KERI Bridge to the DID World",
+      "speaker": "Jonathan Rayback",
+      "start": 2080,
+      "end": 2140,
+      "quote": "Demo KEL -> ACDC included -> multisig",
+      "tags": [
+        "NOWSTACK",
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "33-1",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 305,
+      "end": 443,
+      "quote": "What are the SATP entities?",
+      "tags": [
+        "ENTROPY"
+      ]
+    },
+    {
+      "id": "33-2",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 443,
+      "end": 584,
+      "quote": "SATP Archtecture: an atomic decentralized two-phase commit protocol, Canonical identifier, the attributes that are in common have to be negotiated or created as part of the protocol provenenced asset transfers asset versioning pinning and roll back",
+      "tags": [
+        "ATSCALE",
+        "GRALIFCONF",
+        "UNBROCHAIN",
+        "INCLUSIVE",
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "33-3",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 584,
+      "end": 628,
+      "quote": "the authority model from the perspective of the architecture",
+      "tags": [
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "33-4",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 812,
+      "end": 1077,
+      "quote": "History of the SAT working group, where to start, and optimization with the KERI vLEI protocol",
+      "tags": [
+        "REALMPRAGM"
+      ]
+    },
+    {
+      "id": "33-5",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 1077,
+      "end": 1209,
+      "quote": "Stage 2 protocol: locking and stage 3 protocol: phase commit",
+      "tags": [
+        "UNBROCHAIN"
+      ]
+    },
+    {
+      "id": "33-6",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 1209,
+      "end": 1574,
+      "quote": "Back rechartering stage 0, a transfer context identifier needs to be defined all the steps and no trusted party needed for the registries.",
+      "tags": [
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "33-7",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 1659,
+      "end": 1793,
+      "quote": "Future of SATP: attested hardware context",
+      "tags": [
+        "FAULTTOL",
+        "ECONINFEA"
+      ]
+    },
+    {
+      "id": "33-8",
+      "issue": 33,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/33",
+      "videoId": "secure-asset-transfer-protocol-ned-smith",
+      "videoTitle": "Secure Asset Transfer Protocol - Ned Smith",
+      "talk": "Secure Asset Transfer Protocol",
+      "speaker": "Ned Smith",
+      "start": 1793,
+      "end": 1982,
+      "quote": "Attestable hardware Root of Trust and Dice",
+      "tags": [
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "34-1",
+      "issue": 34,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/34",
+      "videoId": "mobile-wallet-evan-asawaka",
+      "videoTitle": "Mobile Wallet - Evan Asawaka",
+      "talk": "Mobile Wallet",
+      "speaker": "Evan Asawaka",
+      "start": 0,
+      "end": 390,
+      "quote": "The more wallets, the better Goal: fully web-enabled wallet vs. desktop wallet Locksmith, Challenges and solution described: pysodium, a Python wrapper for Libsodium, pychloride is changed code in Pysodium so that it loaded the packaged Libsodium, WebDBer is the ducktyped class for LMDBer in KERIPy",
+      "tags": [
+        "AGNOSTIC",
+        "REALMPRAGM"
+      ]
+    },
+    {
+      "id": "34-2",
+      "issue": 34,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/34",
+      "videoId": "mobile-wallet-evan-asawaka",
+      "videoTitle": "Mobile Wallet - Evan Asawaka",
+      "talk": "Mobile Wallet",
+      "speaker": "Evan Asawaka",
+      "start": 390,
+      "end": 467,
+      "quote": "How Core Wallet works, what happened to keeper and how to make your own database implementation",
+      "tags": [
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "34-3",
+      "issue": 34,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/34",
+      "videoId": "mobile-wallet-evan-asawaka",
+      "videoTitle": "Mobile Wallet - Evan Asawaka",
+      "talk": "Mobile Wallet",
+      "speaker": "Evan Asawaka",
+      "start": 469,
+      "end": 632,
+      "quote": "Demo Core Wallet on local machine, anyone can create a plugin to provide witness and watcher services",
+      "tags": [
+        "INCLUSIVE",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "34-4",
+      "issue": 34,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/34",
+      "videoId": "mobile-wallet-evan-asawaka",
+      "videoTitle": "Mobile Wallet - Evan Asawaka",
+      "talk": "Mobile Wallet",
+      "speaker": "Evan Asawaka",
+      "start": 632,
+      "end": 810,
+      "quote": "Locksmith's ability to connect to multiple plugins create your own plugin for Locksmith.",
+      "tags": [
+        "ATSCALE",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "34-5",
+      "issue": 34,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/34",
+      "videoId": "mobile-wallet-evan-asawaka",
+      "videoTitle": "Mobile Wallet - Evan Asawaka",
+      "talk": "Mobile Wallet",
+      "speaker": "Evan Asawaka",
+      "start": 810,
+      "end": 990,
+      "quote": "Requirements and perks of creating your own plugin",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "35-1",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 23,
+      "end": 166,
+      "quote": "Overview and local deployment",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "35-2",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 166,
+      "end": 203,
+      "quote": "Public Locksmith reppo branch KERI Foundation",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "35-3",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 384,
+      "end": 516,
+      "quote": "why no direct communication between Locksmith and witnesses/watchers: the API and its servers: boot, witness and watcher server onboarding",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "35-4",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 816,
+      "end": 957,
+      "quote": "Witnesses",
+      "tags": [
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "35-5",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 1045,
+      "end": 1089,
+      "quote": "Watchers install no install via Pypy, not yet docs availalble (April 2026)",
+      "tags": [
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "35-6",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 1328,
+      "end": 1359,
+      "quote": "Ryan - By changing witness and watcher code you're not changing the (security of) the witness code it's auxiliary code.",
+      "tags": [
+        "SECUFIRST",
+        "VERNOTVAL",
+        "AGNOSTIC",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "35-7",
+      "issue": 35,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/35",
+      "videoId": "keri-development-deployment-keanu-pahio",
+      "videoTitle": "KERI Development & Deployment - Keanu Pahio",
+      "talk": "KERI Development & Deployment",
+      "speaker": "Keanu Pahio",
+      "start": 1359,
+      "end": 1419,
+      "quote": "Ryan Because it's open-source code you could change the (security of) the witness protocol but that's on you use the standard createWitness method",
+      "tags": [
+        "INCLUSIVE",
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "36-1",
+      "issue": 36,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/36",
+      "videoId": "infrastructure-for-security-phil-feairheller",
+      "videoTitle": "Infrastructure for Security - Phil Feairheller",
+      "talk": "Infrastructure for Security",
+      "speaker": "Phil Feairheller",
+      "start": 69,
+      "end": 87,
+      "quote": "KERI solves the two hard problems of PKI: binding & rotation",
+      "tags": [
+        "HARPROB1ST"
+      ]
+    },
+    {
+      "id": "36-2",
+      "issue": 36,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/36",
+      "videoId": "infrastructure-for-security-phil-feairheller",
+      "videoTitle": "Infrastructure for Security - Phil Feairheller",
+      "talk": "Infrastructure for Security",
+      "speaker": "Phil Feairheller",
+      "start": 87,
+      "end": 140,
+      "quote": "Exchanging cryptographic primitives at scale.",
+      "tags": [
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "36-3",
+      "issue": 36,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/36",
+      "videoId": "infrastructure-for-security-phil-feairheller",
+      "videoTitle": "Infrastructure for Security - Phil Feairheller",
+      "talk": "Infrastructure for Security",
+      "speaker": "Phil Feairheller",
+      "start": 1098,
+      "end": 1236,
+      "quote": "Witness services only per single AID as a security measure and scalability multiple-role OOBI service, and sequence number syncing.",
+      "tags": [
+        "SECUFIRST",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "37-1",
+      "issue": 37,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/37",
+      "videoId": "the-digital-identity-tradespace-samuel-smith",
+      "videoTitle": "The Digital Identity Tradespace - Samuel Smith",
+      "talk": "The Digital Identity Tradespace",
+      "speaker": "Samuel Smith",
+      "start": 314,
+      "end": 350,
+      "quote": "How other systems fail to compose graphs of information from multiple sources in a secure way",
+      "tags": [
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "37-2",
+      "issue": 37,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/37",
+      "videoId": "the-digital-identity-tradespace-samuel-smith",
+      "videoTitle": "The Digital Identity Tradespace - Samuel Smith",
+      "talk": "The Digital Identity Tradespace",
+      "speaker": "Samuel Smith",
+      "start": 350,
+      "end": 444,
+      "quote": "Why we solve the hard problem first: the hard problem of decentralized data is how do I solve perpetual issuances without a centralized authority?",
+      "tags": [
+        "NOWSTACK",
+        "HARPROB1ST"
+      ]
+    },
+    {
+      "id": "37-3",
+      "issue": 37,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/37",
+      "videoId": "the-digital-identity-tradespace-samuel-smith",
+      "videoTitle": "The Digital Identity Tradespace - Samuel Smith",
+      "talk": "The Digital Identity Tradespace",
+      "speaker": "Samuel Smith",
+      "start": 560,
+      "end": 678,
+      "quote": "Least disclosure principle: ACDCs are versatile, other systems only have selective disclosure \"They can't model real-world authority structures when it comes to disclosing information.\"",
+      "tags": [
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "37-4",
+      "issue": 37,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/37",
+      "videoId": "the-digital-identity-tradespace-samuel-smith",
+      "videoTitle": "The Digital Identity Tradespace - Samuel Smith",
+      "talk": "The Digital Identity Tradespace",
+      "speaker": "Samuel Smith",
+      "start": 1797,
+      "end": 1878,
+      "quote": "Salty nounce is shared secret, why does KERI use it? For confidentiality/privacy, not for security! Diffie Helmann discussed",
+      "tags": [
+        "NOSHARSECR"
+      ]
+    },
+    {
+      "id": "37-5",
+      "issue": 37,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/37",
+      "videoId": "the-digital-identity-tradespace-samuel-smith",
+      "videoTitle": "The Digital Identity Tradespace - Samuel Smith",
+      "talk": "The Digital Identity Tradespace",
+      "speaker": "Samuel Smith",
+      "start": 1928,
+      "end": 2082,
+      "quote": "Observers, what they do and how they should interact with verifiers. Tor is leaking metadata so correlatable. SPAC and TSP have uniform packet sizes",
+      "tags": [
+        "SECUFIRST",
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "38-1",
+      "issue": 38,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/38",
+      "videoId": "the-future-of-keri-samuel-smith",
+      "videoTitle": "The Future of KERI - Samuel Smith",
+      "talk": "The Future of KERI",
+      "speaker": "Samuel Smith",
+      "start": 2400,
+      "end": 2445,
+      "quote": "Sam - How dynamic revocation needs more than just time outs of credentials |",
+      "tags": [
+        "PERPETUAL",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "38-2",
+      "issue": 38,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/38",
+      "videoId": "the-future-of-keri-samuel-smith",
+      "videoTitle": "The Future of KERI - Samuel Smith",
+      "talk": "The Future of KERI",
+      "speaker": "Samuel Smith",
+      "start": 2802,
+      "end": 2955,
+      "quote": "Sam the act of modeling the authority chain in a cryptographically verifiable way, requires ACDCs",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "38-3",
+      "issue": 38,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/38",
+      "videoId": "the-future-of-keri-samuel-smith",
+      "videoTitle": "The Future of KERI - Samuel Smith",
+      "talk": "The Future of KERI",
+      "speaker": "Samuel Smith",
+      "start": 3120,
+      "end": 3273,
+      "quote": "Sam - Safety needs accountability, examples of how the internet has no accountability",
+      "tags": [
+        "RECOUPEERS"
+      ]
+    },
+    {
+      "id": "41-1",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 71,
+      "end": 201,
+      "quote": "Objective: high-level walkthrough of a deployment guide that Ryan created. All repos open source Key management in KERI: signing and rotation, single sig and multi-sig",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "41-2",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 201,
+      "end": 324,
+      "quote": "Key management in KERI. Core Concepts of KERI signing and rotation, single and multisig and the KEL",
+      "tags": [
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "41-3",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 626,
+      "end": 636,
+      "quote": "High-level overview of how to deploy this in production at scale.",
+      "tags": [
+        "FAULTTOL",
+        "SAFETY",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "41-4",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 710,
+      "end": 770,
+      "quote": "Docker containers are unsafe for production",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "41-5",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 636,
+      "end": 1146,
+      "quote": "Setup guide continued: uv, witopnet, witness config for test purposes OOBIs, ports, watopnet, launch scripts",
+      "tags": [
+        "REALMPRAGM"
+      ]
+    },
+    {
+      "id": "41-6",
+      "issue": 41,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/41",
+      "videoId": "witnesses-watchers-ryan-hansen",
+      "videoTitle": "Witnesses & Watchers - Ryan Hansen",
+      "talk": "Witnesses & Watchers",
+      "speaker": "Ryan Hansen",
+      "start": 1506,
+      "end": 1637,
+      "quote": "Deployment demo from scratch: initialize vault, a new local AID, KF plugin OOBI, rotation",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "42-1",
+      "issue": 42,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/42",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2103,
+      "end": 2891,
+      "quote": "KERI Foundation and the 'I' for Infrastructure, designed to be web scalable",
+      "tags": [
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "42-2",
+      "issue": 42,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/42",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2891,
+      "end": 2948,
+      "quote": "What is KERI really? All of: Keys at the Edge, Security First Always, Minimally Sufficient Means Signed Everything. Don't assume one viewpoint captures the entire situation, but it's all of KERI or no KERI",
+      "tags": [
+        "SECUFIRST",
+        "MINIMSUFFI",
+        "NOUSEKERI"
+      ]
+    },
+    {
+      "id": "42-3",
+      "issue": 42,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/42",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2952,
+      "end": 3093,
+      "quote": "Identity revolution, Reputable Autonomic Pseudonymity, Control Confidential Contexts, Private vs. Confidential RAP-C3 Rhapsody - An enthusiastic, emotionally expressive outpouring",
+      "tags": [
+        "SPACTRILL"
+      ]
+    },
+    {
+      "id": "44-1",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 110,
+      "end": 141,
+      "quote": "The KERI protocol is a public service not a product",
+      "tags": [
+        "INCLUSIVE",
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "44-2",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 141,
+      "end": 182,
+      "quote": "What is KERI? A definition that touches on these values: first just a spec",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "44-3",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 545,
+      "end": 873,
+      "quote": "Provenant, main values the KERISuite brings:",
+      "tags": [
+        "ATSCALE",
+        "LEGOVPOL",
+        "OTHUNSAFE",
+        "VERCOMTMT",
+        "BIZEFFCASE",
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "44-4",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 873,
+      "end": 1470,
+      "quote": "HealthKERI, addressing and hide KERI wherever and whenever we can invitation to build tailor-made UIs on top of open source Locksmith",
+      "tags": [
+        "LEGOVPOL",
+        "CANMODELRW",
+        "VERCOMTMT",
+        "GRASPEASY",
+        "MARKETPEN",
+        "MATURITY",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "44-5",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 1470,
+      "end": 1742,
+      "quote": "Challenge by Timothy Ruff: Multi-sided, open source, single-sided, you got to patent it anyway.",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "44-6",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 1742,
+      "end": 1844,
+      "quote": "There's hundreds of millions of US patient healthcare records stolen.",
+      "tags": [
+        "SECUFIRST",
+        "NOSHARSECR",
+        "ECONINFEA"
+      ]
+    },
+    {
+      "id": "44-7",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 1844,
+      "end": 2266,
+      "quote": "wallets at the edge",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "44-8",
+      "issue": 44,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/44",
+      "videoId": "investigating-the-game-of-trust-nicholas-racz",
+      "videoTitle": "Investigating the Game of Trust - Nicholas Racz",
+      "talk": "Investigating the Game of Trust",
+      "speaker": "Nicholas Racz",
+      "start": 2397,
+      "end": 2457,
+      "quote": "The vast scope of the problem that is trying to be addressed and solved and issue that they see as just almost unsolvable. The fact that there are so many that have tried and failed.",
+      "tags": [
+        "MARKETPEN",
+        "MATURITY"
+      ]
+    },
+    {
+      "id": "45-1",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 281,
+      "end": 796,
+      "quote": "The hard problem is: proving why you're showing a logo + demo Mobile World Congress",
+      "tags": [
+        "HARPROB1ST",
+        "LEGOVPOL",
+        "VERCOMTMT",
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "45-2",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 926,
+      "end": 1024,
+      "quote": "Telco is the tipping point for KERI?",
+      "tags": [
+        "MARKETPEN"
+      ]
+    },
+    {
+      "id": "45-3",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1024,
+      "end": 1128,
+      "quote": "",
+      "tags": [
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "45-4",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1128,
+      "end": 1301,
+      "quote": "GSMA extends OVC project to multiple channels multi-vendor solution",
+      "tags": [
+        "INCLUSIVE",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "45-5",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1333,
+      "end": 1560,
+      "quote": "Requirements from the business side and the regulatory side; hard trade space impersonation by AI is solved by accountability, use existing infra unmodified",
+      "tags": [
+        "MINIMSUFFI",
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "45-6",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1560,
+      "end": 1776,
+      "quote": "Architecture accommodating call centers evidence lifecycle",
+      "tags": [
+        "REALMPRAGM",
+        "UNBROCHAIN"
+      ]
+    },
+    {
+      "id": "45-7",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1776,
+      "end": 1894,
+      "quote": "Can this technique be used without ACDCs without KERI. No, it can't; but interoperable with others e.g. W3C credentials / SD Jot",
+      "tags": [
+        "ATSCALE",
+        "VERCOMTMT"
+      ]
+    },
+    {
+      "id": "45-8",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 1954,
+      "end": 2138,
+      "quote": "passports in STIR and SHAKEN: the spilt in proof of a cryptographic identity and information on attributes, because identity can be permanent. no rotation of public identifier maintenance is dramatically different",
+      "tags": [
+        "REALMPRAGM",
+        "HARPROB1ST",
+        "BIZEFFCASE"
+      ]
+    },
+    {
+      "id": "45-9",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 2138,
+      "end": 2207,
+      "quote": "SHAKEN vs. VVP passport",
+      "tags": [
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "45-10",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 2207,
+      "end": 2301,
+      "quote": "Dossier in passport proofs multiple logical propositions, SHAKEN just one assertion of a company",
+      "tags": [
+        "NOWSTACK",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "45-11",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 2318,
+      "end": 2427,
+      "quote": "Is the Dossier URL safe or malleable? The URL is an OOBI so safe, because protected by watcher network and duplicity mechanism.",
+      "tags": [
+        "SAFETY",
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "45-12",
+      "issue": 45,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/45",
+      "videoId": "open-verifiable-communications-daniel-hardman",
+      "videoTitle": "Open Verifiable Communications - Daniel Hardman",
+      "talk": "Open Verifiable Communications",
+      "speaker": "Daniel Hardman",
+      "start": 2427,
+      "end": 2487,
+      "quote": "Does your architecture show a couple of phone home paths? It's a phone home to only the originating party, it's not phoning home to a central registry. Provenant is implementor not a registry.",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "47-1",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 13,
+      "end": 261,
+      "quote": "Introduction of the untapped potential in Dossiers, verifiable data graph solves problems that elsewhere can't be solved. Problem description: We need one-way multiple-party verification and auditable. VCs can't do this. We needed a richer evidence model than VCs can provide.",
+      "tags": [
+        "HARPROB1ST",
+        "REALMPRAGM",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "47-2",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 261,
+      "end": 556,
+      "quote": "Scenarios in real life every day that call for very rich collections of evidence. multi-step accrual of evidence, variety in lifespan of evidence, various assumptions as input for the evidence all features that VCs aren't made for.",
+      "tags": [
+        "CANMODELRW",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "47-3",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 903,
+      "end": 1157,
+      "quote": "How to move metadata effectively: through a SAID",
+      "tags": [
+        "BIZEFFCASE"
+      ]
+    },
+    {
+      "id": "47-4",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1157,
+      "end": 1384,
+      "quote": "Structure of a dossier; it's a flavor of an ACDC, metadata in the A field and the credentials in the E field now we want other pieces of evidence in the E field included using hashes of big data instead of the raw versions",
+      "tags": [
+        "PROVCONTXT",
+        "VERCOMTMT",
+        "NOWSTACK",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "47-5",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1384,
+      "end": 1502,
+      "quote": "Wrapping is verifying the foreign evidence with its native stack",
+      "tags": [
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "47-6",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1502,
+      "end": 1607,
+      "quote": "How to compare a dossier to a verifiable presentation in VC land? Both verifiable evidence containers. However, differences lead to a very different set of addressable use cases. A verifiable presentation is ephemeral. Use Dossiers when it's important to keep it on file. (investigations, scientific research, journalism, reputation, etc)",
+      "tags": [
+        "NOUSEKERI"
+      ]
+    },
+    {
+      "id": "47-7",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1607,
+      "end": 1728,
+      "quote": "The meaning of a dossier is you're the composer of it, and you assemble a body of evidence. Whereas a verifiable presentation is about proving enough to establish your entitlement. The metadata of the dossier tells you the purpose",
+      "tags": [
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "47-8",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1847,
+      "end": 1956,
+      "quote": "Sam Smith: verifiable data graphs came from automated reasoning with aggregation operators. Nowadays we're seeing more live control",
+      "tags": [
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "47-9",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 1956,
+      "end": 2035,
+      "quote": "Legal perspective: no data lake, decentralize stewardship over fair information practices",
+      "tags": [
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "47-10",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 2035,
+      "end": 2196,
+      "quote": "Joint issuances possible asynchronously, it's the same evidence being signed over by a threshold of signer AIDs.",
+      "tags": [
+        "CANMODELRW",
+        "NOWSTACK"
+      ]
+    },
+    {
+      "id": "47-11",
+      "issue": 47,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/47",
+      "videoId": "applying-keri-to-general-evidence-problems-daniel-hardman",
+      "videoTitle": "Applying KERI to General Evidence Problems - Daniel Hardman",
+      "talk": "Applying KERI to General Evidence Problems",
+      "speaker": "Daniel Hardman",
+      "start": 2196,
+      "end": 2256,
+      "quote": "Selective disclosure. Information hiding and persona matching Other variations of disclosure can apply. Bottom line: you can suppress/show data. Contextual display.",
+      "tags": [
+        "GRALIFCONF",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "49-1",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 52,
+      "end": 85,
+      "quote": "Where government can help, and set regulations and frameworks in play and where they leave it to the private sector and to individual.",
+      "tags": [
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "49-2",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 163,
+      "end": 332,
+      "quote": "Whoever has the data has the control. profiling you to create an improper picture of who you are We've built everything so exploitative of you",
+      "tags": [
+        "1PERSCONTR",
+        "OTHUNSAFE",
+        "RECOUPEERS"
+      ]
+    },
+    {
+      "id": "49-3",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 332,
+      "end": 526,
+      "quote": "state-endorsed digital identity (SEDI) through vetting, and the impact of errors",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "49-4",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 526,
+      "end": 660,
+      "quote": "identity",
+      "tags": [
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "49-5",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 660,
+      "end": 750,
+      "quote": "SEDI framework principles privacy and autonomy",
+      "tags": [
+        "LEGOVPOL",
+        "1PERSCONTR",
+        "GRALIFCONF"
+      ]
+    },
+    {
+      "id": "49-6",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 750,
+      "end": 886,
+      "quote": "Community education: open sourcing of privacy and other digital identity values we hope to have. Example: healthcare, where scary policies that breach human rights should become illegal. Personas are legitimate human rights",
+      "tags": [
+        "LEGOVPOL",
+        "COMMUNEDU",
+        "RECOUPEERS",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "49-7",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 886,
+      "end": 1132,
+      "quote": "Delegation and guardianship balanced through multi-sig authorizations",
+      "tags": [
+        "SPACTRILL"
+      ]
+    },
+    {
+      "id": "49-8",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1132,
+      "end": 1203,
+      "quote": "Parents do not want their children in environments with predators.",
+      "tags": [
+        "LEGOVPOL",
+        "SPACTRILL"
+      ]
+    },
+    {
+      "id": "49-9",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1203,
+      "end": 1323,
+      "quote": "Security and recovery detection of compromise mutual authentication",
+      "tags": [
+        "SECUFIRST",
+        "UNBROCHAIN",
+        "FAULTTOL",
+        "CANMODELRW",
+        "NOWSTACK",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "49-10",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1323,
+      "end": 1662,
+      "quote": "No credential works unless there's comprehensive utility. open source and open standards",
+      "tags": [
+        "INCLUSIVE",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "49-11",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1662,
+      "end": 1790,
+      "quote": "The state's credential is the SEDI; it is not a wallet not your key escrow or recovery. The state recognizes third-party wallets no guaranteed by the state.",
+      "tags": [
+        "1PERSCONTR",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "49-12",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1790,
+      "end": 1918,
+      "quote": "Key points of individual control: data can be weaponized against you in healthsector interoperability without centralisation and digital reciprocity between states",
+      "tags": [
+        "RECOUPEERS"
+      ]
+    },
+    {
+      "id": "49-13",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 1918,
+      "end": 2029,
+      "quote": "Building around American values: no tracking, no surveillance, no monitoring. No phone home to a foreign server to participate in their surveillance scheme. Central servers are honeypots; our blast radius is 1. when in doubt, rotate out",
+      "tags": [
+        "OTHUNSAFE",
+        "ECONINFEA",
+        "SECUFIRST",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "49-14",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 2029,
+      "end": 2478,
+      "quote": "How rural healthcare is hurt by not having a good identity system that can provide instant validation and of assertions of credentials. kill the clipboard",
+      "tags": [
+        "CANMODELRW",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "49-15",
+      "issue": 49,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/49",
+      "videoId": "the-landscape-of-sedi-george-mcewan",
+      "videoTitle": "The Landscape of SEDI - George McEwan",
+      "talk": "The Landscape of SEDI",
+      "speaker": "George McEwan",
+      "start": 2478,
+      "end": 2538,
+      "quote": "Delegation for the homeless. National Online Assisted Documentation, or management of Assist of documentation. Edge cases where important nuacnces in and operational systems is required: Foster Care, Bathered Women, nasty divorces, etc.",
+      "tags": [
+        "LEGOVPOL",
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "51-1",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 83,
+      "end": 219,
+      "quote": "What is structured concurrency?",
+      "tags": [
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "51-2",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 219,
+      "end": 294,
+      "quote": "If you want to adopt the mindset of structured concurrency, you need to think from a non-blocking mindset. Often it's called a reactive mindset.",
+      "tags": [
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "51-3",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 294,
+      "end": 301,
+      "quote": "Non-blocking co-routines",
+      "tags": [
+        "FAULTTOL",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "51-4",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 661,
+      "end": 956,
+      "quote": "HIO hierarchical co-routines Doist, DoDoer and Doer",
+      "tags": [
+        "ATSCALE",
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "51-5",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 1142,
+      "end": 1219,
+      "quote": "One of the major benefits of structured concurrency: you can have error propagation all the way up to the root scheduler and handle it there or in any of the parents. It's an intuitive, straightforward way to handle exceptions. consistent, predictable exception behavior",
+      "tags": [
+        "EASEOFUSE",
+        "HARPROB1ST",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "51-6",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 1219,
+      "end": 1326,
+      "quote": "HIO internals. The outer scheduler has its own concept of time. Deterministic scheduling in the Doist.",
+      "tags": [
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "51-7",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 1409,
+      "end": 1454,
+      "quote": "Every Doer has an enter and an exit. That means it can be used as a context manager. Why use? To have automated cleanup of processes.",
+      "tags": [
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "51-8",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 1481,
+      "end": 1910,
+      "quote": "Life cycle functions all get attention subsequently",
+      "tags": [
+        "INCLUSIVE",
+        "FAULTTOL",
+        "ATSCALE",
+        "PROVCONTXT"
+      ]
+    },
+    {
+      "id": "51-9",
+      "issue": 51,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/51",
+      "videoId": "keripy-async-architecture-kent-bull",
+      "videoTitle": "KERIpy Async Architecture - Kent Bull",
+      "talk": "KERIpy Async Architecture",
+      "speaker": "Kent Bull",
+      "start": 1910,
+      "end": 2199,
+      "quote": "Why do we use so many DoDoers, but not many Doers? And it's because of one function doing.doify: it allows that sort of intuitive program flow to follow lexical scope contract to be met.",
+      "tags": [
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "53-1",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 117,
+      "end": 279,
+      "quote": "The goal of today's presentation is that you can walk away as a developer knowing how do I configure and run this. The example wallet is not geared towards end-users but to devs.",
+      "tags": [
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "53-2",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 279,
+      "end": 489,
+      "quote": "Lightweight wallet (Signify/KERIA) and Heavy-weight wallet (Locksmith).",
+      "tags": [
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "53-3",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 489,
+      "end": 616,
+      "quote": "An agent functions as a mailbox. It's a store and forward mechanism. persistent internet presence. The relationship between Signify and KERIA is strictly a KERI delegation model",
+      "tags": [
+        "FAULTTOL",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "53-4",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 666,
+      "end": 763,
+      "quote": "signing at the edge architecture",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "53-5",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 821,
+      "end": 987,
+      "quote": "Encryption key at the edge and the identifier seed salts in the agent. Now you have the encryption key",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "53-6",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 987,
+      "end": 1045,
+      "quote": "Why are we generating the key and sending the key at that client and not generating it and sending it at the agent itself? It feels like the generation of the key would be more secure at the agent side. – No It's not! Server can be compromised never unencrypted keys on the server, signing solely at the edge.",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "53-7",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 1045,
+      "end": 1184,
+      "quote": "Why store encrypted key in the agent?",
+      "tags": [
+        "SAFETY",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "53-8",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 1598,
+      "end": 1653,
+      "quote": "Why would I have to manage several AIDs? Different roles, different contexts",
+      "tags": [
+        "PROVCONTXT",
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "53-9",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 1653,
+      "end": 1699,
+      "quote": "How to model the roles and responsibilities.",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "53-10",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 1699,
+      "end": 1833,
+      "quote": "Sharding your identity to prevent cross-context correlation",
+      "tags": [
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "53-11",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 1833,
+      "end": 1906,
+      "quote": "What prevents this individual from messing with this with the signer keys? Answer: encryption, all signing happens at the edge",
+      "tags": [
+        "SECUFIRST",
+        "SAFETY",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "53-12",
+      "issue": 53,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/53",
+      "videoId": "keria-tutorial-kent-bull",
+      "videoTitle": "KERIA Tutorial - Kent Bull",
+      "talk": "KERIA Tutorial",
+      "speaker": "Kent Bull",
+      "start": 2006,
+      "end": 2293,
+      "quote": "Common misunderstandings. Siginging truly at the edge (they can't grasp). What is encrypted and decrypted and when? Can I store the passcode? NO! Only at dev time for convenience. Use a secure plugin like Ionic Capacitor. When you're doing multisig you need to communicate with each member.",
+      "tags": [
+        "SECUFIRST",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "56-1",
+      "issue": 56,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/56",
+      "videoId": "open-keri-infrastructure-jay-alexander-elliot",
+      "videoTitle": "Open KERI Infrastructure - Jay Alexander Elliot",
+      "talk": "Open KERI Infrastructure",
+      "speaker": "Jay Alexander Elliot",
+      "start": 10,
+      "end": 41,
+      "quote": "Locksmith is a multiple-provider stack",
+      "tags": [
+        "SAFETY",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "56-2",
+      "issue": 56,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/56",
+      "videoId": "open-keri-infrastructure-jay-alexander-elliot",
+      "videoTitle": "Open KERI Infrastructure - Jay Alexander Elliot",
+      "talk": "Open KERI Infrastructure",
+      "speaker": "Jay Alexander Elliot",
+      "start": 41,
+      "end": 71,
+      "quote": "This talk is about the controller side of the system where the keys stay local",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "56-3",
+      "issue": 56,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/56",
+      "videoId": "open-keri-infrastructure-jay-alexander-elliot",
+      "videoTitle": "Open KERI Infrastructure - Jay Alexander Elliot",
+      "talk": "Open KERI Infrastructure",
+      "speaker": "Jay Alexander Elliot",
+      "start": 110,
+      "end": 155,
+      "quote": "Where Locksmith sits in the stack, witnesses and watchers external",
+      "tags": [
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "56-4",
+      "issue": 56,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/56",
+      "videoId": "open-keri-infrastructure-jay-alexander-elliot",
+      "videoTitle": "Open KERI Infrastructure - Jay Alexander Elliot",
+      "talk": "Open KERI Infrastructure",
+      "speaker": "Jay Alexander Elliot",
+      "start": 233,
+      "end": 267,
+      "quote": "Plugin keep it open",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "58-1",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 17,
+      "end": 112,
+      "quote": "Digital Identity Needs a Legal Foundation Tehcnical foundations are largely there and ahead",
+      "tags": [
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "58-2",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 112,
+      "end": 365,
+      "quote": "Get rid of the fundamental blockers. The Proof Gap: we rely on centralised institutions. It has a governance component: how to transfer trust. All parts together Trust Framework.",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "58-3",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 365,
+      "end": 470,
+      "quote": "Thousands of different credentials... an interoperability problem/nightmare. Private governance services -> They just won't grow big enough to really solve it.",
+      "tags": [
+        "INCLUSIVE",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "58-4",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 470,
+      "end": 591,
+      "quote": "Economic problem, identity proofing costs money. Who's going to pay for this. Who's proofing the person using what authority, what's the legal standing, all of those questions.",
+      "tags": [
+        "BIZEFFCASE"
+      ]
+    },
+    {
+      "id": "58-5",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 591,
+      "end": 722,
+      "quote": "How SEDI can help with both interop and economic problem. A. Does offer a foundation for trust frameworks to sit on economic problem because they already proof you.",
+      "tags": [
+        "ATSCALE",
+        "INCLUSIVE",
+        "LEGOVPOL",
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "58-6",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 722,
+      "end": 855,
+      "quote": "SEDI is not an identity provider, instead giving you an identifier, they're proofing - and endorsing your identifier which will also involve guardianship",
+      "tags": [
+        "PROVCONTXT",
+        "VERNOTVAL",
+        "VERCOMTMT",
+        "SPACTRILL"
+      ]
+    },
+    {
+      "id": "58-7",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 855,
+      "end": 1013,
+      "quote": "Use SEDI to prove who you are when you go to other credential providers: banks, schools, etc. Also issue your own for Agentic AI in the future Also, organizaton who are legally well-embedded in societies and can have organizational IDs and can and work internationally through GLEIF.",
+      "tags": [
+        "NOWSTACK",
+        "1PERSCONTR",
+        "LEGOVPOL",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "58-8",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 1013,
+      "end": 1168,
+      "quote": "Legal underpinnings of SEDI: bill of rights, selective disclosure, requiring open standards (not proprietary MDL, multiple wallets duty of loyalty and fiduciary requirement, wards of guardians get and within their allowed context as guardians are acting on their behalf.",
+      "tags": [
+        "AGNOSTIC",
+        "OTHUNSAFE",
+        "INCLUSIVE",
+        "SAFETY",
+        "RECOUPEERS",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "58-9",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 1168,
+      "end": 1354,
+      "quote": "The problem in this proof gap is that when institutions make errors, you basically are left to navigate the correction process all on your own. SEDI offers a legal foundation to enforce your rights:! The attorney general does not have to act on your behalf, no right of action! What's going to change is that trustproviders can sit/control the foundation; that'll be SEDI's role trust-provider",
+      "tags": [
+        "RECOUPEERS",
+        "REALMPRAGM",
+        "INCLUSIVE",
+        "AGNOSTIC"
+      ]
+    },
+    {
+      "id": "58-10",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 1354,
+      "end": 1622,
+      "quote": "There are two different ways of establishing trust (vs. Observation of behavior). Reputation by reference: Reputation by behavior, in domains (a plumber is maybe not a good babysitter)",
+      "tags": [
+        "NOWSTACK",
+        "PROVCONTXT",
+        "VERCOMTMT",
+        "VERNOTVAL",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "58-11",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 1777,
+      "end": 1869,
+      "quote": "Traditional credit bureau model vs. decentralized assurance model (you 'control' is a better word than you 'own')",
+      "tags": [
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "58-12",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 1869,
+      "end": 1897,
+      "quote": "One thing though that the decentralized model allows is that the verifier can pick their own algorithm. Yes, a marketplace for transparent algorithms to verify.",
+      "tags": [
+        "AGNOSTIC",
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "58-13",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 2116,
+      "end": 2143,
+      "quote": "Evaluators and marketplaces for reputation evaluation agents",
+      "tags": [
+        "EASEOFUSE",
+        "VERCOMTMT"
+      ]
+    },
+    {
+      "id": "58-14",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 2143,
+      "end": 2262,
+      "quote": "what's the technology opportunity of which the requirements are set out by SEDI: (decentralized)",
+      "tags": [
+        "1PERSCONTR",
+        "INCLUSIVE",
+        "ATSCALE",
+        "BIZEFFCASE"
+      ]
+    },
+    {
+      "id": "58-15",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 2262,
+      "end": 2303,
+      "quote": "In contrast with Aadhaar in India eCitizen in Estonia because they do not have that property. These are giant centralized systems and everybody phones home to the mothership.",
+      "tags": [
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "58-16",
+      "issue": 58,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/58",
+      "videoId": "digital-identity-needs-a-legal-foundation-phil-windley",
+      "videoTitle": "Digital Identity Needs a Legal Foundation - Phil Windley",
+      "talk": "Digital Identity Needs a Legal Foundation",
+      "speaker": "Phil Windley",
+      "start": 2303,
+      "end": 2363,
+      "quote": "Code is Law is not sufficient for Identity. Governance issues are solved by the SEDI basic foundation, not by code.",
+      "tags": [
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "60-1",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 18,
+      "end": 109,
+      "quote": "Veridian security audits and userinterface optimization",
+      "tags": [
+        "SAFETY",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "60-2",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 109,
+      "end": 259,
+      "quote": "Agent in the cloud, controller at the edge. The split is driven.",
+      "tags": [
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "60-3",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 259,
+      "end": 303,
+      "quote": "service architecture of KERIA and Signify. Agent is multi-agent based on KERIPy directly",
+      "tags": [
+        "ATSCALE",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "60-4",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 303,
+      "end": 550,
+      "quote": "Signify is KATE and therefore Fully featured Java implementation of Signify Gives you a higher level API Separation of agents (databases) in a multi-agent setup: only a one-to-one relation between 1 Agent and 1 Client.",
+      "tags": [
+        "SECUFIRST",
+        "AGNOSTIC",
+        "MATURITY",
+        "GRASPEASY"
+      ]
+    },
+    {
+      "id": "60-5",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 683,
+      "end": 1180,
+      "quote": "Trust relationship between KERIA and Signify. Signify is stateless intentionally, it's not a full local KERI state engine. It keeps/reconstructs the cryptographic capability needed to control the identity, while KERIA maintains the persistent operational KERI state on behalf of the client. Process explanation. Cooperative delegation Fully signed Http-requests. Not using bearer tokens Keyrotate passcode",
+      "tags": [
+        "SECUFIRST",
+        "OTHUNSAFE",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "60-6",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 1180,
+      "end": 1368,
+      "quote": "ESSR better than signed headers for confidentiality. cryptobox seals as opposed to assymetric keys for data encryption",
+      "tags": [
+        "GRALIFCONF",
+        "SPACTRILL",
+        "MINIMSUFFI",
+        "BIZEFFCASE",
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "60-7",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 1681,
+      "end": 1934,
+      "quote": "endroll authorization.",
+      "tags": [
+        "CANMODELRW"
+      ]
+    },
+    {
+      "id": "60-8",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 1934,
+      "end": 2119,
+      "quote": "Rotate passcodes",
+      "tags": [
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "60-9",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 2172,
+      "end": 2218,
+      "quote": "It doesn't support high availability and disaster recovery kind of modes It's on the roadmap.",
+      "tags": [
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "60-10",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 2218,
+      "end": 2520,
+      "quote": "vendor lock-in KERIA services? Keys are not the problem, the data is. Migration paths should be on the road map op WebofTrust. Snapshotting for disaster recovery.",
+      "tags": [
+        "MATURITY",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "60-11",
+      "issue": 60,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/60",
+      "videoId": "signify-security-architecture-fergal-o-conner",
+      "videoTitle": "Signify Security Architecture - Fergal O'Conner",
+      "talk": "Signify Security Architecture",
+      "speaker": "Fergal O'Conner",
+      "start": 2520,
+      "end": 2580,
+      "quote": "Yeah, there's no protocol issues with KERIA, really, it's more of an operational thing, that's where the gap is",
+      "tags": [
+        "MATURITY"
+      ]
+    },
+    {
+      "id": "62-1",
+      "issue": 62,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/62",
+      "videoId": "keria-signify-path-to-production-fergal-o-connor",
+      "videoTitle": "KERIA & Signify Path to Production - Fergal O'Connor",
+      "talk": "KERIA & Signify Path to Production",
+      "speaker": "Fergal O'Connor",
+      "start": 293,
+      "end": 339,
+      "quote": "how we can mature KERIA and Signify First is focused on the developer experience The second is focused on operational resilience and the third is on scalability.",
+      "tags": [
+        "MATURITY",
+        "EASEOFUSE",
+        "COMMUNEDU",
+        "FAULTTOL",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "62-2",
+      "issue": 62,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/62",
+      "videoId": "keria-signify-path-to-production-fergal-o-connor",
+      "videoTitle": "KERIA & Signify Path to Production - Fergal O'Connor",
+      "talk": "KERIA & Signify Path to Production",
+      "speaker": "Fergal O'Connor",
+      "start": 339,
+      "end": 400,
+      "quote": "Probably explaining all the bad points of KERIA and Signify, but it does work. The code lacks feedback here and there. It's never about security but about resilience.",
+      "tags": [
+        "REALMPRAGM",
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "62-3",
+      "issue": 62,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/62",
+      "videoId": "keria-signify-path-to-production-fergal-o-connor",
+      "videoTitle": "KERIA & Signify Path to Production - Fergal O'Connor",
+      "talk": "KERIA & Signify Path to Production",
+      "speaker": "Fergal O'Connor",
+      "start": 400,
+      "end": 987,
+      "quote": "Strongly type the edge (Signify) libraries They've been generated for Signify-ts and Signify Java from the Open API Documentation, the single source of truth, which in turn is generated from Python data classes and, first, KERIPy data structures.",
+      "tags": [
+        "HARPROB1ST",
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "62-4",
+      "issue": 62,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/62",
+      "videoId": "keria-signify-path-to-production-fergal-o-connor",
+      "videoTitle": "KERIA & Signify Path to Production - Fergal O'Connor",
+      "talk": "KERIA & Signify Path to Production",
+      "speaker": "Fergal O'Connor",
+      "start": 1136,
+      "end": 1745,
+      "quote": "Operational resilience: API hardening, application layer reliability. A lot of the in-memory decks that we use for cues in KERI need to be made durable. Versioning and migration become an issue in production and when there are more devs around.",
+      "tags": [
+        "UNBROCHAIN"
+      ]
+    },
+    {
+      "id": "62-5",
+      "issue": 62,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/62",
+      "videoId": "keria-signify-path-to-production-fergal-o-connor",
+      "videoTitle": "KERIA & Signify Path to Production - Fergal O'Connor",
+      "talk": "KERIA & Signify Path to Production",
+      "speaker": "Fergal O'Connor",
+      "start": 1745,
+      "end": 2076,
+      "quote": "Scalability, need to go toward event-driven, to Server Sent Events maybe; better for dev experience and load balancing experience. Horizontal scaling comes within reach.",
+      "tags": [
+        "ATSCALE",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "64-1",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 149,
+      "end": 319,
+      "quote": "Why it is we're doing this in healthcare? HealthKERI is the most targeted industry. Because as we increasingly move care into a digital context, we increasingly make the risk to patients explode. And why is that? If you shut down a large health system because of a ransomeware attack, you are actively threatening the lives of patients.",
+      "tags": [
+        "1PERSCONTR",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "64-2",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 620,
+      "end": 744,
+      "quote": "An encrypted channel does not equal secure connection The shared secrets over those channels are the attack surface. We need to change this. KERI-based connectivity is actually a replacement for TLS.",
+      "tags": [
+        "SECUFIRST",
+        "NOSHARSECR"
+      ]
+    },
+    {
+      "id": "64-3",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 744,
+      "end": 917,
+      "quote": "What CMS is, what they actually do, why they matter. Regulations and standards Federal regulators working with industry groups to establish these standards, then enacting them into mandate.",
+      "tags": [
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "64-4",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 917,
+      "end": 1367,
+      "quote": "Interoperability Standards: Foundational, Structural, Semantic, Network and",
+      "tags": [
+        "INCLUSIVE",
+        "ATSCALE",
+        "NOWSTACK",
+        "EASEOFUSE",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "64-5",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1367,
+      "end": 1483,
+      "quote": "FHIR what it all is. Acronym: Fast Healthcare Interoperability Resource. But it's also the data structure. It's RESTful APIs, which is just modern API connectivity. It's a set of tool sets. So, it's developer kits, and it's validation implementation guides. Lastly, it's a vibrant community.",
+      "tags": [
+        "COMMUNEDU"
+      ]
+    },
+    {
+      "id": "64-6",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1483,
+      "end": 1543,
+      "quote": "ONC is regulating the healthcare tech industry; they require you to have a population health API based on FHIR to certify against for their EHRs.",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "64-7",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1482,
+      "end": 1688,
+      "quote": "The FHIR data structure model can identify discrete data elements within the FHIR record. Be able to parse a record at scale like that Connecthatons If your standard is rigid not flexible you end up proliferating standards. FHIR is felxible, easy as possible and open source.",
+      "tags": [
+        "GRALIFCONF",
+        "NOWSTACK",
+        "PROVCONTXT",
+        "BIZEFFCASE",
+        "COMMUNEDU",
+        "INCLUSIVE",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "64-8",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1688,
+      "end": 1751,
+      "quote": "CMS-0057 wants the industry to set standards, like HL7, and then together they put them into mandates",
+      "tags": [
+        "REALMPRAGM",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "64-9",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1751,
+      "end": 1803,
+      "quote": "Currently: Terms of trust on the connection, it's certificates, it's tokens it's very manual And often the org identity is assumed, not proven. They have some evidence of who you are, but not cryptographic evidence won't hold up in court",
+      "tags": [
+        "NOSHARSECR",
+        "INFRASURF",
+        "OTHUNSAFE",
+        "VERNOTVAL",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "64-10",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1846,
+      "end": 1997,
+      "quote": "What FHIR needs to do: fix the who done it. Lawsuits emerging around info blocking: \"you have to give us the data\", \"we can't give it, the networks are untrustworthy\" in nobody's land: can we trust the other side of the ecosystem If we had network interoperabilty these lawsuits would be resolved easily",
+      "tags": [
+        "OTHUNSAFE",
+        "LEGOVPOL",
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "64-11",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 1997,
+      "end": 2078,
+      "quote": "Can we trust the connections we're able to make? Yes, if: organizational binding prove delegation and delgeated authority and for purpose of use and bind together cryptographically; encryption and attribution. You need something that's verifiable, auditable, automated, secure and open.",
+      "tags": [
+        "PROVCONTXT",
+        "SPACTRILL",
+        "MINIMSUFFI",
+        "GRALIFCONF"
+      ]
+    },
+    {
+      "id": "64-12",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 2078,
+      "end": 2212,
+      "quote": "trust equity framework: I know who you are, who you work for I know what you're doing which is where DirectTrust comes in and to the root of trust Huge cost, time and effort savers attackers will move on to elsewhere",
+      "tags": [
+        "PROVCONTXT",
+        "VERNOTVAL",
+        "1PERSCONTR",
+        "BIZEFFCASE",
+        "ECONINFEA"
+      ]
+    },
+    {
+      "id": "64-13",
+      "issue": 64,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/64",
+      "videoId": "fhir-and-cms-jared-jefferey",
+      "videoTitle": "FHIR and CMS - Jared Jefferey",
+      "talk": "FHIR and CMS",
+      "speaker": "Jared Jefferey",
+      "start": 2212,
+      "end": 2272,
+      "quote": "Future Vital initiative: KERISuite in FHIR via vLEI. issueing credentials instead of the old way via AMA costing 300 mln a year and weeks to getting things done.",
+      "tags": [
+        "NOWSTACK",
+        "BIZEFFCASE"
+      ]
+    },
+    {
+      "id": "66-1",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 8,
+      "end": 63,
+      "quote": "Simplification of our message is much needed",
+      "tags": [
+        "GRASPEASY",
+        "COMMUNEDU"
+      ]
+    },
+    {
+      "id": "66-2",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 63,
+      "end": 154,
+      "quote": "How trust used to work: personal reputation",
+      "tags": [
+        "CANMODELRW",
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "66-3",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 154,
+      "end": 211,
+      "quote": "Things changed when global communications arrived: telephone, fax and now the internet. Enabled us to execute transactions remotely Buy when we want, what we want, where we want, and turns up the next day",
+      "tags": [
+        "BIZEFFCASE",
+        "ATSCALE",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "66-4",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 211,
+      "end": 279,
+      "quote": "Need to authenticate came in: username password, resulting in rampant online fraud trying to mitigate by detecting fraud; a losing battle.",
+      "tags": [
+        "OTHUNSAFE",
+        "SAFETY",
+        "SECUFIRST",
+        "ANTIFRAUD"
+      ]
+    },
+    {
+      "id": "66-5",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 279,
+      "end": 490,
+      "quote": "Distant future: Signed intent by default, everything signed by our Agent. THe process explained less susceptible to fraud",
+      "tags": [
+        "CANMODELRW",
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "66-6",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 490,
+      "end": 641,
+      "quote": "is going to be disruptive. Current interest are going to hate this progress.",
+      "tags": [
+        "1PERSCONTR",
+        "ECONINFEA"
+      ]
+    },
+    {
+      "id": "66-7",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 641,
+      "end": 790,
+      "quote": "From online logging and username password towards trustability",
+      "tags": [
+        "OTHUNSAFE",
+        "SECUFIRST",
+        "1PERSCONTR",
+        "VERNOTVAL",
+        "GRALIFCONF",
+        "FAULTTOL",
+        "LEGOVPOL"
+      ]
+    },
+    {
+      "id": "66-8",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 790,
+      "end": 967,
+      "quote": "Execution trust. Start to integrate KERISuite into high-value, high-risk transactions in current systems Example: Wire transfer fraud in banking: make it at execution time and keep the historical record",
+      "tags": [
+        "REALMPRAGM",
+        "CANMODELRW",
+        "INFRASURF",
+        "VERNOTVAL",
+        "UNBROCHAIN",
+        "ANTIFRAUD"
+      ]
+    },
+    {
+      "id": "66-9",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 1123,
+      "end": 1247,
+      "quote": "Approach: a little bit of KERI and ACDCs injected into existing business applications for high-value transactions many use case across all industries Replace weak 2FA with a hard gate No need to rearchitect existing systems",
+      "tags": [
+        "BIZEFFCASE",
+        "INCLUSIVE",
+        "OTHUNSAFE",
+        "SECUFIRST",
+        "INFRASURF"
+      ]
+    },
+    {
+      "id": "66-10",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 1247,
+      "end": 1387,
+      "quote": "If you introduce KERI and ACDCs bite by bite to a high value transaction that's already being executed by business applications today and they see the immediate benefits and then once businesses start seeing the immediate benefits it'll start to flood other applications",
+      "tags": [
+        "INFRASURF",
+        "GRASPEASY",
+        "BIZEFFCASE",
+        "MATURITY",
+        "MARKETPEN"
+      ]
+    },
+    {
+      "id": "66-11",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 1387,
+      "end": 1455,
+      "quote": "Looking for partners/implementers of trustability services",
+      "tags": [
+        "NOWSTACK",
+        "MATURITY"
+      ]
+    },
+    {
+      "id": "66-12",
+      "issue": 66,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/66",
+      "videoId": "acdcs-for-enterprises-alan-davies",
+      "videoTitle": "ACDCs for Enterprises - Alan Davies",
+      "talk": "ACDCs for Enterprises",
+      "speaker": "Alan Davies",
+      "start": 1599,
+      "end": 1659,
+      "quote": "Deciding over digital information over the internet that I want to make a trust decision on, I have, at the moment, three options: blind faith, completely ignore, or validate manually. Execution-time trustability, based on KERI and ACDCs is where to start.",
+      "tags": [
+        "VERNOTVAL"
+      ]
+    },
+    {
+      "id": "12-1",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 92,
+      "end": 228,
+      "quote": "Early feats: LFDT standardization Grant from the Utah Governor's Office of Economic Opportunity to build a digital identity utility for SEDI, based on KERI verifiable voice protocol Healthcare's Vital Initiative SEDI policy summit Fall 2026",
+      "tags": [
+        "MATURITY",
+        "LEGOVPOL",
+        "EASEOFUSE",
+        "SAFETY",
+        "PROVCONTXT",
+        "VERCOMTMT"
+      ]
+    },
+    {
+      "id": "12-2",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 228,
+      "end": 338,
+      "quote": "What are the chances of broader adoption Gladwell's Rules for Tipping-Point Adoption the law of the few, the stickiness factor, and the power of context. First overcome the seven stages of adoption resistance.",
+      "tags": [
+        "MARKETPEN",
+        "COMMUNEDU"
+      ]
+    },
+    {
+      "id": "12-3",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 338,
+      "end": 545,
+      "quote": "Adoption vector and bootstrap adoption vectors (GLEIF and Utah State's SEDI Root of Trust)",
+      "tags": [
+        "MARKETPEN",
+        "INCLUSIVE",
+        "MATURITY"
+      ]
+    },
+    {
+      "id": "12-4",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 545,
+      "end": 659,
+      "quote": "Stickiness factor: compelling and contagious Regulator imperatives to solve fraud",
+      "tags": [
+        "ANTIFRAUD"
+      ]
+    },
+    {
+      "id": "12-5",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 659,
+      "end": 718,
+      "quote": "Malaise of digital exploitation",
+      "tags": [
+        "1PERSCONTR",
+        "GRALIFCONF",
+        "VERCOMTMT"
+      ]
+    },
+    {
+      "id": "12-6",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 718,
+      "end": 775,
+      "quote": "Systems, operating systems, have to start moving in the direction of educating people to manage their own keys",
+      "tags": [
+        "COMMUNEDU"
+      ]
+    },
+    {
+      "id": "12-7",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 775,
+      "end": 931,
+      "quote": "The power of context. Timing: The specter of AI is making an unprecedented context that says the timing is right. OWASP documentation https://genai.owasp.org/resource/owasp-genai-data-security-risks-mitigations-2026/]",
+      "tags": [
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "12-8",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 931,
+      "end": 1050,
+      "quote": "Sufficient political will to legislate new civil rights Consumer harm legislation and fiduciary law",
+      "tags": [
+        "LEGOVPOL",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "12-9",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1069,
+      "end": 1126,
+      "quote": "Severly constrained solution tradespace: A good explanation of why KERI is inevitable and why other initiatives will ultimately converge on KERI.",
+      "tags": [
+        "MINIMSUFFI"
+      ]
+    },
+    {
+      "id": "12-10",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1131,
+      "end": 1166,
+      "quote": "Persistent problem cascade that continually exhausts anything less capable: Why KERI will prevail. And why other systems keep failing for the same reasons",
+      "tags": [
+        "OTHUNSAFE"
+      ]
+    },
+    {
+      "id": "12-11",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1213,
+      "end": 1304,
+      "quote": "Year 2013 A brief history of KERI: how we got here. RAET: keymanagement, OpenReputation (https://github.com/SmithSamuelM/Papers/blob/master/whitepapers/open-reputation-high-level-whitepaper.pdf), Whisper (Signal), SCID",
+      "tags": [
+        "HARPROB1ST"
+      ]
+    },
+    {
+      "id": "12-12",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1304,
+      "end": 1367,
+      "quote": "Year 2015 Persistent Identity, I can't have a good reputation without a persistent identity, and that's the hard problem of identity because nobody had a solution",
+      "tags": [
+        "HARPROB1ST",
+        "PERPETUAL"
+      ]
+    },
+    {
+      "id": "12-13",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1367,
+      "end": 1489,
+      "quote": "Year 2016 SSI, Sovrin, There's a hard trade space. If you want to trade off security and privacy and self-sovereignty and control, you're making some pretty hard trades.",
+      "tags": [
+        "HARPROB1ST",
+        "1PERSCONTR"
+      ]
+    },
+    {
+      "id": "12-14",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1489,
+      "end": 1549,
+      "quote": "Preventive key rotation, Ledger wars, the insight was that blockchain is too centralized for truly portable identity",
+      "tags": [
+        "HARPROB1ST"
+      ]
+    },
+    {
+      "id": "12-15",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1470,
+      "end": 1505,
+      "quote": "Year 2018 GPDR constraint on ledgers, end result after KERI: we don't need blockchains",
+      "tags": [
+        "HARPROB1ST"
+      ]
+    },
+    {
+      "id": "12-16",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1505,
+      "end": 1787,
+      "quote": "Year 2019 KERI the three Rs of key management: (pre-)rotation, fault-tolerant key management, ACDC, no shared governance - one log per identifier, CESR, witnesses, lesson learned: we don't need a blockchain, delegation, solved all the of key management. Quantum-secure DIDs",
+      "tags": [
+        "HARPROB1ST",
+        "SECUFIRST"
+      ]
+    },
+    {
+      "id": "12-17",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 1787,
+      "end": 2100,
+      "quote": "Year 2020 GLEIF - Organizational Identity..., SPAC, solves surveillance and privacy. It's exploitation that matters, because you can't hide your contexts. Universal Identity Theory",
+      "tags": [
+        "ORGID",
+        "SPACTRILL",
+        "RECOUPEERS",
+        "SAFETY",
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "12-18",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2103,
+      "end": 2196,
+      "quote": "KERI Foundation and the 'I' for Infrastructure, designed to be web scalable",
+      "tags": [
+        "ATSCALE"
+      ]
+    },
+    {
+      "id": "12-19",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2196,
+      "end": 2249,
+      "quote": "Build incentives into the governance structure so that people work together to build to make your infrastructure alive",
+      "tags": [
+        "INCENCOOP"
+      ]
+    },
+    {
+      "id": "12-20",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2249,
+      "end": 2337,
+      "quote": "Reconstruct all of your keys from any copy of your KEL. You don't need any other information and we can have multiple wallets, no vendor-lock",
+      "tags": [
+        "MINIMSUFFI",
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "12-21",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2337,
+      "end": 2452,
+      "quote": "Non-Cooperative Key Custodianship Not your keys, still your identity!",
+      "tags": [
+        "1PERSCONTR",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "12-22",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2452,
+      "end": 2494,
+      "quote": "\"The Five Ws\" or One-click KERI",
+      "tags": [
+        "EASEOFUSE",
+        "GRASPEASY"
+      ]
+    },
+    {
+      "id": "12-23",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2494,
+      "end": 2644,
+      "quote": "wallet witness watchers web and wizard: hide key management and Agents",
+      "tags": [
+        "1PERSCONTR",
+        "SECUFIRST",
+        "SAFETY",
+        "INFRASURF",
+        "EASEOFUSE"
+      ]
+    },
+    {
+      "id": "12-24",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2644,
+      "end": 2679,
+      "quote": "KERI Foundation will be providing some witness and watcher networks on their own",
+      "tags": [
+        "INCLUSIVE"
+      ]
+    },
+    {
+      "id": "12-25",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2679,
+      "end": 2782,
+      "quote": "Registrar and Observer. And the reason: control over context. anti correlation via bulk issuances",
+      "tags": [
+        "1PERSCONTR",
+        "GRALIFCONF",
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "12-26",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2782,
+      "end": 2878,
+      "quote": "User presentation registry. anchoring presentations to subject to offer detection of key compromise.",
+      "tags": [
+        "SAFETY",
+        "FAULTTOL"
+      ]
+    },
+    {
+      "id": "12-27",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2878,
+      "end": 2891,
+      "quote": "An own registry to see that somebody else is presenting your credentials and you didn't do it. and recovery",
+      "tags": [
+        "SAFETY"
+      ]
+    },
+    {
+      "id": "12-28",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2891,
+      "end": 2948,
+      "quote": "What is KERI really? All of: Keys at the Edge, Security First Always, Minimally Sufficient Means Signed Everything. Don't assume one viewpoint captures the entire situation. If you think KERI's just one of these, you miss the point, like copy cats do but it's all of KERI or no KERI",
+      "tags": [
+        "SECUFIRST",
+        "MINIMSUFFI",
+        "OTHUNSAFE",
+        "NOUSEKERI"
+      ]
+    },
+    {
+      "id": "12-29",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 2952,
+      "end": 3093,
+      "quote": "Identity revolution, Reputable Autonomic Pseudonymity Control Confidential Contexts Private vs. Confidential RAP-C3 Rhapsody - An enthusiastic, emotionally expressive outpouring",
+      "tags": [
+        "PERPETUAL",
+        "1PERSCONTR",
+        "GRALIFCONF",
+        "SPACTRILL"
+      ]
+    },
+    {
+      "id": "12-30",
+      "issue": 12,
+      "issueUrl": "https://github.com/keri-foundation/CONF26-subtitles/issues/12",
+      "videoId": "state-of-the-keri-suite-samuel-smith",
+      "videoTitle": "State of the KERI Suite - Samuel Smith",
+      "talk": "State of the KERI Suite",
+      "speaker": "Samuel Smith",
+      "start": 3407,
+      "end": 3467,
+      "quote": "On the registrar-observer network, do you see benefit for the registrar putting random noise into the stream so that they can't tell it's a correlatable event on a revocation? Absolutely, you can you can issue random updates to to registries that don't change the state.",
+      "tags": [
+        "SAFETY"
+      ]
+    }
+  ]
+}

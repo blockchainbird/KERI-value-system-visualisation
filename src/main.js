@@ -2,6 +2,7 @@ import { createGraph } from './graph.js';
 import { createEditor } from './editor.js';
 import { saveGraphFile, loadGraphFile, validateGraphData } from './fileio.js';
 import defaultData from './data/keri-values.json';
+import clipsData from './data/keri-clips.json';
 
 // The model is the canonical dataset: links keep string source/target ids.
 // D3 gets cloned link objects so it can replace ids with node references.
@@ -9,8 +10,16 @@ let model = structuredClone(defaultData);
 
 const fileHint = document.getElementById('file-hint');
 
+const clipCountByTag = new Map();
+for (const clip of clipsData.clips) {
+  for (const tag of clip.tags) {
+    clipCountByTag.set(tag, (clipCountByTag.get(tag) ?? 0) + 1);
+  }
+}
+
 const graph = createGraph(document.getElementById('graph'), {
   onNodeClick: (id) => editor.selectNode(id),
+  getClipCount: (id) => clipCountByTag.get(id) ?? 0,
 });
 
 const editor = createEditor({
@@ -18,6 +27,7 @@ const editor = createEditor({
   onChange: render,
   onSelectNode: (id) => graph.setSelected(id),
   onSearch: (ids) => graph.setSearchHighlight(ids),
+  clips: clipsData,
 });
 
 function render() {
