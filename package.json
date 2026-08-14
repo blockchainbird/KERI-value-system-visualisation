@@ -1,0 +1,17 @@
+{
+  "name": "keri-value-system-visualisation",
+  "version": "0.1.0",
+  "description": "Force-directed graph visualisation of the KERI value system (keri-foundation/CONF26-subtitles#21)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
