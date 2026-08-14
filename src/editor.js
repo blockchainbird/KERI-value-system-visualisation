@@ -21,6 +21,8 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
   const linkSource = el('link-source');
   const linkTarget = el('link-target');
   const linkWeight = el('link-weight');
+  const linkContext = el('link-context');
+  const linkPersonas = el('link-personas');
   const linkList = el('link-list');
 
   let selectedNodeId = null;
@@ -66,6 +68,11 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     for (const link of links) {
       const idx = model().links.indexOf(link);
       const li = document.createElement('li');
+      li.dataset.source = link.source;
+      li.dataset.target = link.target;
+
+      const row = document.createElement('div');
+      row.className = 'link-row';
 
       const desc = document.createElement('span');
       desc.className = 'link-desc';
@@ -91,7 +98,33 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
         onChange();
       };
 
-      li.append(desc, weightSel, del);
+      row.append(desc, weightSel, del);
+      li.appendChild(row);
+
+      if (link.context) {
+        const ctx = document.createElement('div');
+        ctx.className = 'link-context';
+        ctx.textContent = link.context;
+        ctx.title = link.context;
+        li.appendChild(ctx);
+      }
+      if (link.personas) {
+        const personas = document.createElement('div');
+        personas.className = 'link-personas';
+        personas.textContent = link.personas;
+        personas.title = `Personas: ${link.personas}`;
+        li.appendChild(personas);
+      }
+
+      li.onclick = (event) => {
+        if (event.target.closest('button, select')) return;
+        linkSource.value = link.source;
+        linkTarget.value = link.target;
+        linkWeight.value = String(link.weight);
+        linkContext.value = link.context ?? '';
+        linkPersonas.value = link.personas ?? '';
+      };
+
       linkList.appendChild(li);
     }
   }
@@ -228,6 +261,25 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     onSelectNode?.(id);
   }
 
+  function selectLink(source, target) {
+    selectedNodeId = source;
+    render();
+    onSelectNode?.(source);
+    const item = [...linkList.children].find(
+      (li) => li.dataset.source === source && li.dataset.target === target
+    );
+    if (!item) return;
+    item.classList.add('selected');
+    item.scrollIntoView({ block: 'nearest' });
+    const link = model().links.find((l) => l.source === source && l.target === target);
+    if (!link) return;
+    linkSource.value = link.source;
+    linkTarget.value = link.target;
+    linkWeight.value = String(link.weight);
+    linkContext.value = link.context ?? '';
+    linkPersonas.value = link.personas ?? '';
+  }
+
   nodeSelect.onchange = () => selectNode(nodeSelect.value);
 
   // ---------- node editing ----------
@@ -306,16 +358,23 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       alert('Source and target must differ.');
       return;
     }
-    const exists = model().links.some(
-      (l) => (l.source === source && l.target === target) || (l.source === target && l.target === source)
-    );
-    if (exists) {
-      alert('This link already exists.');
+    const existing = model().links.find((l) => l.source === source && l.target === target);
+    if (existing) {
+      existing.weight = Number(linkWeight.value);
+      existing.context = linkContext.value.trim();
+      existing.personas = linkPersonas.value.trim();
+      onChange();
       return;
     }
-    model().links.push({ source, target, weight: Number(linkWeight.value) });
+    model().links.push({
+      source,
+      target,
+      weight: Number(linkWeight.value),
+      context: linkContext.value.trim(),
+      personas: linkPersonas.value.trim(),
+    });
     onChange();
   };
 
-  return { render, selectNode, getSelectedNodeId: () => selectedNodeId };
+  return { render, selectNode, selectLink, getSelectedNodeId: () => selectedNodeId };
 }

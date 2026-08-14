@@ -1,9 +1,10 @@
 {
   "meta": {
     "title": "KERI Value System",
-    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?output=csv",
+    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?gid=1745295798&single=true&output=csv",
+    "verticesSource": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?gid=1369863761&single=true&output=csv",
     "updated": "2026-08-14",
-    "notes": "Generated from the published Google Sheet by scripts/fetch-data.mjs. Node weight is derived from the number of connections (3-9); link weight defaults to 1. Weights are subjective and adjustable in the edit panel."
+    "notes": "Generated from the published Google Sheet by scripts/fetch-data.mjs. Nodes come from the Nodes tab; links come from the Vertices tab (Source, Destination, Connection Context, Personas). Node weight is derived from the number of connections (3-9); link weight defaults to 1. Weights are subjective and adjustable in the edit panel."
   },
   "groups": {
     "unique-value": {
@@ -313,177 +314,247 @@
     {
       "source": "SAFETY",
       "target": "SECUFIRST",
-      "weight": 1
+      "weight": 1,
+      "context": "(~SECUFIRST, ~FAULTTOL, PROVCONTXT) accountability (~RECOUPEERS), non-repudiation, end-to-end verifiability, verifiable to the root of trust, trustworthy, sign everything, no cross-context correlation",
+      "personas": ""
     },
     {
       "source": "SAFETY",
       "target": "FAULTTOL",
-      "weight": 1
+      "weight": 1,
+      "context": "(~SECUFIRST, ~FAULTTOL, PROVCONTXT) accountability (~RECOUPEERS), non-repudiation, end-to-end verifiability, verifiable to the root of trust, trustworthy, sign everything, no cross-context correlation",
+      "personas": ""
     },
     {
       "source": "SAFETY",
       "target": "PROVCONTXT",
-      "weight": 1
+      "weight": 1,
+      "context": "(~SECUFIRST, ~FAULTTOL, PROVCONTXT) accountability (~RECOUPEERS), non-repudiation, end-to-end verifiability, verifiable to the root of trust, trustworthy, sign everything, no cross-context correlation",
+      "personas": ""
     },
     {
       "source": "SAFETY",
       "target": "RECOUPEERS",
-      "weight": 1
+      "weight": 1,
+      "context": "(~SECUFIRST, ~FAULTTOL, PROVCONTXT) accountability (~RECOUPEERS), non-repudiation, end-to-end verifiability, verifiable to the root of trust, trustworthy, sign everything, no cross-context correlation",
+      "personas": ""
     },
     {
       "source": "RECOUPEERS",
       "target": "1PERSCONTR",
-      "weight": 1
+      "weight": 1,
+      "context": "Recourse on peers: accountability, no exploitation, profiling errors ~1PERSCONTR peers with profit-seeking motives, data errors hurt individuals, dangerous well-meaning bureaucrats, without consent associate data",
+      "personas": ""
     },
     {
       "source": "UNBROCHAIN",
       "target": "NOWSTACK",
-      "weight": 1
+      "weight": 1,
+      "context": "Unbroken chain of events (2 root of trust, hash tree, blockchain, ~NOWSTACK), git and github versioning, actions, versioning and backward compatibility, etc",
+      "personas": ""
     },
     {
       "source": "SPACTRILL",
       "target": "SECUFIRST",
-      "weight": 1
+      "weight": 1,
+      "context": "SECUFIRST",
+      "personas": ""
     },
     {
       "source": "SPACTRILL",
       "target": "GRALIFCONF",
-      "weight": 1
+      "weight": 1,
+      "context": "Spac trillema: ~SECUFIRST, ~GRALIFCONF, no privacy without accountability, delegated guardian relationships, cooperative, balanced through multi-sig authorizations",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "1PERSCONTR",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "SAFETY",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "RECOUPEERS",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "UNBROCHAIN",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "PROVCONTXT",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "LEGOVPOL",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "SPACTRILL",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "ORGID",
       "target": "VERCOMTMT",
-      "weight": 1
+      "weight": 1,
+      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
+      "personas": ""
     },
     {
       "source": "REALMPRAGM",
       "target": "SECUFIRST",
-      "weight": 1
+      "weight": 1,
+      "context": "no hiding but 'no exploitation' (~SECUFIRST, ~ATSCALE)",
+      "personas": ""
     },
     {
       "source": "REALMPRAGM",
       "target": "ATSCALE",
-      "weight": 1
+      "weight": 1,
+      "context": "no hiding but 'no exploitation' (~SECUFIRST, ~ATSCALE)",
+      "personas": ""
     },
     {
       "source": "REALMPRAGM",
       "target": "EASEOFUSE",
-      "weight": 1
+      "weight": 1,
+      "context": "simplicity, clarity, availability of tooling, reduce troubles ~EASEOFUSE",
+      "personas": ""
     },
     {
       "source": "VERCOMTMT",
       "target": "PERPETUAL",
-      "weight": 1
+      "weight": 1,
+      "context": "Verifiable Commitments to data, long term (~PERPETUAL) non-repudiability, ~PROVCONTXT, wrap and enrich other dataformats, verifiable data graph {conscientious}",
+      "personas": ""
     },
     {
       "source": "VERCOMTMT",
       "target": "PROVCONTXT",
-      "weight": 1
+      "weight": 1,
+      "context": "Verifiable Commitments to data, long term (~PERPETUAL) non-repudiability, ~PROVCONTXT, wrap and enrich other dataformats, verifiable data graph {conscientious}",
+      "personas": ""
     },
     {
       "source": "ANTIFRAUD",
       "target": "SECUFIRST",
-      "weight": 1
+      "weight": 1,
+      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
+      "personas": ""
     },
     {
       "source": "ANTIFRAUD",
       "target": "RECOUPEERS",
-      "weight": 1
+      "weight": 1,
+      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
+      "personas": ""
     },
     {
       "source": "ANTIFRAUD",
       "target": "FAULTTOL",
-      "weight": 1
+      "weight": 1,
+      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
+      "personas": ""
     },
     {
       "source": "ANTIFRAUD",
       "target": "OTHUNSAFE",
-      "weight": 1
+      "weight": 1,
+      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
+      "personas": ""
     },
     {
       "source": "ANTIFRAUD",
       "target": "ECONINFEA",
-      "weight": 1
+      "weight": 1,
+      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
+      "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "UNBROCHAIN",
-      "weight": 1
+      "weight": 1,
+      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "ECONINFEA",
-      "weight": 1
+      "weight": 1,
+      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "SECUFIRST",
-      "weight": 1
+      "weight": 1,
+      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "NOSHARSECR",
-      "weight": 1
+      "weight": 1,
+      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "personas": ""
     },
     {
       "source": "PROVCONTXT",
       "target": "UNBROCHAIN",
-      "weight": 1
+      "weight": 1,
+      "context": "Provide and lock in context of the process (~UNBROCHAIN, ~VERSIONING), establish organizational binding and content, schemas, manage personal data/attributes, provably deterministic (no hanging processes/deadlocks)",
+      "personas": ""
     },
     {
       "source": "NOWSTACK",
       "target": "EASEOFUSE",
-      "weight": 1
+      "weight": 1,
+      "context": "“now we can …”, \"combinations of the above\" ~EASEOFUSE",
+      "personas": ""
     },
     {
       "source": "EASEOFUSE",
       "target": "CANMODELRW",
-      "weight": 1
+      "weight": 1,
+      "context": "interoperability, meet customers where they are, reduce complication ~CANMODELRW, Hyper churn your credentials {mature}",
+      "personas": ""
     },
     {
       "source": "MARKETPEN",
       "target": "INCLUSIVE",
-      "weight": 1
+      "weight": 1,
+      "context": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, ~INCLUSIVE {mature}",
+      "personas": ""
     },
     {
       "source": "MATURITY",
       "target": "MARKETPEN",
-      "weight": 1
+      "weight": 1,
+      "context": "weathered, complete, thoroughly tested, established (~MARKETPEN), everywhere under the hood, higher level coding and APIs {mature}",
+      "personas": ""
     }
   ]
 }

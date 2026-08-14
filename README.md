@@ -29,7 +29,9 @@ npm run live        # build and rsync to dwarshuis.com/test/KERI-value-system-vi
 - **Node size** reflects the node's weight. The fetch script derives it from the number of
   connections (3–9); it stays editable per node in the UI.
 - **Link thickness** reflects the link's weight (1–3). Links come from the sheet's
-  "Vertices / referenced tags" column (all weight 1 by default).
+  **Vertices** tab (Source, Destination, Connection Context, Personas). Hover a link
+  to read its connection context. The Nodes tab's "Vertices / referenced tags" column
+  is used only as a fallback for edges not yet listed on the Vertices tab.
 - Hover a node to see its description and highlight its neighbours. Drag nodes, pan and zoom
   freely, and use **Fit** to re-centre.
 
@@ -40,9 +42,10 @@ Use the slide-in editor (left-edge **Editor** tab, bottom-right **Editor** butto
 - **Nodes** — select a node (dropdown or click in the graph) to edit its id, label, group,
   weight, tag (`conscientious` / `mature`), and description. `+` adds a node, `−` deletes the
   selected node with its links.
-- **Links** — the list shows the selected node's links (or all links when nothing is selected).
-  Change a link's weight inline or delete it with `×`. Add new links via the source → target
-  dropdowns.
+- **Links** — the list shows the selected node's vertices (or all vertices when nothing is
+  selected), including connection context and personas from the Vertices tab. Change a
+  link's weight inline or delete it with `×`. Add new links via the source → target
+  dropdowns, with optional context and personas. Click a graph edge to jump to that vertex.
 - All edits update the graph live.
 
 ## Saving and loading (HTML5 file interface)
@@ -55,10 +58,11 @@ Use the slide-in editor (left-edge **Editor** tab, bottom-right **Editor** butto
 
 ## Updating from the Google Sheet
 
-`npm run fetch-data` downloads the published CSV and regenerates
-`src/data/keri-values.json`. It parses each row's Tag, Description, referenced tags, and Type;
-extracts `{conscientious}` / `{mature}` markers into the node's tag field; creates one link per
-referenced tag (skipping unknown references with a warning); and derives node weights from
+`npm run fetch-data` downloads the published **Nodes** and **Vertices** tabs and regenerates
+`src/data/keri-values.json`. It parses each node's Tag, Description, and Type; extracts
+`{conscientious}` / `{mature}` markers into the node's tag field; builds one directed link
+per Vertices-tab row (Source → Destination, with Connection Context and Personas); adds any
+Nodes-tab references that are not yet in Vertices; and derives node weights from
 connectivity. New Type values in the sheet automatically become new groups with a fallback
 colour. Manual weight tweaks made in the edit panel live in the saved JSON files, so re-running
 the script overwrites only the bundled default dataset.
@@ -96,7 +100,8 @@ The default dataset lives in `src/data/keri-values.json` and is plain JSON:
   "groups": { "human-value": { "label": "Human values", "color": "#f2c14e" }, ... },
   "nodes":  [ { "id": "SECUFIRST", "label": "SECUFIRST", "group": "unique-value",
                 "weight": 5, "tag": "conscientious", "description": "..." }, ... ],
-  "links":  [ { "source": "SAFETY", "target": "SECUFIRST", "weight": 1 }, ... ]
+  "links":  [ { "source": "SAFETY", "target": "SECUFIRST", "weight": 1,
+                "context": "...", "personas": "" }, ... ]
 }
 ```
 

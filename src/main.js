@@ -44,6 +44,7 @@ document.addEventListener('keydown', (event) => {
 
 const graph = createGraph(document.getElementById('graph'), {
   onNodeClick: (id) => editor.selectNode(id),
+  onLinkClick: (source, target) => editor.selectLink(source, target),
   getClipCount: (id) => clipCountByTag.get(id) ?? 0,
 });
 
@@ -88,7 +89,8 @@ function serializableModel() {
     groups: model.groups,
     nodes: model.nodes.map(({ id, label, group, weight, tag, description }) =>
       ({ id, label, group, weight, tag, description })),
-    links: model.links.map(({ source, target, weight }) => ({ source, target, weight })),
+    links: model.links.map(({ source, target, weight, context, personas }) =>
+      ({ source, target, weight, context: context ?? '', personas: personas ?? '' })),
   };
 }
 

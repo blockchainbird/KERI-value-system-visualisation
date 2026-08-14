@@ -1,13 +1,17 @@
 /**
- * Regenerates src/data/keri-values.json from the published Google Sheet (CSV).
+ * Regenerates src/data/keri-values.json from the published Google Sheet.
  * Usage: npm run fetch-data
  *
- * CSV columns: Tag, Description, "Vertices / referenced tags", Type
+ * Nodes tab: Tag, Description, "Vertices / referenced tags", Type
+ * Vertices tab: Source, Destination, Connection Context, Personas
  */
 import { writeFile } from 'node:fs/promises';
 
-const SOURCE_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?output=csv';
+const SHEET_PUB =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub';
+
+const NODES_GID = '1745295798';
+const VERTICES_GID = '1369863761';
 
 const OUTPUT = new URL('../src/data/keri-values.json', import.meta.url);
 
@@ -20,6 +24,10 @@ const TYPE_GROUPS = {
 };
 
 const FALLBACK_COLORS = ['#f2c14e', '#5ab1f0', '#e8a2c8', '#8ad4d0', '#d9b38c'];
+
+function csvUrl(gid) {
+  return `${SHEET_PUB}?gid=${gid}&single=true&output=csv`;
+}
 
 function parseCsv(text) {
   const rows = [];
@@ -59,6 +67,10 @@ function parseCsv(text) {
   return rows;
 }
 
+function headerIndex(header, name) {
+  return header.findIndex((h) => h.startsWith(name));
+}
+
 function extractTag(description) {
   const match = description.match(/\{(conscientious|mature)\}/);
   const tag = match?.[1] ?? '';
@@ -68,21 +80,38 @@ function extractTag(description) {
   return { tag, description: cleaned };
 }
 
-async function main() {
-  console.log(`Fetching ${SOURCE_URL}`);
-  const res = await fetch(SOURCE_URL, { redirect: 'follow' });
-  if (!res.ok) throw new Error(`Fetch failed: HTTP ${res.status}`);
-  const csv = await res.text();
+async function fetchCsv(label, gid) {
+  const url = csvUrl(gid);
+  console.log(`Fetching ${label}: ${url}`);
+  const res = await fetch(url, { redirect: 'follow' });
+  if (!res.ok) throw new Error(`Fetch ${label} failed: HTTP ${res.status}`);
+  return parseCsv(await res.text());
+}
 
-  const rows = parseCsv(csv);
-  const header = rows.shift().map((h) => h.trim().toLowerCase());
-  const col = (name) => header.findIndex((h) => h.startsWith(name));
-  const iTag = col('tag');
-  const iDesc = col('description');
-  const iVertices = col('vertices');
-  const iType = col('type');
+function linkKey(source, target) {
+  return `${source}→${target}`;
+}
+
+async function main() {
+  const nodeRows = await fetchCsv('Nodes', NODES_GID);
+  const vertexRows = await fetchCsv('Vertices', VERTICES_GID);
+
+  const nodeHeader = nodeRows.shift().map((h) => h.trim().toLowerCase());
+  const iTag = headerIndex(nodeHeader, 'tag');
+  const iDesc = headerIndex(nodeHeader, 'description');
+  const iVertices = headerIndex(nodeHeader, 'vertices');
+  const iType = headerIndex(nodeHeader, 'type');
   if ([iTag, iDesc, iVertices, iType].includes(-1)) {
-    throw new Error(`Unexpected CSV header: ${header.join(', ')}`);
+    throw new Error(`Unexpected Nodes header: ${nodeHeader.join(', ')}`);
+  }
+
+  const vertexHeader = vertexRows.shift().map((h) => h.trim().toLowerCase());
+  const iSource = headerIndex(vertexHeader, 'source');
+  const iDest = headerIndex(vertexHeader, 'destination');
+  const iContext = headerIndex(vertexHeader, 'connection');
+  const iPersonas = headerIndex(vertexHeader, 'personas');
+  if ([iSource, iDest, iContext, iPersonas].includes(-1)) {
+    throw new Error(`Unexpected Vertices header: ${vertexHeader.join(', ')}`);
   }
 
   const groups = {};
@@ -100,8 +129,8 @@ async function main() {
   };
 
   const nodes = [];
-  const references = [];
-  for (const row of rows) {
+  const nodeColumnRefs = [];
+  for (const row of nodeRows) {
     const id = row[iTag].trim();
     if (!id) continue;
     const { tag, description } = extractTag(row[iDesc].trim());
@@ -109,30 +138,52 @@ async function main() {
       id,
       label: id,
       group: groupIdForType(row[iType].trim()),
-      weight: 0, // filled in below from the node's degree
+      weight: 0,
       tag,
       description,
     });
     for (const ref of row[iVertices].split(',').map((s) => s.trim()).filter(Boolean)) {
-      references.push({ source: id, target: ref });
+      nodeColumnRefs.push({ source: id, target: ref });
     }
   }
 
   const ids = new Set(nodes.map((n) => n.id));
   const seen = new Set();
   const links = [];
-  for (const { source, target } of references) {
-    if (!ids.has(target)) {
-      console.warn(`  Skipping link ${source} → ${target}: unknown tag "${target}"`);
+
+  for (const row of vertexRows) {
+    const source = (row[iSource] ?? '').trim();
+    const target = (row[iDest] ?? '').trim();
+    if (!source || !target) continue;
+    if (!ids.has(source) || !ids.has(target)) {
+      console.warn(`  Skipping vertex ${source} → ${target}: unknown tag`);
       continue;
     }
-    const key = [source, target].sort((a, b) => a.localeCompare(b)).join('↔');
+    const key = linkKey(source, target);
     if (seen.has(key)) continue;
     seen.add(key);
-    links.push({ source, target, weight: 1 });
+    links.push({
+      source,
+      target,
+      weight: 1,
+      context: (row[iContext] ?? '').trim(),
+      personas: (row[iPersonas] ?? '').trim(),
+    });
   }
 
-  // Node weight (size) derived from connectivity: 3 for isolated tags, up to 9.
+  // Keep any Nodes-tab references that are not yet in the Vertices tab.
+  for (const { source, target } of nodeColumnRefs) {
+    if (!ids.has(target)) {
+      console.warn(`  Skipping Nodes-tab link ${source} → ${target}: unknown tag "${target}"`);
+      continue;
+    }
+    const key = linkKey(source, target);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    console.warn(`  Adding Nodes-tab link missing from Vertices: ${source} → ${target}`);
+    links.push({ source, target, weight: 1, context: '', personas: '' });
+  }
+
   const degree = new Map();
   for (const l of links) {
     degree.set(l.source, (degree.get(l.source) ?? 0) + 1);
@@ -145,10 +196,13 @@ async function main() {
   const data = {
     meta: {
       title: 'KERI Value System',
-      source: SOURCE_URL,
+      source: csvUrl(NODES_GID),
+      verticesSource: csvUrl(VERTICES_GID),
       updated: new Date().toISOString().slice(0, 10),
       notes:
         'Generated from the published Google Sheet by scripts/fetch-data.mjs. ' +
+        'Nodes come from the Nodes tab; links come from the Vertices tab ' +
+        '(Source, Destination, Connection Context, Personas). ' +
         'Node weight is derived from the number of connections (3-9); link weight defaults to 1. ' +
         'Weights are subjective and adjustable in the edit panel.',
     },

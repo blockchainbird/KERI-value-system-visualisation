@@ -92,6 +92,8 @@ export function validateGraphData(data) {
   }
   for (const l of data.links) {
     l.weight = Number(l.weight) || 1;
+    l.context ??= '';
+    l.personas ??= '';
   }
   return data;
 }

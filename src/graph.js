@@ -8,7 +8,7 @@ const linkDistance = (d) => 130 - d.weight * 25;
  * Creates the force-directed graph inside the given <svg> element.
  * Returns an API to re-render when data changes and to control selection/zoom.
  */
-export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
+export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = {}) {
   const svg = d3.select(svgEl);
   const container = svgEl.parentElement;
   const tooltip = container.querySelector('#tooltip');
@@ -54,6 +54,21 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
 
   const groupColor = (g) => data.groups[g]?.color ?? '#999';
 
+  function esc(value) {
+    return String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+
+  function linkEnds(d) {
+    return {
+      source: typeof d.source === 'object' ? d.source.id : d.source,
+      target: typeof d.target === 'object' ? d.target.id : d.target,
+    };
+  }
+
   function neighborIds(id) {
     const ids = new Set([id]);
     for (const l of data.links) {
@@ -65,14 +80,30 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
     return ids;
   }
 
-  function showTooltip(event, d) {
+  function showNodeTooltip(event, d) {
     const rect = container.getBoundingClientRect();
     const clipCount = getClipCount?.(d.id) ?? 0;
     tooltip.innerHTML = `
-      <div class="tt-title">${d.label}</div>
-      <div class="tt-meta">${data.groups[d.group]?.label ?? d.group}
-        · weight ${d.weight}${d.tag ? ` · {${d.tag}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
-      <div>${d.description ?? ''}</div>`;
+      <div class="tt-title">${esc(d.label)}</div>
+      <div class="tt-meta">${esc(data.groups[d.group]?.label ?? d.group)}
+        · weight ${esc(d.weight)}${d.tag ? ` · {${esc(d.tag)}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
+      <div>${esc(d.description)}</div>`;
+    placeTooltip(event, rect);
+  }
+
+  function showLinkTooltip(event, d) {
+    const rect = container.getBoundingClientRect();
+    const { source, target } = linkEnds(d);
+    const personas = d.personas ? `<div class="tt-meta">Personas · ${esc(d.personas)}</div>` : '';
+    tooltip.innerHTML = `
+      <div class="tt-title">${esc(source)} → ${esc(target)}</div>
+      <div class="tt-meta">Vertex${d.weight ? ` · weight ${esc(d.weight)}` : ''}</div>
+      ${personas}
+      <div>${esc(d.context)}</div>`;
+    placeTooltip(event, rect);
+  }
+
+  function placeTooltip(event, rect) {
     tooltip.classList.remove('hidden');
     const x = Math.min(event.clientX - rect.left + 14, rect.width - 340);
     const y = Math.min(event.clientY - rect.top + 14, rect.height - 140);
@@ -94,7 +125,10 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
     nodeSel.classed('dimmed', (d) => !searchIds.has(d.id));
     linkSel
       .classed('highlight', false)
-      .classed('dimmed', (d) => !searchIds.has(d.source.id) || !searchIds.has(d.target.id));
+      .classed('dimmed', (d) => {
+        const { source, target } = linkEnds(d);
+        return !searchIds.has(source) || !searchIds.has(target);
+      });
   }
 
   function applyHighlight(hoverId) {
@@ -105,8 +139,14 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
     const ids = neighborIds(hoverId);
     nodeSel.classed('dimmed', (d) => !ids.has(d.id));
     linkSel
-      .classed('highlight', (d) => d.source.id === hoverId || d.target.id === hoverId)
-      .classed('dimmed', (d) => d.source.id !== hoverId && d.target.id !== hoverId);
+      .classed('highlight', (d) => {
+        const { source, target } = linkEnds(d);
+        return source === hoverId || target === hoverId;
+      })
+      .classed('dimmed', (d) => {
+        const { source, target } = linkEnds(d);
+        return source !== hoverId && target !== hoverId;
+      });
   }
 
   function setSearchHighlight(ids) {
@@ -144,15 +184,39 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
       }
     }
 
-    linkSel = linkLayer.selectAll('line')
+    linkSel = linkLayer.selectAll('g.link')
       .data(data.links, (d) => {
-        const s = typeof d.source === 'object' ? d.source.id : d.source;
-        const t = typeof d.target === 'object' ? d.target.id : d.target;
-        return `${s}→${t}`;
+        const { source, target } = linkEnds(d);
+        return `${source}→${target}`;
       })
-      .join('line')
-      .attr('class', 'link')
-      .attr('stroke-width', linkWidth);
+      .join((enter) => {
+        const g = enter.append('g').attr('class', 'link');
+        g.append('line').attr('class', 'link-hit');
+        g.append('line').attr('class', 'link-line');
+        return g;
+      });
+
+    linkSel.select('.link-line').attr('stroke-width', linkWidth);
+
+    linkSel
+      .on('click', (event, d) => {
+        event.stopPropagation();
+        const { source, target } = linkEnds(d);
+        onLinkClick?.(source, target);
+      })
+      .on('mouseenter', (event, d) => {
+        const { source, target } = linkEnds(d);
+        nodeSel.classed('dimmed', (n) => n.id !== source && n.id !== target);
+        linkSel
+          .classed('highlight', (l) => l === d)
+          .classed('dimmed', (l) => l !== d);
+        showLinkTooltip(event, d);
+      })
+      .on('mousemove', (event, d) => showLinkTooltip(event, d))
+      .on('mouseleave', () => {
+        applyHighlight(null);
+        hideTooltip();
+      });
 
     nodeSel = nodeLayer.selectAll('g.node')
       .data(data.nodes, (d) => d.id)
@@ -179,9 +243,9 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
       })
       .on('mouseenter', (event, d) => {
         applyHighlight(d.id);
-        showTooltip(event, d);
+        showNodeTooltip(event, d);
       })
-      .on('mousemove', (event, d) => showTooltip(event, d))
+      .on('mousemove', (event, d) => showNodeTooltip(event, d))
       .on('mouseleave', () => {
         applyHighlight(null);
         hideTooltip();
@@ -197,11 +261,13 @@ export function createGraph(svgEl, { onNodeClick, getClipCount } = {}) {
   }
 
   function ticked() {
-    linkSel
+    const place = (sel) => sel
       .attr('x1', (d) => d.source.x)
       .attr('y1', (d) => d.source.y)
       .attr('x2', (d) => d.target.x)
       .attr('y2', (d) => d.target.y);
+    place(linkSel.select('.link-hit'));
+    place(linkSel.select('.link-line'));
     nodeSel.attr('transform', (d) => `translate(${d.x},${d.y})`);
   }
 
