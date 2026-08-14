@@ -31,21 +31,34 @@ html, body {
 #panel {
   width: 320px;
   flex-shrink: 0;
+  min-height: 0;
   background: var(--panel-bg);
   border-right: 1px solid var(--panel-border);
-  overflow-y: auto;
+  overflow: hidden;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-/* The link section absorbs the remaining height so its list reaches the bottom. */
-#link-section {
-  flex: 1;
+/* Header / nodes / clips scroll in the upper pane; Links stay on screen below. */
+#panel-main {
+  flex: 1 1 auto;
+  min-height: 120px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  min-height: 160px;
+  gap: 18px;
+}
+
+#link-section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  max-height: 50%;
+  padding-top: 12px;
+  border-top: 1px solid var(--panel-border);
 }
 
 #panel-header h1 {
@@ -248,8 +261,6 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   list-style: none;
   margin: 8px 0 0;
   padding: 0;
-  max-height: 220px;
-  overflow-y: auto;
   border-top: 1px solid var(--panel-border);
 }
 
