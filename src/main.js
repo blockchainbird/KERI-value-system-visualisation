@@ -17,6 +17,7 @@ const editor = createEditor({
   getModel: () => model,
   onChange: render,
   onSelectNode: (id) => graph.setSelected(id),
+  onSearch: (ids) => graph.setSearchHighlight(ids),
 });
 
 function render() {

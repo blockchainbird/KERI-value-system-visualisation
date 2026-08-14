@@ -4,9 +4,11 @@
  * source/target ids) and calls onChange() after every mutation so the
  * graph re-renders.
  */
-export function createEditor({ getModel, onChange, onSelectNode }) {
+export function createEditor({ getModel, onChange, onSelectNode, onSearch }) {
   const el = (id) => document.getElementById(id);
 
+  const searchInput = el('search-input');
+  const searchResults = el('search-results');
   const nodeSelect = el('node-select');
   const nodeForm = el('node-form');
   const nodeId = el('node-id');
@@ -101,6 +103,54 @@ export function createEditor({ getModel, onChange, onSelectNode }) {
       : `(${model().links.length})`;
   }
 
+  // ---------- search ----------
+
+  function searchMatches() {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) return null;
+    return model().nodes.filter((n) =>
+      n.id.toLowerCase().includes(q)
+      || n.label.toLowerCase().includes(q)
+      || (n.tag ?? '').toLowerCase().includes(q)
+      || (n.description ?? '').toLowerCase().includes(q));
+  }
+
+  function renderSearch() {
+    const matches = searchMatches();
+    searchResults.innerHTML = '';
+    searchResults.classList.toggle('hidden', matches === null);
+    onSearch?.(matches === null ? null : new Set(matches.map((n) => n.id)));
+    if (matches === null) return;
+
+    if (!matches.length) {
+      const li = document.createElement('li');
+      li.className = 'no-matches';
+      li.textContent = 'No matches';
+      searchResults.appendChild(li);
+      return;
+    }
+    for (const n of matches) {
+      const li = document.createElement('li');
+      const swatch = document.createElement('span');
+      swatch.className = 'result-group';
+      swatch.style.background = model().groups[n.group]?.color ?? '#999';
+      const label = document.createElement('span');
+      label.textContent = n.label;
+      li.append(swatch, label);
+      li.title = n.description ?? '';
+      li.onclick = () => selectNode(n.id);
+      searchResults.appendChild(li);
+    }
+  }
+
+  searchInput.oninput = renderSearch;
+  searchInput.onkeydown = (event) => {
+    if (event.key === 'Escape') {
+      searchInput.value = '';
+      renderSearch();
+    }
+  };
+
   function render() {
     fillGroupOptions();
     fillNodeOptions(nodeSelect, selectedNodeId);
@@ -111,6 +161,7 @@ export function createEditor({ getModel, onChange, onSelectNode }) {
     renderNodeForm();
     renderLinkList();
     renderCounts();
+    renderSearch();
   }
 
   // ---------- node selection ----------

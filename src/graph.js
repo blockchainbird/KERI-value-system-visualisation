@@ -33,6 +33,7 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
 
   let data = { nodes: [], links: [], groups: {} };
   let selectedId = null;
+  let searchIds = null; // Set of node ids matching the current search, or null
   let nodeSel = d3.select(null);
   let linkSel = d3.select(null);
 
@@ -82,10 +83,22 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
     tooltip.classList.add('hidden');
   }
 
-  function applyHighlight(hoverId) {
-    if (hoverId == null) {
+  // Dim state when nothing is hovered: either no dimming, or dim non-search-matches.
+  function applyBaseDim() {
+    if (!searchIds) {
       nodeSel.classed('dimmed', false);
       linkSel.classed('dimmed', false).classed('highlight', false);
+      return;
+    }
+    nodeSel.classed('dimmed', (d) => !searchIds.has(d.id));
+    linkSel
+      .classed('highlight', false)
+      .classed('dimmed', (d) => !searchIds.has(d.source.id) || !searchIds.has(d.target.id));
+  }
+
+  function applyHighlight(hoverId) {
+    if (hoverId == null) {
+      applyBaseDim();
       return;
     }
     const ids = neighborIds(hoverId);
@@ -93,6 +106,11 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
     linkSel
       .classed('highlight', (d) => d.source.id === hoverId || d.target.id === hoverId)
       .classed('dimmed', (d) => d.source.id !== hoverId && d.target.id !== hoverId);
+  }
+
+  function setSearchHighlight(ids) {
+    searchIds = ids;
+    applyBaseDim();
   }
 
   const drag = d3.drag()
@@ -173,6 +191,8 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
     simulation.nodes(data.nodes).on('tick', ticked);
     simulation.force('link').links(data.links);
     simulation.alpha(0.5).restart();
+
+    applyBaseDim();
   }
 
   function ticked() {
@@ -206,5 +226,5 @@ export function createGraph(svgEl, { onNodeClick } = {}) {
       .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   }
 
-  return { update, setSelected, zoomFit };
+  return { update, setSelected, setSearchHighlight, zoomFit };
 }
