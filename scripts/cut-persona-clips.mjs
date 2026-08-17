@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 // Cuts the per-persona clip reels defined in src/data/keri-personas.json into
-// actual mp4 files, using the local KERICONF26 recordings.
+// actual mp4 files, using the hosted KERICONF26 recordings.
 //
-//   node scripts/cut-persona-clips.mjs [videosDir] [outDir]
+//   node scripts/cut-persona-clips.mjs [videosDir|galleryUrl] [outDir]
+//
+// Default source is https://keri.foundation/confs/2026/videos/ (site.json + mp4s).
+// Pass a local directory as the first argument (or VIDEOS_DIR) to cut from disk.
 //
 // Defaults:
-//   videosDir = ~/webdev/wordpress-sites/kerifoundation/confs/2026/videos/KERICONF26
-//   outDir    = <videosDir>/../clips/personas
+//   galleryUrl = https://keri.foundation/confs/2026/videos/
+//   outDir     = <repo>/clips/personas
+//              = <videosDir>/../clips/personas  (when a local dir is given)
 //
 // Per persona it writes <outDir>/<personaId>/NN-<clipId>.mp4 (normalised to
 // 720p so they can be joined) plus a single concatenated <personaId>-reel.mp4.
@@ -16,17 +20,35 @@
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execFileSync, execSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
-import { homedir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const personasPath = join(root, 'src/data/keri-personas.json');
 
-const videosDir = resolve(
-  process.argv[2] ||
-    join(homedir(), 'webdev/wordpress-sites/kerifoundation/confs/2026/videos/KERICONF26'),
-);
-const outDir = resolve(process.argv[3] || join(videosDir, '..', 'clips', 'personas'));
+const DEFAULT_GALLERY_URL = 'https://keri.foundation/confs/2026/videos/';
+
+function withSlash(url) {
+  return url.endsWith('/') ? url : `${url}/`;
+}
+
+function parseArgs() {
+  const arg1 = process.argv[2];
+  const arg2 = process.argv[3];
+  const galleryUrl = withSlash(process.env.GALLERY_URL || DEFAULT_GALLERY_URL);
+  const explicitLocal = process.env.VIDEOS_DIR || (arg1 && !arg1.startsWith('http') ? arg1 : null);
+  const localDir = explicitLocal && existsSync(resolve(explicitLocal)) ? resolve(explicitLocal) : null;
+  const outHint = process.env.OUT_DIR || (arg1?.startsWith('http') ? arg2 : explicitLocal ? arg2 : arg1);
+
+  return {
+    localDir,
+    galleryUrl: arg1?.startsWith('http') ? withSlash(arg1) : galleryUrl,
+    outDir: resolve(
+      outHint || (localDir ? join(localDir, '..', 'clips', 'personas') : join(root, 'clips', 'personas')),
+    ),
+  };
+}
+
+const { localDir, galleryUrl, outDir } = parseArgs();
 
 const norm = (s) =>
   s
@@ -77,14 +99,47 @@ function isPlayable(file) {
   }
 }
 
-function main() {
+async function loadSite() {
+  const url = `${galleryUrl}site.json`;
+  console.log(`Fetching ${url}`);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Fetch site.json failed: HTTP ${res.status}`);
+  return res.json();
+}
+
+function mp4Url(relPath) {
+  return new URL(relPath, galleryUrl).href;
+}
+
+function resolveSource(clip, files, videos) {
+  if (files) {
+    const src = findLocalFile(clip.videoTitle, files);
+    if (src) return { type: 'file', input: join(localDir, src) };
+  }
+  if (clip.path) return { type: 'url', input: mp4Url(clip.path) };
+  const exact = videos.find((v) => v.title === clip.videoTitle);
+  if (exact?.path) return { type: 'url', input: mp4Url(exact.path) };
+  const name = findLocalFile(
+    clip.videoTitle,
+    videos.map((v) => v.path.split('/').pop()),
+  );
+  if (!name) return null;
+  const match = videos.find((v) => v.path.split('/').pop() === name);
+  return match?.path ? { type: 'url', input: mp4Url(match.path) } : null;
+}
+
+async function main() {
   const { personas } = JSON.parse(readFileSync(personasPath, 'utf8'));
-  const files = readdirSync(videosDir);
+  const site = await loadSite();
+  const videos = site.videos ?? [];
+  const files = localDir ? readdirSync(localDir) : null;
   const vt = hasVideotoolbox();
   const videoArgs = vt
     ? ['-c:v', 'h264_videotoolbox', '-b:v', '3500k']
     : ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22'];
-  console.log(`Videos:  ${videosDir}\nOutput:  ${outDir}\nEncoder: ${vt ? 'h264_videotoolbox' : 'libx264'}\n`);
+  console.log(
+    `Videos:  ${localDir ?? `${galleryUrl}KERICONF26/ (remote)`}\nOutput:  ${outDir}\nEncoder: ${vt ? 'h264_videotoolbox' : 'libx264'}\n`,
+  );
 
   for (const p of personas) {
     const dir = join(outDir, p.id);
@@ -92,9 +147,9 @@ function main() {
     const cutPaths = [];
 
     p.clips.forEach((c, i) => {
-      const src = findLocalFile(c.videoTitle, files);
+      const src = resolveSource(c, files, videos);
       if (!src) {
-        console.warn(`  !! no local file for "${c.videoTitle}" — skipping ${c.id}`);
+        console.warn(`  !! no source for "${c.videoTitle}" — skipping ${c.id}`);
         return;
       }
       const out = join(dir, `${String(i + 1).padStart(2, '0')}-${c.id}.mp4`);
@@ -103,13 +158,22 @@ function main() {
         console.log(`  = ${p.id}/${String(i + 1).padStart(2, '0')}-${c.id}.mp4 (exists)`);
         return;
       }
-      console.log(`  > ${p.id}/${String(i + 1).padStart(2, '0')}-${c.id}.mp4  ${c.speaker} [${c.start}-${c.end}s]`);
+      const dur = Math.max((c.end ?? c.start + 60) - c.start, 1);
+      console.log(
+        `  > ${p.id}/${String(i + 1).padStart(2, '0')}-${c.id}.mp4  ${c.speaker} [${c.start}-${c.end}s] ${src.type === 'url' ? '(http)' : ''}`,
+      );
+      const httpArgs =
+        src.type === 'url'
+          ? ['-reconnect', '1', '-reconnect_streamed', '1', '-reconnect_delay_max', '5']
+          : [];
       execFileSync(
         'ffmpeg',
         [
           '-hide_banner', '-loglevel', 'error', '-y',
-          '-ss', String(c.start), '-to', String(c.end),
-          '-i', join(videosDir, src),
+          ...httpArgs,
+          '-ss', String(c.start),
+          '-i', src.input,
+          '-t', String(dur),
           '-vf', 'scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,fps=30',
           ...videoArgs,
           '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-ac', '2',
@@ -136,4 +200,4 @@ function main() {
   console.log('Done.');
 }
 
-main();
+await main();

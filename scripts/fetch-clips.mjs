@@ -13,12 +13,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 const SUB_ISSUES_URL =
   'https://api.github.com/repos/keri-foundation/CONF26-subtitles/issues/21/sub_issues?per_page=100';
 
-// site.json of the video gallery (provides the exact video titles that the
-// gallery slugifies into ids for its #<videoId>&t=..&e=.. deep links).
-const SITE_JSON_PATH =
-  '/Users/kor/webdev/wordpress-sites/kerifoundation/confs/2026/videos/site.json';
-
-// Public URL where the gallery is deployed. Adjust if the site moves.
+// Public gallery: site.json supplies the talk titles the gallery slugifies into
+// #<videoId>&t=..&e=.. deep links, plus the relative mp4 paths.
 const GALLERY_URL = 'https://keri.foundation/confs/2026/videos/';
 
 const VALUES_JSON = new URL('../src/data/keri-values.json', import.meta.url);
@@ -168,6 +164,7 @@ function clipsFromIssue(issue, video, knownIds) {
       issueUrl: issue.html_url,
       videoId: videoIdFromTitle(video.title),
       videoTitle: video.title,
+      path: video.path,
       talk,
       speaker,
       start: seg.start,
@@ -179,17 +176,26 @@ function clipsFromIssue(issue, video, knownIds) {
   return { clips, skipped };
 }
 
+async function loadSite() {
+  const url = `${GALLERY_URL}site.json`;
+  console.log(`Fetching ${url}`);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Fetch site.json failed: HTTP ${res.status}`);
+  return res.json();
+}
+
 async function main() {
   const values = JSON.parse(await readFile(VALUES_JSON, 'utf8'));
   const knownIds = new Set(values.nodes.map((n) => n.id));
 
-  const site = JSON.parse(await readFile(SITE_JSON_PATH, 'utf8'));
+  const site = await loadSite();
   const videos = site.videos;
 
   console.log(`Fetching ${SUB_ISSUES_URL}`);
-  const res = await fetch(SUB_ISSUES_URL, {
-    headers: { Accept: 'application/vnd.github+json' },
-  });
+  const headers = { Accept: 'application/vnd.github+json' };
+  const token = process.env.GITHUB_TOKEN;
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await fetch(SUB_ISSUES_URL, { headers });
   if (!res.ok) throw new Error(`Fetch failed: HTTP ${res.status}`);
   const issues = await res.json();
 

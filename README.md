@@ -103,11 +103,10 @@ includes a persona-based persuasion kit:
   (speaker diversity enforced, overlapping segments deduped) and regenerates
   `src/data/keri-personas.json` plus `docs/persona-clips.md`, a per-persona playlist of
   deep links into the video gallery.
-- **`npm run cut-persona-clips`** — cuts the selected segments from the local KERICONF26
-  mp4s with ffmpeg (720p, VideoToolbox when available) into
-  `…/confs/2026/videos/clips/personas/<persona>/`, and joins each persona's clips into a
-  single `<persona>-reel.mp4`. Pass the videos dir and output dir as arguments to override
-  the defaults.
+- **`npm run cut-persona-clips`** — cuts the selected segments from the hosted KERICONF26
+  mp4s with ffmpeg (720p, VideoToolbox when available) into `clips/personas/<persona>/`,
+  and joins each persona's clips into a single `<persona>-reel.mp4`. Pass a local videos
+  dir and output dir as arguments to override the defaults.
 
 ## Configuring the dataset
 

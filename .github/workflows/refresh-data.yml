@@ -1,0 +1,61 @@
+name: Refresh data and build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    name: Fetch data, cut persona clips, and build the app
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch graph data from the Google Sheet
+        run: npm run fetch-data
+
+      - name: Fetch clips from SEGMENTS sub-issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run fetch-clips
+
+      - name: Build persona playlists
+        run: npm run build-personas
+
+      - name: Cut persona clips from keri.foundation mp4s
+        env:
+          GALLERY_URL: https://keri.foundation/confs/2026/videos/
+          OUT_DIR: clips/personas
+        run: npm run cut-persona-clips
+
+      - name: Production build
+        run: npm run build
+
+      - name: Upload generated data, dist, and clips
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-output
+          path: |
+            src/data/keri-values.json
+            src/data/keri-clips.json
+            src/data/keri-personas.json
+            docs/persona-clips.md
+            dist/
+            clips/personas/
