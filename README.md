@@ -91,6 +91,24 @@ opens the talk at the right moment and stops at the end of the clip. The gallery
 set in `scripts/fetch-clips.mjs` (`GALLERY_URL`) and stored in the JSON's `meta.galleryUrl`.
 The graph tooltip also shows each node's clip count.
 
+## Personas
+
+To attack the market-penetration problem (the MARKETPEN "missing value" node), the repo
+includes a persona-based persuasion kit:
+
+- **`docs/persona-plan.md`** — six personas (CISO, regulator, developer, business exec,
+  SSI skeptic, end user), each mapped to the value tags that resonate with them, with key
+  messages, objection handling, tactics, calls to action, and a cross-persona campaign plan.
+- **`npm run build-personas`** — scores the value-tagged clips against each persona's tags
+  (speaker diversity enforced, overlapping segments deduped) and regenerates
+  `src/data/keri-personas.json` plus `docs/persona-clips.md`, a per-persona playlist of
+  deep links into the video gallery.
+- **`npm run cut-persona-clips`** — cuts the selected segments from the local KERICONF26
+  mp4s with ffmpeg (720p, VideoToolbox when available) into
+  `…/confs/2026/videos/clips/personas/<persona>/`, and joins each persona's clips into a
+  single `<persona>-reel.mp4`. Pass the videos dir and output dir as arguments to override
+  the defaults.
+
 ## Configuring the dataset
 
 The default dataset lives in `src/data/keri-values.json` and is plain JSON:
