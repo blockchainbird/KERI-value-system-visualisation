@@ -3,8 +3,8 @@
     "title": "KERI Value System",
     "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?gid=1745295798&single=true&output=csv",
     "verticesSource": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQoXBjF4JsmIt3RDMBE50hvT_RDipotMcsELpQxE_GEY9ieCoFf5uz1bOUzKjE6vvs333QBdgDHjKeK/pub?gid=1369863761&single=true&output=csv",
-    "updated": "2026-08-15",
-    "notes": "Generated from the published Google Sheet by scripts/fetch-data.mjs. Nodes come from the Nodes tab; links come from the Vertices tab (Source, Destination, Connection Context, Personas). Node weight is derived from the number of connections (3-9); link weight defaults to 1. Weights are subjective and adjustable in the edit panel."
+    "updated": "2026-08-17",
+    "notes": "Generated from the published Google Sheet by scripts/fetch-data.mjs. Nodes come from the Nodes tab; links come from the Vertices tab (Source, Destination, Connection Context, Personas). Only rows with Status \"Active\" are included. Node weight is derived from the number of connections (3-9); link weight defaults to 1. Weights are subjective and adjustable in the edit panel."
   },
   "groups": {
     "unique-value": {
@@ -27,7 +27,7 @@
       "group": "unique-value",
       "weight": 9,
       "tag": "",
-      "description": "persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation"
+      "description": "Persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation"
     },
     {
       "id": "ENTROPY",
@@ -35,7 +35,7 @@
       "group": "unique-value",
       "weight": 7,
       "tag": "",
-      "description": "unbreakable, only bruteforceable, sufficient randomness, uncorrelatable, bulk issuances"
+      "description": "Unbreakable, only bruteforceable, sufficient randomness, uncorrelatable, bulk issuances"
     },
     {
       "id": "SECUFIRST",
@@ -65,15 +65,15 @@
       "id": "NOSHARSECR",
       "label": "NOSHARSECR",
       "group": "unique-value",
-      "weight": 7,
+      "weight": 6,
       "tag": "",
-      "description": "Shared Secrets and you're done (by AI), no middlemen needed, no shared governance (blockchain)"
+      "description": "Don't use shared secrets, because you're done (by AI) when you do. No middlemen and no shared governance (blockchain) needed."
     },
     {
       "id": "MINIMSUFFI",
       "label": "MINIMSUFFI",
       "group": "unique-value",
-      "weight": 5,
+      "weight": 4,
       "tag": "",
       "description": "Minimally sufficient (all others will converge to KERI), no partial KERI possible, no \"KERI Light\", single source of truth."
     },
@@ -97,7 +97,7 @@
       "id": "ATSCALE",
       "label": "ATSCALE",
       "group": "unique-value",
-      "weight": 9,
+      "weight": 8,
       "tag": "",
       "description": "Able to service global scale, omnipresent, any time, anyone, anywhere, versatility, interoperability by design, (be able to) scale up."
     },
@@ -121,7 +121,7 @@
       "id": "LEGOVPOL",
       "label": "LEGOVPOL",
       "group": "unique-value",
-      "weight": 8,
+      "weight": 9,
       "tag": "",
       "description": "Implementation/infrastructure for Legal (laws, regulations) governance, policies, (readable) Ricardian contracts"
     },
@@ -129,7 +129,7 @@
       "id": "SPACTRILL",
       "label": "SPACTRILL",
       "group": "unique-value",
-      "weight": 7,
+      "weight": 8,
       "tag": "",
       "description": "Spac trillema: Security first always. Gradual lifting of confidentiality. No privacy without accountability, delegated guardian relationships, cooperative, balanced through multi-sig authorizations"
     },
@@ -153,7 +153,7 @@
       "id": "REALMPRAGM",
       "label": "REALMPRAGM",
       "group": "unique-value",
-      "weight": 6,
+      "weight": 7,
       "tag": "",
       "description": "Realism pragmatism: Correlation always on the web, no privacy on the web. Accountable, not trying to constrain; no hiding but 'no exploitation'; simplicity, clarity, availability of tooling, reduce troubles and keep it simple."
     },
@@ -217,7 +217,7 @@
       "id": "INCLUSIVE",
       "label": "INCLUSIVE",
       "group": "common-value",
-      "weight": 6,
+      "weight": 5,
       "tag": "",
       "description": "All encompassing, spanning protocol, accessible for all people, most universal, open-source, adhere to open standards, free, if it wasn't open source, we would not consider it. comprehensive utility"
     },
@@ -225,9 +225,9 @@
       "id": "VERNOTVAL",
       "label": "VERNOTVAL",
       "group": "common-value",
-      "weight": 7,
+      "weight": 6,
       "tag": "",
-      "description": "Verify not validate, zero-trust environments, sign everything to be verified, hash data and credentials in verifiable containers, proof and prove. Litigious contentions in nobody's land: how to trust the other side of the ecosystem. Less susceptible to fraud."
+      "description": "Verify do not just validate. Use zero-trust environments, sign everything to be verified, hash data and credentials in verifiable containers, proof and prove. Validation is a manual process, susceptible to human error and randomness. Preempt litigious contentions in nobody's land created by broken validation chains: how to trust the other side of the ecosystem. Less susceptible to fraud."
     },
     {
       "id": "INCENCOOP",
@@ -273,23 +273,15 @@
       "id": "INFRASURF",
       "label": "INFRASURF",
       "group": "common-value",
-      "weight": 8,
+      "weight": 7,
       "tag": "",
       "description": "Surf existing infrastructure (OOBIs via X.509, VVP on JWT in Telco, etc), existing laws and regulations, existing programming logic (like structured concurrency in HIO), existing economic models (SEDI), automate manual processes, KERI and ACDC wrappers around existing transactions in existing systems."
-    },
-    {
-      "id": "MARKETPEN",
-      "label": "MARKETPEN",
-      "group": "missing-value",
-      "weight": 9,
-      "tag": "",
-      "description": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, universally present and inclusive"
     },
     {
       "id": "GRASPEASY",
       "label": "GRASPEASY",
       "group": "missing-value",
-      "weight": 7,
+      "weight": 6,
       "tag": "",
       "description": "Easy to explain protocols and tools, simple, clear, as opposed to complicated, not-ingrained concepts, platypus, elephant and blind men"
     },
@@ -297,7 +289,7 @@
       "id": "MATURITY",
       "label": "MATURITY",
       "group": "missing-value",
-      "weight": 5,
+      "weight": 3,
       "tag": "",
       "description": "Weathered, complete, thoroughly tested, established in the market, everywhere under the hood, higher-level coding and APIs"
     },
@@ -305,7 +297,7 @@
       "id": "COMMUNEDU",
       "label": "COMMUNEDU",
       "group": "missing-value",
-      "weight": 6,
+      "weight": 5,
       "tag": "",
       "description": "Community education of managing secrets, privacy non-existing, selective disclosure, self-association, now being able to stack, (history of) provenance, security breach breaks all, etc."
     }
@@ -316,482 +308,454 @@
       "target": "SECUFIRST",
       "weight": 1,
       "context": "a legal framework and system that supports accountability, non-repudiation, end-to-end verifiability, verifiable to the root of trust, trustworthiness, signed everything, no cross-context correlation",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "SAFETY",
       "target": "FAULTTOL",
       "weight": 1,
       "context": "We can't extinguish faults and breaches, we can be tolerant of them",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "SAFETY",
       "target": "PROVCONTXT",
       "weight": 1,
       "context": "verifiable data authenticity that proves context in schemas",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "SAFETY",
       "target": "RECOUPEERS",
       "weight": 1,
       "context": "accountability and recourse when your data is exploited",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "RECOUPEERS",
       "target": "1PERSCONTR",
       "weight": 1,
       "context": "You have means for recourse on peers: accountability, no exploitation, profiling errors. Peers with profit-seeking motives, data errors that hurt you",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "UNBROCHAIN",
       "target": "NOWSTACK",
       "weight": 1,
       "context": "Build on a proven unbroken chain of events, on backward compatibility, and attributable, non-repudiable commitments.",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "SPACTRILL",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "Golden rule, always. Sign and hash everything everywhere for everyone.",
-      "personas": ""
+      "context": "Golden rule, always. Sign and/or provide provenance by hashing data for everything, everywhere, for everyone.",
+      "personas": "All"
     },
     {
       "source": "SPACTRILL",
       "target": "GRALIFCONF",
       "weight": 1,
       "context": "Spac trillema: selective disclosure, no privacy without accountability, delegated guardian relationships, cooperative, balanced through multi-sig authorizations",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "1PERSCONTR",
       "weight": 1,
       "context": "Although third parties provide a root of trust, the first person controls their identifiers, can delegate or terminate them.",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "SAFETY",
       "weight": 1,
       "context": "Organizational Identity and root of trust, accountability, legal mandates and obligations, delegation of tasks and responsibilities, gradual lifting of confidentiality.",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "RECOUPEERS",
       "weight": 1,
       "context": "Traceability, accountability, records of decisions, legal mandates and obligations.",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "UNBROCHAIN",
       "weight": 1,
       "context": "Traceability, records of decisions",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "PROVCONTXT",
       "weight": 1,
       "context": "Organizational Identity lets you prove the context in which you and your peers operate",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "LEGOVPOL",
       "weight": 1,
       "context": "Legal mandates and obligations attached to a position, various roles, authorizations and tasks",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "SPACTRILL",
       "weight": 1,
       "context": "gradual lifting of confidentiality, gradual disclosure depending on counterpart role, contextual display, selective disclosure.",
-      "personas": ""
+      "personas": "All"
     },
     {
       "source": "ORGID",
       "target": "VERCOMTMT",
       "weight": 1,
-      "context": "Organizational Identity and root of trust, ~1PERSCONTR, SAFETY, accountability ~RECOUPEERS, records of decisions ~UNBROCHAIN, PROVCONTXT transfer credential sets, legal mandates and obligations ~LEGOVPOL delegation of tasks and responsibilities ~SPACTRILL, VERCOMTMT",
-      "personas": ""
+      "context": "Commitments and decisions made in a specific role and context are recorded, attributed to actors, and held accountable.",
+      "personas": "All"
     },
     {
       "source": "REALMPRAGM",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "no hiding but 'no exploitation' (~SECUFIRST, ~ATSCALE)",
-      "personas": ""
+      "context": "Privacy doesn't exist on the internet, and there's nowhere to hide anymore under the siege of AI. We can't prevent fraud. What we've got left is maximum security and safety through recourse against the exploitation of your data.",
+      "personas": "All"
     },
     {
       "source": "REALMPRAGM",
       "target": "ATSCALE",
       "weight": 1,
-      "context": "no hiding but 'no exploitation' (~SECUFIRST, ~ATSCALE)",
-      "personas": ""
+      "context": "Rethinking identity systems should realistically be done at a global scale, long-lasting identifier state, and credentials, and omnipresent.",
+      "personas": "All"
     },
     {
       "source": "REALMPRAGM",
       "target": "EASEOFUSE",
       "weight": 1,
-      "context": "simplicity, clarity, availability of tooling, reduce troubles ~EASEOFUSE",
-      "personas": ""
+      "context": "Simplicity, clarity, availability of tooling, and reduced troubles",
+      "personas": "All"
     },
     {
       "source": "VERCOMTMT",
       "target": "PERPETUAL",
       "weight": 1,
-      "context": "Verifiable Commitments to data, long term (~PERPETUAL) non-repudiability, ~PROVCONTXT, wrap and enrich other dataformats, verifiable data graph {conscientious}",
-      "personas": ""
+      "context": "Verifiable Commitments to data need to be verifiable in the long run in their historical context.",
+      "personas": "All"
     },
     {
       "source": "VERCOMTMT",
       "target": "PROVCONTXT",
       "weight": 1,
-      "context": "Verifiable Commitments to data, long term (~PERPETUAL) non-repudiability, ~PROVCONTXT, wrap and enrich other dataformats, verifiable data graph {conscientious}",
-      "personas": ""
+      "context": "Any commitment made in a specific context should be proofed (the procedure) and proven (the result positive) and should be verifiable.",
+      "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
-      "personas": ""
+      "context": "We can't extinguish fraud. Therefore, we need 100% sure verifiable attribution to the root-of-trust to enforce fault tolerance and recourse against bad actors.",
+      "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "RECOUPEERS",
       "weight": 1,
-      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
-      "personas": ""
+      "context": "Fraud committed by known peers in the ecosystem, will be detected, non-repudiable, attributable to them and they can be held accountable as far as legal recourse.",
+      "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "FAULTTOL",
       "weight": 1,
-      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
-      "personas": ""
+      "context": "We can't extinguish fraud. But if it's detected quickly and the time window and scope of the effect are small enough, it won't be worth the effort to act maliciously.",
+      "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
-      "personas": ""
+      "context": "Others are susceptible to breach because of known security issues; moreover, they can't prevent exploitation because of the absence of a mechanism for having recourse against bad actors.",
+      "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "ECONINFEA",
       "weight": 1,
-      "context": "the main stickiness factor that's compelling and contagious ~SECUFIRST, ~RECOUPEERS, ~FAULTTOL, ~OTHUNSAFE, ~ECONINFEA",
-      "personas": ""
+      "context": "Encrypted data is scattered around cyberspace. The decentralized nature of first-person-controlled and state-endorsed identity, fundamental security measures and the fault tolerance in the protocol make it economically infeasible to attack.",
+      "personas": "All"
     },
     {
       "source": "VERNOTVAL",
       "target": "UNBROCHAIN",
       "weight": 1,
-      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "context": "Authoritative data structures deliver unbroken chains of events, attributable and authentic in a cryptographically verifiable way.",
       "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "ECONINFEA",
       "weight": 1,
-      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "context": "When there are zero-trust environments, everything is encrypted, signed and hashed to be verified, and there's a procedure to prove in place, then it becomes infeasible to attack.",
       "personas": ""
     },
     {
       "source": "VERNOTVAL",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
-      "personas": ""
-    },
-    {
-      "source": "VERNOTVAL",
-      "target": "NOSHARSECR",
-      "weight": 1,
-      "context": "Verify not validate (~UNBROCHAIN, ~ECONINF, ~SECUFIRST), zero-trust environments, sign everything to be verified (NOSHARSECR), proof and prove",
+      "context": "Cryptographically encapsulated and watermarked content and (meta)data can also be cryptographically verified to the root-of-trust to abide by the security first principle.",
       "personas": ""
     },
     {
       "source": "PROVCONTXT",
       "target": "UNBROCHAIN",
       "weight": 1,
-      "context": "Provide and lock in context of the process (~UNBROCHAIN, ~VERSIONING), establish organizational binding and content, schemas, manage personal data/attributes, provably deterministic (no hanging processes/deadlocks)",
+      "context": "A chain of evidence is as strong as its weakest link. To prove context, it needs to be unbroken.",
       "personas": ""
     },
     {
       "source": "NOWSTACK",
       "target": "EASEOFUSE",
       "weight": 1,
-      "context": "“now we can …”, \"combinations of the above\" ~EASEOFUSE",
+      "context": "Reuse components that may even enforce each other increases the ease of use as a whole.",
       "personas": ""
     },
     {
       "source": "EASEOFUSE",
       "target": "CANMODELRW",
       "weight": 1,
-      "context": "interoperability, meet customers where they are, reduce complication ~CANMODELRW, Hyper churn your credentials {mature}",
-      "personas": ""
-    },
-    {
-      "source": "MARKETPEN",
-      "target": "INCLUSIVE",
-      "weight": 1,
-      "context": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, ~INCLUSIVE {mature}",
-      "personas": ""
-    },
-    {
-      "source": "MATURITY",
-      "target": "MARKETPEN",
-      "weight": 1,
-      "context": "weathered, complete, thoroughly tested, established (~MARKETPEN), everywhere under the hood, higher level coding and APIs {mature}",
+      "context": "The more variations possible of interoperable, securely stacked components, the more ability we have to usefully model the real world.",
       "personas": ""
     },
     {
       "source": "PERPETUAL",
       "target": "ENTROPY",
       "weight": 1,
-      "context": "persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation",
+      "context": "Because of crypto periods, AI and quantum computing, persistent identifiers need near-perfect entropy as a basis for their cryptography and cryptogrpahical operations.",
       "personas": "All"
     },
     {
       "source": "PERPETUAL",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation",
+      "context": "Persistent identity needs long-lasting security foundations and measures because there's no trade-off: you're either secure or broken.",
       "personas": "All"
     },
     {
       "source": "PERPETUAL",
       "target": "SAFETY",
       "weight": 1,
-      "context": "persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation",
+      "context": "Security first always, and added to the mix of perpetual safety is first-person control, duplicity detection, fault tolerance, and recourse against exploitation.",
       "personas": "All"
     },
     {
       "source": "PERPETUAL",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "persistent identity, crypto period, pre-rotation, hashed-not-signed, duplicity detection, self-associate data, reputation",
+      "context": "Persistent identity has very little trade space with the emergence of AI. It's either a centralised continuous identity system with tracking and surveillance or SEDI/KERISuite-based solutions, all the other solutions are provably unsafe.",
       "personas": "All"
     },
     {
       "source": "ENTROPY",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "unbreakable, only bruteforceable, sufficient randomness, uncorrelatable, bulk issuances",
+      "context": "Near perfect randomness, very difficult to break, is one of the most foundational features of the security-first-always principle.",
       "personas": "All"
     },
     {
       "source": "SECUFIRST",
       "target": "ENTROPY",
       "weight": 1,
-      "context": "Security first in the protocol and the system, because you will have nothing if it breaks. Fortify upfront (uncorrelatability), no intermediate infrastructure vulnerabilities, extra security mechanisms where relevant, like decentralization and bulk issuances.",
+      "context": "Security first always in the protocol and the system, demands near perfect randomness, very difficult to break.",
       "personas": "All"
     },
     {
       "source": "SECUFIRST",
       "target": "NOSHARSECR",
       "weight": 1,
-      "context": "Security first in the protocol and the system, because you will have nothing if it breaks. Fortify upfront (uncorrelatability), no intermediate infrastructure vulnerabilities, extra security mechanisms where relevant, like decentralization and bulk issuances.",
+      "context": "The Security-first-always principle in a protocol and system fully rejects shared-secret-based infrastructure.",
       "personas": "All"
     },
     {
       "source": "SECUFIRST",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Security first in the protocol and the system, because you will have nothing if it breaks. Fortify upfront (uncorrelatability), no intermediate infrastructure vulnerabilities, extra security mechanisms where relevant, like decentralization and bulk issuances.",
+      "context": "Other identifier systems accept one or more known vulnerabilities to which they are susceptible in the AI age. This is unacceptable within the security-first-always  principle.",
       "personas": "All"
     },
     {
       "source": "SAFETY",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Security first, always, for humans and things, built for fault tolerance and proven context. Accountability so that you have recourse against your peers. Non-repudiation, end-to-end verifiability, verifiable to the root of trust, sign everything, no cross-context correlation. Many eyes make bugs shallow. When in doubt, rotate out.",
+      "context": "Other identifier systems are susceptible to known attacks. Moreover, they are not fault-tolerant when broken.  Lastly, they lack the supporting evidence needed to mount a recourse.",
       "personas": "All"
     },
     {
       "source": "RECOUPEERS",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Recourse on peers: accountability, no exploitation, profiling errors.  You stay in control over peers with profit-seeking motives. Data errors hurt individuals; dangerous, well-meaning bureaucrats associate data without consent. Data can be weaponized against you.",
+      "context": "Accountability needs attribution, context, and proof. Other systems lack the supporting evidence needed to mount a case for recourse.",
       "personas": "All"
     },
     {
       "source": "NOSHARSECR",
       "target": "SECUFIRST",
       "weight": 1,
-      "context": "Shared Secrets and you're done (by AI), no middlemen needed, no shared governance (blockchain)",
+      "context": "Shared-secret-based infrastructure that fully rejects shared-secret-based solutions adheres to the Security-first-always principle of a protocol and system.",
       "personas": "All"
     },
     {
       "source": "NOSHARSECR",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Shared Secrets and you're done (by AI), no middlemen needed, no shared governance (blockchain)",
+      "context": "Because other systems accept shared secrets in their foundations, they are susceptible to attacks. Those that don't are safer.",
       "personas": "All"
     },
     {
       "source": "MINIMSUFFI",
       "target": "ATSCALE",
       "weight": 1,
-      "context": "Minimally sufficient (all others will converge to KERI), no partial KERI possible, no \"KERI Light\", single source of truth.",
+      "context": "Always striving for minimally sufficient means adds to scalability of any infrastructure.",
       "personas": "All"
     },
     {
       "source": "FAULTTOL",
       "target": "SAFETY",
       "weight": 1,
-      "context": "Fault tolerant because you anticipate breaches, theft, errors, etc and you recover from these events, cascade consequences (automatically revoke authorization), no single point of failure",
+      "context": "Anticipating breaches, theft, errors, etc by taking precautions and having automation in place to recover from these events, adds to a system's safety.",
       "personas": "All"
     },
     {
       "source": "FAULTTOL",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Fault tolerant because you anticipate breaches, theft, errors, etc and you recover from these events, cascade consequences (automatically revoke authorization), no single point of failure",
+      "context": "Fault-tolerant systems are safer than those without that capability.",
       "personas": "All"
     },
     {
       "source": "UNBROCHAIN",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Unbroken chain of events (2 root of trust, hash tree, blockchain), git and github versioning, actions, versioning and backward compatibility, etc.",
-      "personas": "All"
-    },
-    {
-      "source": "ATSCALE",
-      "target": "MINIMSUFFI",
-      "weight": 1,
-      "context": "Able to service global scale, omnipresent, any time, anyone, anywhere, versatility, interoperability by design, (be able to) scale up.",
+      "context": "Other systems break their recorded chain of events for various reasons (signed and expired, trusted middlemen involved, unproven governance, unproven data authenticity, shared secrets, broken backward compatibility, etc.), instantly rendering the chain unverifiable.",
       "personas": "All"
     },
     {
       "source": "ATSCALE",
       "target": "INCLUSIVE",
       "weight": 1,
-      "context": "Able to service global scale, omnipresent, any time, anyone, anywhere, versatility, interoperability by design, (be able to) scale up.",
+      "context": "General trust in digital services universally operated at a global scale naturally grows to a competence to be inclusive.",
       "personas": "All"
     },
     {
       "source": "GRALIFCONF",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Gradual lifting of confidentiality, gradual disclosure depending on counterpart role, contextual display, selective disclosure.",
+      "context": "Other identifier systems are less safe to use because they have very rigid disclosure mechanisms; you either see all or nothing, always or never, etc.",
       "personas": "All"
     },
     {
       "source": "AGNOSTIC",
       "target": "ECONINFEA",
       "weight": 1,
-      "context": "Agnostic; cryptography agnostic, wallet agnostic, intermediate infrastructure agnostic, no vendor lock, versatility",
+      "context": "A variety of possible components supporting a certain task in a protocol makes it less feasible to attack successfully and persistently.",
       "personas": "All"
     },
     {
       "source": "AGNOSTIC",
       "target": "BIZEFFCASE",
       "weight": 1,
-      "context": "Agnostic; cryptography agnostic, wallet agnostic, intermediate infrastructure agnostic, no vendor lock, versatility",
+      "context": "No vendor lock-in and open competition ensure a level playing field, support healthy business models, and improve efficiency in all parts of the protocol where multiple providers can operate.",
       "personas": "All"
     },
     {
       "source": "LEGOVPOL",
       "target": "INCENCOOP",
       "weight": 1,
-      "context": "Implementation/infrastructure for Legal (laws, regulations) governance, policies, (readable) Ricardian contracts",
+      "context": "Rules and regulations need to be set up to incentivize cooperation among actors involved.",
       "personas": "All"
     },
     {
       "source": "SPACTRILL",
       "target": "RECOUPEERS",
       "weight": 1,
-      "context": "Spac trillema: Security first always. Gradual lifting of confidentiality. No privacy without accountability, delegated guardian relationships, cooperative, balanced through multi-sig authorizations",
+      "context": "No privacy without accountability, delegated guardian relationships, cooperative, and balanced through multi-sig authorizations A combination of cryptography and legal liability is required.",
       "personas": "All"
     },
     {
       "source": "HARPROB1ST",
       "target": "PERPETUAL",
       "weight": 1,
-      "context": "Solved hard problem first, got rid of complexity, decentralized trust, persistent identifiers, delegable key management, solved problems others can't solve, got rid of username-passwords, truly portable identifiers, made it scalable and faulttolerant at all times",
+      "context": "Solved hard problem of persistent identifiers first: truly portable (pre-)rotatable identifiers and credentials that stand the test of time (cryptoperiods)",
       "personas": "All"
     },
     {
       "source": "HARPROB1ST",
       "target": "FAULTTOL",
       "weight": 1,
-      "context": "Solved hard problem first, got rid of complexity, decentralized trust, persistent identifiers, delegable key management, solved problems others can't solve, got rid of username-passwords, truly portable identifiers, made it scalable and faulttolerant at all times",
+      "context": "Designing fault-tolerant protocols and systems is often a hard problem. Examples: decentralized self-sovereign identifiers, rotation of private keys, transferring ownership and control over credentials, and obfuscating content and metadata through bulk issuances.",
       "personas": "All"
     },
     {
       "source": "HARPROB1ST",
       "target": "UNBROCHAIN",
       "weight": 1,
-      "context": "Solved hard problem first, got rid of complexity, decentralized trust, persistent identifiers, delegable key management, solved problems others can't solve, got rid of username-passwords, truly portable identifiers, made it scalable and faulttolerant at all times",
+      "context": "A hash-graph of data containers, authentically chained together and in a proven context",
       "personas": "All"
     },
     {
       "source": "HARPROB1ST",
       "target": "ATSCALE",
       "weight": 1,
-      "context": "Solved hard problem first, got rid of complexity, decentralized trust, persistent identifiers, delegable key management, solved problems others can't solve, got rid of username-passwords, truly portable identifiers, made it scalable and faulttolerant at all times",
+      "context": "To keep a protocol working at scale from inception, through growth, and in maturity.",
       "personas": "All"
     },
     {
       "source": "HARPROB1ST",
       "target": "GRALIFCONF",
       "weight": 1,
-      "context": "Solved hard problem first, got rid of complexity, decentralized trust, persistent identifiers, delegable key management, solved problems others can't solve, got rid of username-passwords, truly portable identifiers, made it scalable and faulttolerant at all times",
+      "context": "Solved hard problem first to self-address identifiers with authentic authoritative data attached, prove the content and metadata in a blinded state, and selectively and gradually disclose the data.",
       "personas": "All"
     },
     {
       "source": "CANMODELRW",
       "target": "OTHUNSAFE",
       "weight": 1,
-      "context": "Can model real-world (authority) structures; all others can't! Asynchronous operation online/offline , sustain reputation",
+      "context": "Can model real-world (authority) structures in a consistent way; all others can't. Think of breached identifiers: no security, then no privacy, and no confidentiality. How to sustain real-world reputation in a system that's susceptible to breaches and has known flaws that attackers will exploit?",
       "personas": "All"
     },
     {
       "source": "ANTIFRAUD",
       "target": "SAFETY",
       "weight": 1,
-      "context": "The main stickiness factor that's compelling and contagious. Safety is pivotal, but we can't extinguish fraud. Therefore, we need fault tolerance and recourse against bad actors. Because of its decentralized nature, even AI-driven attacks won't pay off. Other systems can't offer this value; they have known flaws that attackers will exploit.",
+      "context": "We can't extinguish fraud. However, best possible safety against attacks stems from decentralization, fault tolerance and recourse against bad actors.",
       "personas": "All"
     },
     {
       "source": "1PERSCONTR",
       "target": "ORGID",
       "weight": 1,
-      "context": "First-person control embedded in legal structures, self-sovereign identity, no usernames and passwords, create personas, consent through transparency, no phone home; who's the better advocate for you than you? Stop multiple fees for doccing, updating, forwarding, extracting, aggregating data. Not taken hostage by multiple-linked accounts of one company.",
+      "context": "First-person control embedded in legal structures, secondary roots of trusts, self-sovereign role-based identity.",
       "personas": "All"
     },
     {
       "source": "1PERSCONTR",
       "target": "RECOUPEERS",
       "weight": 1,
-      "context": "First-person control embedded in legal structures, self-sovereign identity, no usernames and passwords, create personas, consent through transparency, no phone home; who's the better advocate for you than you? Stop multiple fees for doccing, updating, forwarding, extracting, aggregating data. Not taken hostage by multiple-linked accounts of one company.",
+      "context": "First-person control over (attestation about) personal data is operated by cryptographic solutions that alone cannot sustainably protect privacy, either individual data rights against surveillance and exploitation. A combination of cryptography and legal liability is required, and that spurs first-person action: Who's the better watchdog for you than you? Stop the exploitation of your data.",
       "personas": "All"
     },
     {
       "source": "1PERSCONTR",
       "target": "SAFETY",
       "weight": 1,
-      "context": "First-person control embedded in legal structures, self-sovereign identity, no usernames and passwords, create personas, consent through transparency, no phone home; who's the better advocate for you than you? Stop multiple fees for doccing, updating, forwarding, extracting, aggregating data. Not taken hostage by multiple-linked accounts of one company.",
+      "context": "First-person control over identifiers, data, and credentials ignites self-sovereign guardianship. And who's a safer guardian than you?",
       "personas": "All"
     },
     {
       "source": "1PERSCONTR",
       "target": "LEGOVPOL",
       "weight": 1,
-      "context": "First-person control embedded in legal structures, self-sovereign identity, no usernames and passwords, create personas, consent through transparency, no phone home; who's the better advocate for you than you? Stop multiple fees for doccing, updating, forwarding, extracting, aggregating data. Not taken hostage by multiple-linked accounts of one company.",
+      "context": "First-person control needs to be embedded in legal structures, governance and policies, such as a fiduciary act.",
       "personas": "All"
     },
     {
@@ -866,13 +830,6 @@
     },
     {
       "source": "INFRASURF",
-      "target": "MARKETPEN",
-      "weight": 1,
-      "context": "Surf existing infrastructure (OOBIs via X.509, VVP on JWT in Telco, etc), existing laws and regulations, existing programming logic (like structured concurrency in HIO), existing economic models (SEDI), automate manual processes, KERI and ACDC wrappers around existing transactions in existing systems.",
-      "personas": "All"
-    },
-    {
-      "source": "INFRASURF",
       "target": "GRASPEASY",
       "weight": 1,
       "context": "Surf existing infrastructure (OOBIs via X.509, VVP on JWT in Telco, etc), existing laws and regulations, existing programming logic (like structured concurrency in HIO), existing economic models (SEDI), automate manual processes, KERI and ACDC wrappers around existing transactions in existing systems.",
@@ -883,27 +840,6 @@
       "target": "BIZEFFCASE",
       "weight": 1,
       "context": "Surf existing infrastructure (OOBIs via X.509, VVP on JWT in Telco, etc), existing laws and regulations, existing programming logic (like structured concurrency in HIO), existing economic models (SEDI), automate manual processes, KERI and ACDC wrappers around existing transactions in existing systems.",
-      "personas": "All"
-    },
-    {
-      "source": "MARKETPEN",
-      "target": "MATURITY",
-      "weight": 1,
-      "context": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, universally present and inclusive",
-      "personas": "All"
-    },
-    {
-      "source": "MARKETPEN",
-      "target": "GRASPEASY",
-      "weight": 1,
-      "context": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, universally present and inclusive",
-      "personas": "All"
-    },
-    {
-      "source": "MARKETPEN",
-      "target": "COMMUNEDU",
-      "weight": 1,
-      "context": "Market penetration, trust in the protocol, acceptance, interoperability with other protocols, bridge to legacy systems, flooding capacity: seeing is believing, compelling and contagious, universally present and inclusive",
       "personas": "All"
     },
     {
@@ -918,6 +854,20 @@
       "target": "GRASPEASY",
       "weight": 1,
       "context": "Community education of managing secrets, privacy non-existing, selective disclosure, self-association, now being able to stack, (history of) provenance, security breach breaks all, etc.",
+      "personas": "All"
+    },
+    {
+      "source": "REALMPRAGM",
+      "target": "ANTIFRAUD",
+      "weight": 1,
+      "context": "Realism pragmatism: Correlation always on the web, no privacy on the web. Accountable, not trying to constrain; no hiding but 'no exploitation'; simplicity, clarity, availability of tooling, reduce troubles and keep it simple.",
+      "personas": "All"
+    },
+    {
+      "source": "SPACTRILL",
+      "target": "LEGOVPOL",
+      "weight": 1,
+      "context": "Cryptographic solutions alone cannot sustainably protect privacy, either individual data rights or against surveillance. A comprehensive approach that combines cryptography and legal liability is required.",
       "personas": "All"
     }
   ]

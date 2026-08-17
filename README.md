@@ -60,9 +60,10 @@ Use the slide-in editor (left-edge **Editor** tab, bottom-right **Editor** butto
 ## Updating from the Google Sheet
 
 `npm run fetch-data` downloads the published **Nodes** and **Vertices** tabs and regenerates
-`src/data/keri-values.json`. It parses each node's Tag, Description, and Type; extracts
-`{conscientious}` / `{mature}` markers into the node's tag field; builds one directed link
-per Vertices-tab row (Source → Destination, with Connection Context and Personas); adds any
+`src/data/keri-values.json`. Only rows whose **Status** is `Active` are processed; other
+statuses (for example `Inactive`) are skipped. It parses each node's Tag, Description, and Type;
+extracts `{conscientious}` / `{mature}` markers into the node's tag field; builds one directed
+link per Vertices-tab row (Source → Destination, with Connection Context and Personas); adds any
 Nodes-tab references that are not yet in Vertices; and derives node weights from
 connectivity. New Type values in the sheet automatically become new groups with a fallback
 colour. Manual weight tweaks made in the edit panel live in the saved JSON files, so re-running

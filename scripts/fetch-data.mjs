@@ -2,8 +2,9 @@
  * Regenerates src/data/keri-values.json from the published Google Sheet.
  * Usage: npm run fetch-data
  *
- * Nodes tab: Tag, Description, "Vertices / referenced tags", Type
- * Vertices tab: Source, Destination, Connection Context, Personas
+ * Nodes tab: Tag, Description, "Vertices / referenced tags", Type, Status
+ * Vertices tab: Source, Destination, Connection Context, Personas, Status
+ * Only rows whose Status is "Active" are included.
  */
 import { writeFile } from 'node:fs/promises';
 
@@ -92,6 +93,14 @@ function linkKey(source, target) {
   return `${source}→${target}`;
 }
 
+function rowStatus(row, iStatus) {
+  return (row[iStatus] ?? '').trim();
+}
+
+function isActive(row, iStatus) {
+  return rowStatus(row, iStatus).toLowerCase() === 'active';
+}
+
 async function main() {
   const nodeRows = await fetchCsv('Nodes', NODES_GID);
   const vertexRows = await fetchCsv('Vertices', VERTICES_GID);
@@ -101,7 +110,8 @@ async function main() {
   const iDesc = headerIndex(nodeHeader, 'description');
   const iVertices = headerIndex(nodeHeader, 'vertices');
   const iType = headerIndex(nodeHeader, 'type');
-  if ([iTag, iDesc, iVertices, iType].includes(-1)) {
+  const iNodeStatus = headerIndex(nodeHeader, 'status');
+  if ([iTag, iDesc, iVertices, iType, iNodeStatus].includes(-1)) {
     throw new Error(`Unexpected Nodes header: ${nodeHeader.join(', ')}`);
   }
 
@@ -110,7 +120,8 @@ async function main() {
   const iDest = headerIndex(vertexHeader, 'destination');
   const iContext = headerIndex(vertexHeader, 'connection');
   const iPersonas = headerIndex(vertexHeader, 'personas');
-  if ([iSource, iDest, iContext, iPersonas].includes(-1)) {
+  const iVertexStatus = headerIndex(vertexHeader, 'status');
+  if ([iSource, iDest, iContext, iPersonas, iVertexStatus].includes(-1)) {
     throw new Error(`Unexpected Vertices header: ${vertexHeader.join(', ')}`);
   }
 
@@ -130,9 +141,15 @@ async function main() {
 
   const nodes = [];
   const nodeColumnRefs = [];
+  let skippedNodes = 0;
   for (const row of nodeRows) {
     const id = row[iTag].trim();
     if (!id) continue;
+    if (!isActive(row, iNodeStatus)) {
+      skippedNodes += 1;
+      console.warn(`  Skipping node ${id}: status "${rowStatus(row, iNodeStatus) || '(empty)'}"`);
+      continue;
+    }
     const { tag, description } = extractTag(row[iDesc].trim());
     nodes.push({
       id,
@@ -150,11 +167,19 @@ async function main() {
   const ids = new Set(nodes.map((n) => n.id));
   const seen = new Set();
   const links = [];
+  let skippedVertices = 0;
 
   for (const row of vertexRows) {
     const source = (row[iSource] ?? '').trim();
     const target = (row[iDest] ?? '').trim();
     if (!source || !target) continue;
+    if (!isActive(row, iVertexStatus)) {
+      skippedVertices += 1;
+      console.warn(
+        `  Skipping vertex ${source} → ${target}: status "${rowStatus(row, iVertexStatus) || '(empty)'}"`,
+      );
+      continue;
+    }
     if (!ids.has(source) || !ids.has(target)) {
       console.warn(`  Skipping vertex ${source} → ${target}: unknown tag`);
       continue;
@@ -203,6 +228,7 @@ async function main() {
         'Generated from the published Google Sheet by scripts/fetch-data.mjs. ' +
         'Nodes come from the Nodes tab; links come from the Vertices tab ' +
         '(Source, Destination, Connection Context, Personas). ' +
+        'Only rows with Status "Active" are included. ' +
         'Node weight is derived from the number of connections (3-9); link weight defaults to 1. ' +
         'Weights are subjective and adjustable in the edit panel.',
     },
@@ -212,7 +238,11 @@ async function main() {
   };
 
   await writeFile(OUTPUT, `${JSON.stringify(data, null, 2)}\n`);
-  console.log(`Wrote ${nodes.length} nodes, ${links.length} links to src/data/keri-values.json`);
+  console.log(
+    `Wrote ${nodes.length} nodes, ${links.length} links to src/data/keri-values.json` +
+      ` (skipped ${skippedNodes} non-Active node${skippedNodes === 1 ? '' : 's'}, ` +
+      `${skippedVertices} non-Active ${skippedVertices === 1 ? 'vertex' : 'vertices'})`,
+  );
 }
 
 await main();
