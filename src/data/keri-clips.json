@@ -2,7 +2,7 @@
   "meta": {
     "source": "https://github.com/keri-foundation/CONF26-subtitles/issues/21",
     "galleryUrl": "https://keri.foundation/confs/2026/videos/",
-    "generated": "2026-08-14",
+    "generated": "2026-08-15",
     "notes": "Generated from the SEGMENTS sub-issues by scripts/fetch-clips.mjs. Only segments mentioning at least one value tag are included. A clip link is <galleryUrl>#<videoId>&t=<start>&e=<end>."
   },
   "clips": [
