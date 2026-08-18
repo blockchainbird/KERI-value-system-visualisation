@@ -9,7 +9,7 @@ const arrowSize = (d) => 8 + (d.weight ?? 1) * 1.2;
  * Creates the force-directed graph inside the given <svg> element.
  * Returns an API to re-render when data changes and to control selection/zoom.
  */
-export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = {}) {
+export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, getLevel } = {}) {
   const svg = d3.select(svgEl);
   const container = svgEl.parentElement;
   const tooltip = container.querySelector('#tooltip');
@@ -119,6 +119,16 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
     return ids;
   }
 
+  function nodeCopy(d) {
+    if (getLevel?.() === 'beginner') return (d.kiss || '').trim() || d.description || '';
+    return d.description || '';
+  }
+
+  function linkCopy(d) {
+    if (getLevel?.() === 'beginner') return (d.kiss || '').trim() || d.context || '';
+    return d.context || '';
+  }
+
   function showNodeTooltip(event, d) {
     const rect = container.getBoundingClientRect();
     const clipCount = getClipCount?.(d.id) ?? 0;
@@ -126,7 +136,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
       <div class="tt-title">${esc(d.label)}</div>
       <div class="tt-meta">${esc(data.groups[d.group]?.label ?? d.group)}
         · weight ${esc(d.weight)}${d.tag ? ` · {${esc(d.tag)}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
-      <div>${esc(d.description)}</div>`;
+      <div>${esc(nodeCopy(d))}</div>`;
     placeTooltip(event, rect);
   }
 
@@ -138,7 +148,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
       <div class="tt-title">${esc(source)} → ${esc(target)}</div>
       <div class="tt-meta">Vertex${d.weight ? ` · weight ${esc(d.weight)}` : ''}</div>
       ${personas}
-      <div>${esc(d.context)}</div>`;
+      <div>${esc(linkCopy(d))}</div>`;
     placeTooltip(event, rect);
   }
 

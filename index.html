@@ -13,6 +13,10 @@
       <div id="legend"></div>
       <div id="tooltip" class="hidden"></div>
       <div id="graph-controls">
+        <div id="level-toggle" role="group" aria-label="Explanation level">
+          <button id="btn-level-beginner" type="button" data-level="beginner">Beginner</button>
+          <button id="btn-level-expert" type="button" data-level="expert">Expert</button>
+        </div>
         <button id="btn-panel-open" type="button" title="Open editor">Editor</button>
         <button id="btn-zoom-fit" title="Fit graph to view">Fit</button>
       </div>
@@ -49,7 +53,7 @@
         <section class="panel-section" id="node-section">
           <h2>Nodes <span class="count" id="node-count"></span></h2>
           <div id="search-section">
-            <input id="search-input" type="search" placeholder="Search nodes by tag, description…" autocomplete="off" />
+            <input id="search-input" type="search" placeholder="Search nodes by tag, description, KISS…" autocomplete="off" />
             <ul id="search-results" class="hidden"></ul>
           </div>
           <div class="row">
@@ -74,7 +78,8 @@
                 <span class="range-value" id="node-weight-value"></span>
               </span>
             </label>
-            <label class="span-2">Description <textarea id="node-description" rows="4"></textarea></label>
+            <label class="span-2">Description (expert) <textarea id="node-description" rows="4"></textarea></label>
+            <label class="span-2">KISS (beginner) <textarea id="node-kiss" rows="3"></textarea></label>
           </div>
         </section>
 
@@ -102,8 +107,11 @@
               </label>
               <button id="btn-add-link" class="small">Add / update</button>
             </div>
-            <label>Connection context
+            <label>Connection context (expert)
               <textarea id="link-context" rows="2" placeholder="From the Vertices tab"></textarea>
+            </label>
+            <label>KISS (beginner)
+              <textarea id="link-kiss" rows="2" placeholder="Plain-language connection"></textarea>
             </label>
             <label>Personas
               <input id="link-personas" type="text" placeholder="Optional" />

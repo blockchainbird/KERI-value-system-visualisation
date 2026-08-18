@@ -2,8 +2,8 @@
  * Regenerates src/data/keri-values.json from the published Google Sheet.
  * Usage: npm run fetch-data
  *
- * Nodes tab: Tag, Description, "Vertices / referenced tags", Type, Status
- * Vertices tab: Source, Destination, Connection Context, Personas, Status
+ * Nodes tab: Tag, Description, KISS, "Vertices / referenced tags", Type, Status
+ * Vertices tab: Source, Destination, Connection Context, KISS, Personas, Status
  * Only rows whose Status is "Active" are included.
  */
 import { writeFile } from 'node:fs/promises';
@@ -108,10 +108,11 @@ async function main() {
   const nodeHeader = nodeRows.shift().map((h) => h.trim().toLowerCase());
   const iTag = headerIndex(nodeHeader, 'tag');
   const iDesc = headerIndex(nodeHeader, 'description');
+  const iNodeKiss = headerIndex(nodeHeader, 'kiss');
   const iVertices = headerIndex(nodeHeader, 'vertices');
   const iType = headerIndex(nodeHeader, 'type');
   const iNodeStatus = headerIndex(nodeHeader, 'status');
-  if ([iTag, iDesc, iVertices, iType, iNodeStatus].includes(-1)) {
+  if ([iTag, iDesc, iNodeKiss, iVertices, iType, iNodeStatus].includes(-1)) {
     throw new Error(`Unexpected Nodes header: ${nodeHeader.join(', ')}`);
   }
 
@@ -119,9 +120,10 @@ async function main() {
   const iSource = headerIndex(vertexHeader, 'source');
   const iDest = headerIndex(vertexHeader, 'destination');
   const iContext = headerIndex(vertexHeader, 'connection');
+  const iVertexKiss = headerIndex(vertexHeader, 'kiss');
   const iPersonas = headerIndex(vertexHeader, 'personas');
   const iVertexStatus = headerIndex(vertexHeader, 'status');
-  if ([iSource, iDest, iContext, iPersonas, iVertexStatus].includes(-1)) {
+  if ([iSource, iDest, iContext, iVertexKiss, iPersonas, iVertexStatus].includes(-1)) {
     throw new Error(`Unexpected Vertices header: ${vertexHeader.join(', ')}`);
   }
 
@@ -158,6 +160,7 @@ async function main() {
       weight: 0,
       tag,
       description,
+      kiss: (row[iNodeKiss] ?? '').trim(),
     });
     for (const ref of row[iVertices].split(',').map((s) => s.trim()).filter(Boolean)) {
       nodeColumnRefs.push({ source: id, target: ref });
@@ -192,6 +195,7 @@ async function main() {
       target,
       weight: 1,
       context: (row[iContext] ?? '').trim(),
+      kiss: (row[iVertexKiss] ?? '').trim(),
       personas: (row[iPersonas] ?? '').trim(),
     });
   }
@@ -206,7 +210,7 @@ async function main() {
     if (seen.has(key)) continue;
     seen.add(key);
     console.warn(`  Adding Nodes-tab link missing from Vertices: ${source} → ${target}`);
-    links.push({ source, target, weight: 1, context: '', personas: '' });
+    links.push({ source, target, weight: 1, context: '', kiss: '', personas: '' });
   }
 
   const degree = new Map();
@@ -226,8 +230,9 @@ async function main() {
       updated: new Date().toISOString().slice(0, 10),
       notes:
         'Generated from the published Google Sheet by scripts/fetch-data.mjs. ' +
-        'Nodes come from the Nodes tab; links come from the Vertices tab ' +
-        '(Source, Destination, Connection Context, Personas). ' +
+        'Nodes come from the Nodes tab (Description = expert, KISS = beginner); ' +
+        'links come from the Vertices tab ' +
+        '(Connection Context = expert, KISS = beginner, plus Personas). ' +
         'Only rows with Status "Active" are included. ' +
         'Node weight is derived from the number of connections (3-9); link weight defaults to 1. ' +
         'Weights are subjective and adjustable in the edit panel.',

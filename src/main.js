@@ -42,10 +42,21 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closePanel();
 });
 
+const LEVEL_KEY = 'keri-explanation-level';
+let level = localStorage.getItem(LEVEL_KEY) === 'expert' ? 'expert' : 'beginner';
+
+function syncLevelButtons() {
+  for (const btn of document.querySelectorAll('#level-toggle [data-level]')) {
+    btn.classList.toggle('is-active', btn.dataset.level === level);
+  }
+}
+syncLevelButtons();
+
 const graph = createGraph(document.getElementById('graph'), {
   onNodeClick: (id) => editor.selectNode(id),
   onLinkClick: (source, target) => editor.selectLink(source, target),
   getClipCount: (id) => clipCountByTag.get(id) ?? 0,
+  getLevel: () => level,
 });
 
 const editor = createEditor({
@@ -57,7 +68,19 @@ const editor = createEditor({
   },
   onSearch: (ids) => graph.setSearchHighlight(ids),
   clips: clipsData,
+  getLevel: () => level,
 });
+
+function setLevel(next) {
+  level = next === 'expert' ? 'expert' : 'beginner';
+  localStorage.setItem(LEVEL_KEY, level);
+  syncLevelButtons();
+  editor.render();
+}
+
+for (const btn of document.querySelectorAll('#level-toggle [data-level]')) {
+  btn.onclick = () => setLevel(btn.dataset.level);
+}
 
 function render() {
   graph.update({
@@ -87,10 +110,10 @@ function serializableModel() {
   return {
     meta: { ...model.meta, updated: new Date().toISOString().slice(0, 10) },
     groups: model.groups,
-    nodes: model.nodes.map(({ id, label, group, weight, tag, description }) =>
-      ({ id, label, group, weight, tag, description })),
-    links: model.links.map(({ source, target, weight, context, personas }) =>
-      ({ source, target, weight, context: context ?? '', personas: personas ?? '' })),
+    nodes: model.nodes.map(({ id, label, group, weight, tag, description, kiss }) =>
+      ({ id, label, group, weight, tag, description, kiss: kiss ?? '' })),
+    links: model.links.map(({ source, target, weight, context, kiss, personas }) =>
+      ({ source, target, weight, context: context ?? '', kiss: kiss ?? '', personas: personas ?? '' })),
   };
 }
 

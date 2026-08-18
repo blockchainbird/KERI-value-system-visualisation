@@ -4,7 +4,7 @@
  * source/target ids) and calls onChange() after every mutation so the
  * graph re-renders.
  */
-export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips }) {
+export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips, getLevel } = {}) {
   const el = (id) => document.getElementById(id);
 
   const searchInput = el('search-input');
@@ -18,10 +18,12 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
   const nodeWeightValue = el('node-weight-value');
   const nodeTag = el('node-tag');
   const nodeDescription = el('node-description');
+  const nodeKiss = el('node-kiss');
   const linkSource = el('link-source');
   const linkTarget = el('link-target');
   const linkWeight = el('link-weight');
   const linkContext = el('link-context');
+  const linkKiss = el('link-kiss');
   const linkPersonas = el('link-personas');
   const linkList = el('link-list');
 
@@ -57,6 +59,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     nodeWeightValue.textContent = node.weight;
     nodeTag.value = node.tag ?? '';
     nodeDescription.value = node.description ?? '';
+    nodeKiss.value = node.kiss ?? '';
   }
 
   function renderLinkList() {
@@ -101,11 +104,14 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       row.append(desc, weightSel, del);
       li.appendChild(row);
 
-      if (link.context) {
+      const preview = getLevel?.() === 'beginner'
+        ? ((link.kiss || '').trim() || link.context)
+        : link.context;
+      if (preview) {
         const ctx = document.createElement('div');
         ctx.className = 'link-context';
-        ctx.textContent = link.context;
-        ctx.title = link.context;
+        ctx.textContent = preview;
+        ctx.title = preview;
         li.appendChild(ctx);
       }
       if (link.personas) {
@@ -122,6 +128,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
         linkTarget.value = link.target;
         linkWeight.value = String(link.weight);
         linkContext.value = link.context ?? '';
+        linkKiss.value = link.kiss ?? '';
         linkPersonas.value = link.personas ?? '';
       };
 
@@ -199,7 +206,8 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       n.id.toLowerCase().includes(q)
       || n.label.toLowerCase().includes(q)
       || (n.tag ?? '').toLowerCase().includes(q)
-      || (n.description ?? '').toLowerCase().includes(q));
+      || (n.description ?? '').toLowerCase().includes(q)
+      || (n.kiss ?? '').toLowerCase().includes(q));
   }
 
   function renderSearch() {
@@ -224,7 +232,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       const label = document.createElement('span');
       label.textContent = n.label;
       li.append(swatch, label);
-      li.title = n.description ?? '';
+      li.title = (getLevel?.() === 'beginner' ? (n.kiss || n.description) : n.description) ?? '';
       li.onclick = () => selectNode(n.id);
       searchResults.appendChild(li);
     }
@@ -277,6 +285,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     linkTarget.value = link.target;
     linkWeight.value = String(link.weight);
     linkContext.value = link.context ?? '';
+    linkKiss.value = link.kiss ?? '';
     linkPersonas.value = link.personas ?? '';
   }
 
@@ -295,6 +304,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
   nodeGroup.onchange = () => updateSelected((n) => { n.group = nodeGroup.value; });
   nodeTag.onchange = () => updateSelected((n) => { n.tag = nodeTag.value; });
   nodeDescription.oninput = () => updateSelected((n) => { n.description = nodeDescription.value; });
+  nodeKiss.oninput = () => updateSelected((n) => { n.kiss = nodeKiss.value; });
   nodeWeight.oninput = () => {
     nodeWeightValue.textContent = nodeWeight.value;
     updateSelected((n) => { n.weight = Number(nodeWeight.value); });
@@ -330,6 +340,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       weight: 3,
       tag: '',
       description: '',
+      kiss: '',
     });
     selectedNodeId = `NEW-${i}`;
     onChange();
@@ -362,6 +373,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     if (existing) {
       existing.weight = Number(linkWeight.value);
       existing.context = linkContext.value.trim();
+      existing.kiss = linkKiss.value.trim();
       existing.personas = linkPersonas.value.trim();
       onChange();
       return;
@@ -371,6 +383,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       target,
       weight: Number(linkWeight.value),
       context: linkContext.value.trim(),
+      kiss: linkKiss.value.trim(),
       personas: linkPersonas.value.trim(),
     });
     onChange();

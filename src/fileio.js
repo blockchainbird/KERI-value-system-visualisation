@@ -89,10 +89,12 @@ export function validateGraphData(data) {
     n.label ??= n.id;
     n.tag ??= '';
     n.description ??= '';
+    n.kiss ??= '';
   }
   for (const l of data.links) {
     l.weight = Number(l.weight) || 1;
     l.context ??= '';
+    l.kiss ??= '';
     l.personas ??= '';
   }
   return data;

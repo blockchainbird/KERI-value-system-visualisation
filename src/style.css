@@ -455,8 +455,35 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   position: absolute;
   bottom: 12px;
   right: 12px;
+  z-index: 30;
   display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+#level-toggle {
+  display: flex;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(26, 31, 42, 0.92);
+}
+
+#level-toggle button {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 6px 12px;
+  background: transparent;
+}
+
+#level-toggle button + button {
+  border-left: 1px solid var(--input-border);
+}
+
+#level-toggle button.is-active {
+  background: #2d4a6a;
+  color: #fff;
 }
 
 #app.panel-open #btn-panel-open { display: none; }
@@ -464,7 +491,8 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
 #tooltip {
   position: absolute;
   pointer-events: none;
-  max-width: 320px;
+  max-width: 380px;
+  white-space: pre-wrap;
   background: rgba(18, 21, 28, 0.95);
   border: 1px solid var(--input-border);
   border-radius: 8px;
