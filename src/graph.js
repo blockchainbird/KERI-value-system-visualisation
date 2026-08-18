@@ -119,14 +119,22 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     return ids;
   }
 
+  function compactCopy(text) {
+    return String(text ?? '').replace(/\n{2,}/g, '\n');
+  }
+
   function nodeCopy(d) {
-    if (getLevel?.() === 'beginner') return (d.kiss || '').trim() || d.description || '';
-    return d.description || '';
+    const text = getLevel?.() === 'beginner'
+      ? ((d.kiss || '').trim() || d.description || '')
+      : (d.description || '');
+    return compactCopy(text);
   }
 
   function linkCopy(d) {
-    if (getLevel?.() === 'beginner') return (d.kiss || '').trim() || d.context || '';
-    return d.context || '';
+    const text = getLevel?.() === 'beginner'
+      ? ((d.kiss || '').trim() || d.context || '')
+      : (d.context || '');
+    return compactCopy(text);
   }
 
   function showNodeTooltip(event, d) {
@@ -136,7 +144,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       <div class="tt-title">${esc(d.label)}</div>
       <div class="tt-meta">${esc(data.groups[d.group]?.label ?? d.group)}
         · weight ${esc(d.weight)}${d.tag ? ` · {${esc(d.tag)}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
-      <div>${esc(nodeCopy(d))}</div>`;
+      <div class="tt-body">${esc(nodeCopy(d))}</div>`;
     placeTooltip(event, rect);
   }
 
@@ -148,7 +156,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       <div class="tt-title">${esc(source)} → ${esc(target)}</div>
       <div class="tt-meta">Vertex${d.weight ? ` · weight ${esc(d.weight)}` : ''}</div>
       ${personas}
-      <div>${esc(linkCopy(d))}</div>`;
+      <div class="tt-body">${esc(linkCopy(d))}</div>`;
     placeTooltip(event, rect);
   }
 
