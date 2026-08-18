@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 
 const nodeRadius = (d) => 5 + d.weight * 1.8;
 const linkWidth = (d) => 0.8 + d.weight * 1.1;
-const linkDistance = (d) => 200 - d.weight * 25;
+const linkDistance = (d) => 260 - d.weight * 25;
 const arrowSize = (d) => 8 + (d.weight ?? 1) * 1.2;
 
 /**
@@ -23,14 +23,17 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
     .on('zoom', (event) => zoomLayer.attr('transform', event.transform));
   svg.call(zoom).on('dblclick.zoom', null);
 
+  const linkedIds = new Set();
+  const isIsolated = (d) => !linkedIds.has(d.id);
+
   const simulation = d3.forceSimulation()
     .force('link', d3.forceLink().id((d) => d.id)
       .distance(linkDistance)
       .strength((d) => 0.25 + d.weight * 0.2))
-    .force('charge', d3.forceManyBody().strength(-520))
+    .force('charge', d3.forceManyBody().strength((d) => (isIsolated(d) ? -20 : -620)))
     .force('collide', d3.forceCollide().radius((d) => nodeRadius(d) + 10))
-    .force('x', d3.forceX().strength(0.015))
-    .force('y', d3.forceY().strength(0.015));
+    .force('x', d3.forceX().strength((d) => (isIsolated(d) ? 0.28 : 0.012)))
+    .force('y', d3.forceY().strength((d) => (isIsolated(d) ? 0.28 : 0.012)));
 
   let data = { nodes: [], links: [], groups: {} };
   let selectedId = null;
@@ -289,6 +292,13 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
       });
 
     setSelected(selectedId);
+
+    linkedIds.clear();
+    for (const l of data.links) {
+      const { source, target } = linkEnds(l);
+      linkedIds.add(source);
+      linkedIds.add(target);
+    }
 
     simulation.nodes(data.nodes).on('tick', ticked);
     simulation.force('link').links(data.links);
