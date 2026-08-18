@@ -204,10 +204,10 @@ function serializableModel() {
   return {
     meta: { ...model.meta, updated: new Date().toISOString().slice(0, 10) },
     groups: model.groups,
-    nodes: model.nodes.map(({ id, label, group, weight, tag, description, kiss }) =>
-      ({ id, label, group, weight, tag, description, kiss: kiss ?? '' })),
-    links: model.links.map(({ source, target, weight, context, kiss, personas }) =>
-      ({ source, target, weight, context: context ?? '', kiss: kiss ?? '', personas: personas ?? '' })),
+    nodes: model.nodes.map(({ id, label, group, layer, weight, tag, description, kiss }) =>
+      ({ id, label, group, layer: layer ?? 'values', weight, tag, description, kiss: kiss ?? '' })),
+    links: model.links.map(({ source, target, weight, context, kiss, personas, layer }) =>
+      ({ source, target, weight, context: context ?? '', kiss: kiss ?? '', personas: personas ?? '', layer: layer ?? 'values' })),
   };
 }
 

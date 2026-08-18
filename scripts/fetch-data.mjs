@@ -4,7 +4,8 @@
  *
  * Nodes tab: Tag, Description, KISS, "Vertices / referenced tags", Type, Status
  * Vertices tab: Source, Destination, Connection Context, KISS, Personas, Status
- * Only rows whose Status is "Active" are included.
+ * ChangeTheory tab: Mnemonic, Description, "Vertice to", Type
+ * Only rows whose Status is "Active" are included (ChangeTheory has no Status yet).
  */
 import { writeFile } from 'node:fs/promises';
 
@@ -13,6 +14,7 @@ const SHEET_PUB =
 
 const NODES_GID = '1745295798';
 const VERTICES_GID = '1369863761';
+const CHANGE_THEORY_GID = '1699869304';
 
 const OUTPUT = new URL('../src/data/keri-values.json', import.meta.url);
 
@@ -22,6 +24,11 @@ const TYPE_GROUPS = {
   'KERISuite unique': { id: 'unique-value', label: 'KERISuite unique values', color: '#7ee08a' },
   'More common values': { id: 'common-value', label: 'More common values', color: '#c792ea' },
   'Common absent values': { id: 'missing-value', label: 'Common absent values', color: '#f07178' },
+  'State': { id: 'ct-state', label: 'Change theory · State', color: '#f2c14e' },
+  'societal embedding': { id: 'ct-societal', label: 'Change theory · Societal embedding', color: '#5ab1f0' },
+  'developer experience': { id: 'ct-dx', label: 'Change theory · Developer experience', color: '#e8a2c8' },
+  'dense subgraph': { id: 'ct-dense', label: 'Change theory · Dense subgraph', color: '#8ad4d0' },
+  'activation levels': { id: 'ct-activation', label: 'Change theory · Activation levels', color: '#d9b38c' },
 };
 
 const FALLBACK_COLORS = ['#f2c14e', '#5ab1f0', '#e8a2c8', '#8ad4d0', '#d9b38c'];
@@ -104,6 +111,7 @@ function isActive(row, iStatus) {
 async function main() {
   const nodeRows = await fetchCsv('Nodes', NODES_GID);
   const vertexRows = await fetchCsv('Vertices', VERTICES_GID);
+  const changeRows = await fetchCsv('ChangeTheory', CHANGE_THEORY_GID);
 
   const nodeHeader = nodeRows.shift().map((h) => h.trim().toLowerCase());
   const iTag = headerIndex(nodeHeader, 'tag');
@@ -130,8 +138,9 @@ async function main() {
   const groups = {};
   let fallbackIdx = 0;
   const groupIdForType = (type) => {
-    const known = TYPE_GROUPS[type];
-    const id = known?.id ?? type.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const known = TYPE_GROUPS[type]
+      ?? TYPE_GROUPS[Object.keys(TYPE_GROUPS).find((k) => k.toLowerCase() === type.toLowerCase())];
+    const id = known?.id ?? (type.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'ungrouped');
     if (!groups[id]) {
       groups[id] = {
         label: known?.label ?? type,
@@ -157,6 +166,7 @@ async function main() {
       id,
       label: id,
       group: groupIdForType(row[iType].trim()),
+      layer: 'values',
       weight: 0,
       tag,
       description,
@@ -197,6 +207,7 @@ async function main() {
       context: (row[iContext] ?? '').trim(),
       kiss: (row[iVertexKiss] ?? '').trim(),
       personas: (row[iPersonas] ?? '').trim(),
+      layer: 'values',
     });
   }
 
@@ -210,7 +221,68 @@ async function main() {
     if (seen.has(key)) continue;
     seen.add(key);
     console.warn(`  Adding Nodes-tab link missing from Vertices: ${source} → ${target}`);
-    links.push({ source, target, weight: 1, context: '', kiss: '', personas: '' });
+    links.push({ source, target, weight: 1, context: '', kiss: '', personas: '', layer: 'values' });
+  }
+
+  const changeHeader = changeRows.shift().map((h) => h.trim().toLowerCase());
+  const iMnemonic = headerIndex(changeHeader, 'mnemonic');
+  const iChangeDesc = headerIndex(changeHeader, 'description');
+  const iChangeVertice = headerIndex(changeHeader, 'vertice');
+  const iChangeType = headerIndex(changeHeader, 'type');
+  const iChangeStatus = headerIndex(changeHeader, 'status');
+  if ([iMnemonic, iChangeDesc, iChangeVertice, iChangeType].includes(-1)) {
+    throw new Error(`Unexpected ChangeTheory header: ${changeHeader.join(', ')}`);
+  }
+
+  const changeRefs = [];
+  let skippedChange = 0;
+  for (const row of changeRows) {
+    const id = (row[iMnemonic] ?? '').trim();
+    if (!id) continue;
+    if (iChangeStatus !== -1 && (row[iChangeStatus] ?? '').trim() && !isActive(row, iChangeStatus)) {
+      skippedChange += 1;
+      console.warn(`  Skipping ChangeTheory ${id}: status "${rowStatus(row, iChangeStatus) || '(empty)'}"`);
+      continue;
+    }
+    if (ids.has(id)) {
+      console.warn(`  Skipping ChangeTheory ${id}: id already used by a value node`);
+      continue;
+    }
+    nodes.push({
+      id,
+      label: id,
+      group: groupIdForType((row[iChangeType] ?? '').trim() || 'Change theory'),
+      layer: 'change-theory',
+      weight: 0,
+      tag: '',
+      description: (row[iChangeDesc] ?? '').trim(),
+      kiss: '',
+    });
+    ids.add(id);
+    for (const ref of (row[iChangeVertice] ?? '').split(',').map((s) => s.trim()).filter(Boolean)) {
+      changeRefs.push({ source: id, target: ref });
+    }
+  }
+
+  let skippedChangeLinks = 0;
+  for (const { source, target } of changeRefs) {
+    if (!ids.has(target)) {
+      skippedChangeLinks += 1;
+      console.warn(`  Skipping ChangeTheory link ${source} → ${target}: unknown mnemonic "${target}"`);
+      continue;
+    }
+    const key = linkKey(source, target);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    links.push({
+      source,
+      target,
+      weight: 1,
+      context: '',
+      kiss: '',
+      personas: '',
+      layer: 'change-theory',
+    });
   }
 
   const degree = new Map();
@@ -227,13 +299,16 @@ async function main() {
       title: 'KERI Value System',
       source: csvUrl(NODES_GID),
       verticesSource: csvUrl(VERTICES_GID),
+      changeTheorySource: csvUrl(CHANGE_THEORY_GID),
       updated: new Date().toISOString().slice(0, 10),
       notes:
         'Generated from the published Google Sheet by scripts/fetch-data.mjs. ' +
-        'Nodes come from the Nodes tab (Description = expert, KISS = beginner); ' +
-        'links come from the Vertices tab ' +
+        'Value nodes come from the Nodes tab (Description = expert, KISS = beginner); ' +
+        'value links come from the Vertices tab ' +
         '(Connection Context = expert, KISS = beginner, plus Personas). ' +
-        'Only rows with Status "Active" are included. ' +
+        'Change-theory nodes and links come from the ChangeTheory tab ' +
+        '(Mnemonic, Description, Vertice to, Type) and share the same graph. ' +
+        'Only rows with Status "Active" are included where that column exists. ' +
         'Node weight is derived from the number of connections (3-9); link weight defaults to 1. ' +
         'Weights are subjective and adjustable in the edit panel.',
     },
@@ -246,7 +321,9 @@ async function main() {
   console.log(
     `Wrote ${nodes.length} nodes, ${links.length} links to src/data/keri-values.json` +
       ` (skipped ${skippedNodes} non-Active node${skippedNodes === 1 ? '' : 's'}, ` +
-      `${skippedVertices} non-Active ${skippedVertices === 1 ? 'vertex' : 'vertices'})`,
+      `${skippedVertices} non-Active ${skippedVertices === 1 ? 'vertex' : 'vertices'}, ` +
+      `${skippedChange} ChangeTheory row${skippedChange === 1 ? '' : 's'}, ` +
+      `${skippedChangeLinks} unknown ChangeTheory ${skippedChangeLinks === 1 ? 'link' : 'links'})`,
   );
 }
 

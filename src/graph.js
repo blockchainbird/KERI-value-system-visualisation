@@ -46,7 +46,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       .strength((d) => 0.25 + d.weight * 0.2))
     .force('charge', d3.forceManyBody().strength(chargeStrength))
     .force('collide', d3.forceCollide().radius((d) => nodeRadius(d) + 10))
-    .force('x', d3.forceX().strength(gravityStrength))
+    .force('x', d3.forceX(layerX).strength(gravityStrength))
     .force('y', d3.forceY().strength(gravityStrength));
 
   let data = { nodes: [], links: [], groups: {} };
@@ -84,9 +84,16 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     return { width, height };
   }
 
+  function layerX(d) {
+    const { width } = size();
+    // Keep both graphs in one view, slightly apart until cross-links exist.
+    return d.layer === 'change-theory' ? width * 0.68 : width * 0.34;
+  }
+
   function center() {
     const { width, height } = size();
     simulation.force('center', d3.forceCenter(width / 2, height / 2));
+    simulation.force('x', d3.forceX(layerX).strength(gravityStrength));
   }
   center();
   window.addEventListener('resize', () => {
@@ -495,8 +502,8 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
 
   function setGravityScale(scale) {
     gravityScale = Math.max(0, Number(scale) || 0);
-    simulation.force('x').strength(gravityStrength);
-    simulation.force('y').strength(gravityStrength);
+    simulation.force('x', d3.forceX(layerX).strength(gravityStrength));
+    simulation.force('y', d3.forceY().strength(gravityStrength));
     simulation.force('charge').strength(chargeStrength);
     simulation.alpha(0.55).restart();
   }

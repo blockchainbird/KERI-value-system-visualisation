@@ -341,6 +341,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       tag: '',
       description: '',
       kiss: '',
+      layer: 'values',
     });
     selectedNodeId = `NEW-${i}`;
     onChange();
@@ -375,6 +376,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       existing.context = linkContext.value.trim();
       existing.kiss = linkKiss.value.trim();
       existing.personas = linkPersonas.value.trim();
+      existing.layer ??= 'values';
       onChange();
       return;
     }
@@ -385,6 +387,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       context: linkContext.value.trim(),
       kiss: linkKiss.value.trim(),
       personas: linkPersonas.value.trim(),
+      layer: 'values',
     });
     onChange();
   };

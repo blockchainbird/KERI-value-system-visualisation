@@ -90,12 +90,14 @@ export function validateGraphData(data) {
     n.tag ??= '';
     n.description ??= '';
     n.kiss ??= '';
+    n.layer ??= 'values';
   }
   for (const l of data.links) {
     l.weight = Number(l.weight) || 1;
     l.context ??= '';
     l.kiss ??= '';
     l.personas ??= '';
+    l.layer ??= 'values';
   }
   return data;
 }
