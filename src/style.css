@@ -451,6 +451,63 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   border-radius: 50%;
 }
 
+#gravity-control {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 30;
+  width: 72px;
+  background: rgba(26, 31, 42, 0.92);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 8px 6px 10px;
+  user-select: none;
+  touch-action: none;
+}
+
+#gravity-control.is-dragging {
+  opacity: 0.92;
+  cursor: grabbing;
+}
+
+#gravity-control .gravity-handle {
+  cursor: grab;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-bottom: 6px;
+}
+
+#gravity-control.is-dragging .gravity-handle {
+  cursor: grabbing;
+}
+
+.gravity-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.gravity-label {
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+#gravity-slider {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  appearance: slider-vertical;
+  width: 22px;
+  height: 128px;
+  padding: 0;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: ns-resize;
+}
+
 #graph-controls {
   position: absolute;
   bottom: 12px;

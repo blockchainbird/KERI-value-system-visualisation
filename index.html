@@ -12,6 +12,14 @@
       <svg id="graph"></svg>
       <div id="legend"></div>
       <div id="tooltip" class="hidden"></div>
+      <div id="gravity-control">
+        <div class="gravity-handle" title="Drag to move">Gravity</div>
+        <div class="gravity-slider-wrap">
+          <span class="gravity-label gravity-strong">Strong</span>
+          <input id="gravity-slider" type="range" min="0" max="100" value="20" step="1" aria-label="Gravity strength" />
+          <span class="gravity-label gravity-weak">Weak</span>
+        </div>
+      </div>
       <div id="graph-controls">
         <div id="level-toggle" role="group" aria-label="Explanation level">
           <button id="btn-level-beginner" type="button" data-level="beginner">Beginner</button>

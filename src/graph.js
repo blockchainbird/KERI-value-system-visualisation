@@ -26,14 +26,28 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
   const linkedIds = new Set();
   const isIsolated = (d) => !linkedIds.has(d.id);
 
+  const BASE_CONNECTED_GRAVITY = 0.012;
+  const BASE_ISOLATED_GRAVITY = 0.28;
+  let gravityScale = 1;
+
+  function gravityStrength(d) {
+    if (isIsolated(d)) return Math.max(0.012, BASE_ISOLATED_GRAVITY * gravityScale);
+    return BASE_CONNECTED_GRAVITY * gravityScale;
+  }
+
+  function chargeStrength(d) {
+    const weakBoost = 1 + Math.max(0, 1 - gravityScale) * 0.9;
+    return isIsolated(d) ? -12 : -620 * weakBoost;
+  }
+
   const simulation = d3.forceSimulation()
     .force('link', d3.forceLink().id((d) => d.id)
       .distance(linkDistance)
       .strength((d) => 0.25 + d.weight * 0.2))
-    .force('charge', d3.forceManyBody().strength((d) => (isIsolated(d) ? -20 : -620)))
+    .force('charge', d3.forceManyBody().strength(chargeStrength))
     .force('collide', d3.forceCollide().radius((d) => nodeRadius(d) + 10))
-    .force('x', d3.forceX().strength((d) => (isIsolated(d) ? 0.28 : 0.012)))
-    .force('y', d3.forceY().strength((d) => (isIsolated(d) ? 0.28 : 0.012)));
+    .force('x', d3.forceX().strength(gravityStrength))
+    .force('y', d3.forceY().strength(gravityStrength));
 
   let data = { nodes: [], links: [], groups: {} };
   let selectedId = null;
@@ -366,5 +380,13 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   }
 
-  return { update, setSelected, setSearchHighlight, zoomFit };
+  function setGravityScale(scale) {
+    gravityScale = Math.max(0, Number(scale) || 0);
+    simulation.force('x').strength(gravityStrength);
+    simulation.force('y').strength(gravityStrength);
+    simulation.force('charge').strength(chargeStrength);
+    simulation.alpha(0.55).restart();
+  }
+
+  return { update, setSelected, setSearchHighlight, zoomFit, setGravityScale };
 }
