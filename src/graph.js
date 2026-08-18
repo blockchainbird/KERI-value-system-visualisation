@@ -52,8 +52,32 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
   let data = { nodes: [], links: [], groups: {} };
   let selectedId = null;
   let searchIds = null; // Set of node ids matching the current search, or null
+  let pinnedNodeId = null;
+  let pinnedLinkId = null;
+  let pinFromTouch = false;
+  let nodeDragged = false;
   let nodeSel = d3.select(null);
   let linkSel = d3.select(null);
+
+  function nativeEvent(event) {
+    return event?.sourceEvent ?? event;
+  }
+
+  function isTouchLike(event) {
+    const native = nativeEvent(event);
+    if (native?.pointerType) return native.pointerType === 'touch';
+    if (native?.type?.startsWith('touch')) return true;
+    return window.matchMedia('(hover: none)').matches;
+  }
+
+  function hasFineHover() {
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  }
+
+  function linkIdOf(d) {
+    const { source, target } = linkEnds(d);
+    return `${source}→${target}`;
+  }
 
   function size() {
     const { width, height } = container.getBoundingClientRect();
@@ -151,39 +175,75 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     return compactCopy(text);
   }
 
-  function showNodeTooltip(event, d) {
+  function showNodeTooltip(event, d, { tapHint = false } = {}) {
     const rect = container.getBoundingClientRect();
     const clipCount = getClipCount?.(d.id) ?? 0;
+    const hint = tapHint ? `<div class="tt-hint">Tap again to open editor</div>` : '';
     tooltip.innerHTML = `
       <div class="tt-title">${esc(d.label)}</div>
       <div class="tt-meta">${esc(data.groups[d.group]?.label ?? d.group)}
         · weight ${esc(d.weight)}${d.tag ? ` · {${esc(d.tag)}}` : ''}${clipCount ? ` · 🎬 ${clipCount} clips` : ''}</div>
-      <div class="tt-body">${esc(nodeCopy(d))}</div>`;
+      <div class="tt-body">${esc(nodeCopy(d))}</div>
+      ${hint}`;
     placeTooltip(event, rect);
   }
 
-  function showLinkTooltip(event, d) {
+  function showLinkTooltip(event, d, { tapHint = false } = {}) {
     const rect = container.getBoundingClientRect();
     const { source, target } = linkEnds(d);
     const personas = d.personas ? `<div class="tt-meta">Personas · ${esc(d.personas)}</div>` : '';
+    const hint = tapHint ? `<div class="tt-hint">Tap again to open editor</div>` : '';
     tooltip.innerHTML = `
       <div class="tt-title">${esc(source)} → ${esc(target)}</div>
       <div class="tt-meta">Vertex${d.weight ? ` · weight ${esc(d.weight)}` : ''}</div>
       ${personas}
-      <div class="tt-body">${esc(linkCopy(d))}</div>`;
+      <div class="tt-body">${esc(linkCopy(d))}</div>
+      ${hint}`;
     placeTooltip(event, rect);
   }
 
   function placeTooltip(event, rect) {
     tooltip.classList.remove('hidden');
-    const x = Math.min(event.clientX - rect.left + 14, rect.width - 340);
-    const y = Math.min(event.clientY - rect.top + 14, rect.height - 140);
+    tooltip.classList.toggle('is-pinned', Boolean(pinnedNodeId || pinnedLinkId));
+    const native = nativeEvent(event);
+    const x = Math.min((native?.clientX ?? 0) - rect.left + 14, rect.width - 340);
+    const y = Math.min((native?.clientY ?? 0) - rect.top + 14, rect.height - 140);
     tooltip.style.left = `${Math.max(x, 8)}px`;
     tooltip.style.top = `${Math.max(y, 8)}px`;
   }
 
   function hideTooltip() {
     tooltip.classList.add('hidden');
+    tooltip.classList.remove('is-pinned');
+  }
+
+  function pinNode(id, event, { tapHint = false } = {}) {
+    const node = data.nodes.find((n) => n.id === id);
+    pinnedNodeId = id;
+    pinnedLinkId = null;
+    pinFromTouch = tapHint;
+    selectedId = id;
+    nodeSel.classed('selected', (d) => d.id === id);
+    applyHighlight(id);
+    if (node && event) showNodeTooltip(event, node, { tapHint });
+  }
+
+  function pinLink(d, event, { tapHint = false } = {}) {
+    pinnedLinkId = linkIdOf(d);
+    pinnedNodeId = null;
+    pinFromTouch = tapHint;
+    selectedId = null;
+    nodeSel.classed('selected', false);
+    applyHighlight(null);
+    showLinkTooltip(event, d, { tapHint });
+  }
+
+  function clearPin() {
+    pinnedNodeId = null;
+    pinnedLinkId = null;
+    pinFromTouch = false;
+    hideTooltip();
+    applyHighlight(null);
   }
 
   // Dim state when nothing is hovered: either no dimming, or dim non-search-matches.
@@ -202,36 +262,54 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       });
   }
 
+  function highlightLink(d) {
+    const { source, target } = linkEnds(d);
+    nodeSel.classed('dimmed', (n) => n.id !== source && n.id !== target);
+    linkSel
+      .classed('highlight', (l) => l === d || linkIdOf(l) === pinnedLinkId)
+      .classed('dimmed', (l) => linkIdOf(l) !== pinnedLinkId && l !== d);
+  }
+
   function applyHighlight(hoverId) {
-    if (hoverId == null) {
+    const id = hoverId ?? pinnedNodeId;
+    if (id == null) {
+      if (pinnedLinkId) {
+        const link = data.links.find((l) => linkIdOf(l) === pinnedLinkId);
+        if (link) {
+          highlightLink(link);
+          return;
+        }
+      }
       applyBaseDim();
       return;
     }
-    const ids = neighborIds(hoverId);
+    const ids = neighborIds(id);
     nodeSel.classed('dimmed', (d) => !ids.has(d.id));
     linkSel
       .classed('highlight', (d) => {
         const { source, target } = linkEnds(d);
-        return source === hoverId || target === hoverId;
+        return source === id || target === id;
       })
       .classed('dimmed', (d) => {
         const { source, target } = linkEnds(d);
-        return source !== hoverId && target !== hoverId;
+        return source !== id && target !== id;
       });
   }
 
   function setSearchHighlight(ids) {
     searchIds = ids;
-    applyBaseDim();
+    applyHighlight(null);
   }
 
   const drag = d3.drag()
     .on('start', (event, d) => {
+      nodeDragged = false;
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
     })
     .on('drag', (event, d) => {
+      nodeDragged = true;
       d.fx = event.x;
       d.fy = event.y;
     })
@@ -274,20 +352,30 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       .on('click', (event, d) => {
         event.stopPropagation();
         const { source, target } = linkEnds(d);
+        if (isTouchLike(event)) {
+          if (pinnedLinkId === linkIdOf(d)) {
+            onLinkClick?.(source, target);
+            return;
+          }
+          pinLink(d, event, { tapHint: true });
+          return;
+        }
+        pinLink(d, event);
         onLinkClick?.(source, target);
       })
       .on('mouseenter', (event, d) => {
-        const { source, target } = linkEnds(d);
-        nodeSel.classed('dimmed', (n) => n.id !== source && n.id !== target);
-        linkSel
-          .classed('highlight', (l) => l === d)
-          .classed('dimmed', (l) => l !== d);
+        if (!hasFineHover()) return;
+        highlightLink(d);
         showLinkTooltip(event, d);
       })
-      .on('mousemove', (event, d) => showLinkTooltip(event, d))
+      .on('mousemove', (event, d) => {
+        if (!hasFineHover()) return;
+        showLinkTooltip(event, d);
+      })
       .on('mouseleave', () => {
+        if (!hasFineHover()) return;
         applyHighlight(null);
-        hideTooltip();
+        if (!pinFromTouch) hideTooltip();
       });
 
     nodeSel = nodeLayer.selectAll('g.node')
@@ -311,16 +399,34 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       .call(drag)
       .on('click', (event, d) => {
         event.stopPropagation();
+        if (nodeDragged) {
+          nodeDragged = false;
+          return;
+        }
+        if (isTouchLike(event)) {
+          if (pinnedNodeId === d.id) {
+            onNodeClick?.(d.id);
+            return;
+          }
+          pinNode(d.id, event, { tapHint: true });
+          return;
+        }
+        pinNode(d.id, event);
         onNodeClick?.(d.id);
       })
       .on('mouseenter', (event, d) => {
+        if (!hasFineHover()) return;
         applyHighlight(d.id);
         showNodeTooltip(event, d);
       })
-      .on('mousemove', (event, d) => showNodeTooltip(event, d))
+      .on('mousemove', (event, d) => {
+        if (!hasFineHover()) return;
+        showNodeTooltip(event, d);
+      })
       .on('mouseleave', () => {
+        if (!hasFineHover()) return;
         applyHighlight(null);
-        hideTooltip();
+        if (!pinFromTouch) hideTooltip();
       });
 
     setSelected(selectedId);
@@ -336,7 +442,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     simulation.force('link').links(data.links);
     simulation.alpha(0.5).restart();
 
-    applyBaseDim();
+    applyHighlight(null);
   }
 
   function ticked() {
@@ -361,6 +467,13 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
   function setSelected(id) {
     selectedId = id;
     nodeSel.classed('selected', (d) => d.id === selectedId);
+    if (id) {
+      pinnedNodeId = id;
+      pinnedLinkId = null;
+      applyHighlight(id);
+    } else {
+      clearPin();
+    }
   }
 
   function zoomFit() {
@@ -387,6 +500,17 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     simulation.force('charge').strength(chargeStrength);
     simulation.alpha(0.55).restart();
   }
+
+  let pointerDownAt = null;
+  svg.on('pointerdown.clearpin', (event) => {
+    pointerDownAt = { x: event.clientX, y: event.clientY };
+  });
+  svg.on('click.clearpin', (event) => {
+    if (pointerDownAt && Math.hypot(event.clientX - pointerDownAt.x, event.clientY - pointerDownAt.y) > 8) return;
+    selectedId = null;
+    nodeSel.classed('selected', false);
+    clearPin();
+  });
 
   return { update, setSelected, setSearchHighlight, zoomFit, setGravityScale };
 }

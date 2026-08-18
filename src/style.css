@@ -558,6 +558,16 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   z-index: 10;
 }
 
+#tooltip.is-pinned {
+  pointer-events: auto;
+  z-index: 16;
+}
+
+#tooltip .tt-hint {
+  margin-top: 6px;
+  color: var(--accent);
+  font-size: 11px;
+}
 #tooltip .tt-title { font-weight: 600; font-size: 13px; line-height: 1.2; }
 #tooltip .tt-meta { color: var(--text-dim); margin: 1px 0 4px; line-height: 1.2; }
 #tooltip .tt-body { white-space: pre-wrap; line-height: 1.25; }
