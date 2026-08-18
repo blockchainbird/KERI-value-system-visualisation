@@ -1,6 +1,6 @@
 # KERI Personas & Persuasion Plan
 
-KERI's stated problem — captured in the value system itself as the *missing* values
+KERI's and SEDI's challenge — captured in the value system itself as the *missing* values
 **MARKETPEN** (market penetration), **GRASPEASY** (easy to grasp), **MATURITY** and
 **COMMUNEDU** (community education) — is not a technology gap. It is a persuasion gap:
 the people who could adopt KERI never hear an argument framed in *their* values.
@@ -13,8 +13,7 @@ part of the MARKETPEN node description.
 
 ## The core insight
 
-Do not sell "KERI". Sell the outcome each persona already wants, then reveal that KERI is
-the minimally sufficient means (MINIMSUFFI) to get it. Each persona below therefore has:
+Do not sell "KERI". Sell the outcome each persona already wants, give less priority to the MINIMSUFFI value. SEDI is much more the means, SECUFIRST is first and foremost value, KERI is a toolset to adapt the technical means to the plan. Each persona below therefore has:
 
 - **Who they are** and what keeps them up at night
 - **Value tags** — the nodes in the graph that speak to them (their clip filter)
@@ -220,7 +219,7 @@ gap has an owner in this plan:
 | MARKETPEN | Lighthouse deployments + this persona campaign | All |
 | GRASPEASY | Analogy-first explainers (git, HTTPS), 90-second clips | Dev, End user |
 | MATURITY | Path-to-production work (KERIA/Signify), test coverage, audits | CISO, Business |
-| COMMUNEDU | Clip reels, tutorials, plain-language canon | End user, Dev |
+| COMMUNEDU | Clip reels, tutorials, plain-language canon | All |
 
 **Measurement.** Per persona: reel view-through rate, call-to-action completions
 (pilots started, tutorials completed, specs co-authored), and one named champion per
