@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 
 const nodeRadius = (d) => 5 + d.weight * 1.8;
 const linkWidth = (d) => 0.8 + d.weight * 1.1;
-const linkDistance = (d) => 130 - d.weight * 25;
+const linkDistance = (d) => 200 - d.weight * 25;
 const arrowSize = (d) => 8 + (d.weight ?? 1) * 1.2;
 
 /**
@@ -26,11 +26,11 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount } = 
   const simulation = d3.forceSimulation()
     .force('link', d3.forceLink().id((d) => d.id)
       .distance(linkDistance)
-      .strength((d) => 0.3 + d.weight * 0.25))
-    .force('charge', d3.forceManyBody().strength(-320))
-    .force('collide', d3.forceCollide().radius((d) => nodeRadius(d) + 6))
-    .force('x', d3.forceX().strength(0.04))
-    .force('y', d3.forceY().strength(0.04));
+      .strength((d) => 0.25 + d.weight * 0.2))
+    .force('charge', d3.forceManyBody().strength(-520))
+    .force('collide', d3.forceCollide().radius((d) => nodeRadius(d) + 10))
+    .force('x', d3.forceX().strength(0.015))
+    .force('y', d3.forceY().strength(0.015));
 
   let data = { nodes: [], links: [], groups: {} };
   let selectedId = null;
