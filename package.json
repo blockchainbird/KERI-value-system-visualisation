@@ -8,7 +8,6 @@
     "fetch-data": "node scripts/fetch-data.mjs",
     "fetch-clips": "node scripts/fetch-clips.mjs",
     "build-personas": "node scripts/build-personas.mjs",
-    "cut-persona-clips": "node scripts/cut-persona-clips.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "live": "sh live.sh"
