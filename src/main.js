@@ -35,6 +35,19 @@ function openPanel() { setPanelOpen(true); }
 function closePanel() { setPanelOpen(false); }
 function togglePanel() { setPanelOpen(!panel.classList.contains('is-open')); }
 
+function nudgeEditorTab() {
+  if (panel.classList.contains('is-open')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for (const el of [panelHandle, btnPanelOpen]) {
+    el.classList.remove('wobble');
+    void el.offsetWidth;
+    el.classList.add('wobble');
+  }
+}
+
+panelHandle.addEventListener('animationend', () => panelHandle.classList.remove('wobble'));
+btnPanelOpen.addEventListener('animationend', () => btnPanelOpen.classList.remove('wobble'));
+
 panelHandle.onclick = togglePanel;
 btnPanelOpen.onclick = openPanel;
 btnPanelClose.onclick = closePanel;
@@ -64,7 +77,7 @@ const editor = createEditor({
   onChange: render,
   onSelectNode: (id) => {
     graph.setSelected(id);
-    if (id) openPanel();
+    if (id) nudgeEditorTab();
   },
   onSearch: (ids) => graph.setSearchHighlight(ids),
   clips: clipsData,

@@ -69,6 +69,32 @@ html, body {
   transition: left var(--panel-shift);
 }
 
+#panel-handle.wobble {
+  animation: editor-handle-wobble 0.55s ease-in-out;
+}
+
+@keyframes editor-handle-wobble {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  18% { transform: translateY(-50%) translateX(7px); }
+  36% { transform: translateY(-50%) translateX(-5px); }
+  54% { transform: translateY(-50%) translateX(5px); }
+  72% { transform: translateY(-50%) translateX(-3px); }
+  88% { transform: translateY(-50%) translateX(2px); }
+}
+
+#btn-panel-open.wobble {
+  animation: editor-btn-wobble 0.55s ease-in-out;
+}
+
+@keyframes editor-btn-wobble {
+  0%, 100% { transform: translateX(0); }
+  18% { transform: translateX(-6px); }
+  36% { transform: translateX(5px); }
+  54% { transform: translateX(-4px); }
+  72% { transform: translateX(3px); }
+  88% { transform: translateX(-1px); }
+}
+
 #app.panel-open #panel-handle {
   left: var(--panel-width);
   border-radius: 0 8px 8px 0;
@@ -646,4 +672,7 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
 @media (prefers-reduced-motion: reduce) {
   #panel,
   #panel-handle { transition: none; }
+
+  #panel-handle.wobble,
+  #btn-panel-open.wobble { animation: none; }
 }
