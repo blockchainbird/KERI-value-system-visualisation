@@ -113,10 +113,9 @@ for (const btn of document.querySelectorAll('#editor-toggle [data-editor]')) {
 setEditorEnabled(editorEnabled);
 
 const GRAVITY_KEY = 'keri-gravity-scale';
-const GRAVITY_POS_KEY = 'keri-gravity-pos';
 const GRAVITY_SLIDER_DEFAULT = 20;
-const gravitySlider = document.getElementById('gravity-slider');
-const gravityControl = document.getElementById('gravity-control');
+const GRAVITY_MAX = 100;
+let gravityValue = GRAVITY_SLIDER_DEFAULT;
 
 function sliderToScale(value) {
   const t = Number(value) / GRAVITY_SLIDER_DEFAULT;
@@ -124,87 +123,27 @@ function sliderToScale(value) {
   return t * t;
 }
 
-const savedGravity = Number(localStorage.getItem(GRAVITY_KEY));
-gravitySlider.value = Number.isFinite(savedGravity) ? String(savedGravity) : String(GRAVITY_SLIDER_DEFAULT);
-graph.setGravityScale(sliderToScale(gravitySlider.value));
-
-gravitySlider.oninput = () => {
-  localStorage.setItem(GRAVITY_KEY, gravitySlider.value);
-  graph.setGravityScale(sliderToScale(gravitySlider.value));
-};
-
-function clampGravityPosition(left, top) {
-  const parent = gravityControl.offsetParent ?? document.getElementById('graph-container');
-  const bounds = parent.getBoundingClientRect();
-  const size = gravityControl.getBoundingClientRect();
-  const maxLeft = Math.max(8, bounds.width - size.width - 8);
-  const maxTop = Math.max(8, bounds.height - size.height - 8);
-  return {
-    left: Math.min(maxLeft, Math.max(8, left)),
-    top: Math.min(maxTop, Math.max(8, top)),
-  };
-}
-
-function applyGravityPosition(left, top) {
-  const pos = clampGravityPosition(left, top);
-  gravityControl.style.left = `${pos.left}px`;
-  gravityControl.style.top = `${pos.top}px`;
-  gravityControl.style.right = 'auto';
-  gravityControl.style.bottom = 'auto';
-  return pos;
-}
-
-try {
-  const savedPos = JSON.parse(localStorage.getItem(GRAVITY_POS_KEY) ?? '');
-  if (Number.isFinite(savedPos?.left) && Number.isFinite(savedPos?.top)) {
-    applyGravityPosition(savedPos.left, savedPos.top);
+function syncGravityToggle(value) {
+  const n = Number(value);
+  for (const btn of document.querySelectorAll('#gravity-stepper [data-gravity]')) {
+    const g = Number(btn.dataset.gravity);
+    btn.classList.toggle('is-active', g === GRAVITY_MAX ? n >= GRAVITY_SLIDER_DEFAULT : n < GRAVITY_SLIDER_DEFAULT);
   }
-} catch {
-  // keep the default bottom-left placement
 }
 
-{
-  const handle = gravityControl.querySelector('.gravity-handle');
-  let drag = null;
-  handle.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    handle.setPointerCapture(event.pointerId);
-    const rect = gravityControl.getBoundingClientRect();
-    const parent = (gravityControl.offsetParent ?? document.getElementById('graph-container')).getBoundingClientRect();
-    drag = {
-      dx: event.clientX - rect.left,
-      dy: event.clientY - rect.top,
-      parentLeft: parent.left,
-      parentTop: parent.top,
-    };
-    gravityControl.classList.add('is-dragging');
-  });
-  handle.addEventListener('pointermove', (event) => {
-    if (!drag) return;
-    const pos = applyGravityPosition(
-      event.clientX - drag.parentLeft - drag.dx,
-      event.clientY - drag.parentTop - drag.dy,
-    );
-    localStorage.setItem(GRAVITY_POS_KEY, JSON.stringify(pos));
-  });
-  const endDrag = (event) => {
-    if (!drag) return;
-    if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
-    drag = null;
-    gravityControl.classList.remove('is-dragging');
-  };
-  handle.addEventListener('pointerup', endDrag);
-  handle.addEventListener('pointercancel', endDrag);
+function applyGravityValue(value) {
+  gravityValue = Number(value);
+  localStorage.setItem(GRAVITY_KEY, String(gravityValue));
+  graph.setGravityScale(sliderToScale(gravityValue));
+  syncGravityToggle(gravityValue);
 }
 
-window.addEventListener('resize', () => {
-  const left = Number.parseFloat(gravityControl.style.left);
-  const top = Number.parseFloat(gravityControl.style.top);
-  if (!Number.isFinite(left) || !Number.isFinite(top)) return;
-  const pos = applyGravityPosition(left, top);
-  localStorage.setItem(GRAVITY_POS_KEY, JSON.stringify(pos));
-});
+const savedGravity = Number(localStorage.getItem(GRAVITY_KEY));
+applyGravityValue(Number.isFinite(savedGravity) ? savedGravity : GRAVITY_SLIDER_DEFAULT);
+
+for (const btn of document.querySelectorAll('#gravity-stepper [data-gravity]')) {
+  btn.onclick = () => applyGravityValue(btn.dataset.gravity);
+}
 
 function render() {
   graph.update({
