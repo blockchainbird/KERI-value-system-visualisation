@@ -591,6 +591,10 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   display: none !important;
 }
 
+#editor-toggle {
+  flex-shrink: 0;
+}
+
 #app.panel-open #btn-panel-open { display: none; }
 
 #tooltip {
