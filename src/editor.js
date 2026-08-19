@@ -7,8 +7,10 @@
 export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips, getLevel } = {}) {
   const el = (id) => document.getElementById(id);
 
-  const searchInput = el('search-input');
-  const searchResults = el('search-results');
+  const searchFields = [
+    { input: el('search-input'), results: el('search-results') },
+    { input: el('graph-search-input'), results: el('graph-search-results') },
+  ].filter((field) => field.input && field.results);
   const nodeSelect = el('node-select');
   const nodeForm = el('node-form');
   const nodeId = el('node-id');
@@ -199,8 +201,16 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
 
   // ---------- search ----------
 
+  function searchQuery() {
+    return (searchFields[0]?.input.value ?? '').trim().toLowerCase();
+  }
+
+  function setSearchQuery(value) {
+    for (const field of searchFields) field.input.value = value;
+  }
+
   function searchMatches() {
-    const q = searchInput.value.trim().toLowerCase();
+    const q = searchQuery();
     if (!q) return null;
     return model().nodes.filter((n) =>
       n.id.toLowerCase().includes(q)
@@ -210,18 +220,16 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       || (n.kiss ?? '').toLowerCase().includes(q));
   }
 
-  function renderSearch() {
-    const matches = searchMatches();
-    searchResults.innerHTML = '';
-    searchResults.classList.toggle('hidden', matches === null);
-    onSearch?.(matches === null ? null : new Set(matches.map((n) => n.id)));
+  function fillResults(list, matches) {
+    list.innerHTML = '';
+    list.classList.toggle('hidden', matches === null);
     if (matches === null) return;
 
     if (!matches.length) {
       const li = document.createElement('li');
       li.className = 'no-matches';
       li.textContent = 'No matches';
-      searchResults.appendChild(li);
+      list.appendChild(li);
       return;
     }
     for (const n of matches) {
@@ -234,18 +242,29 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       li.append(swatch, label);
       li.title = (getLevel?.() === 'beginner' ? (n.kiss || n.description) : n.description) ?? '';
       li.onclick = () => selectNode(n.id);
-      searchResults.appendChild(li);
+      list.appendChild(li);
     }
   }
 
-  searchInput.oninput = renderSearch;
-  searchInput.onkeydown = (event) => {
-    if (event.key === 'Escape') {
-      event.stopPropagation();
-      searchInput.value = '';
+  function renderSearch() {
+    const matches = searchMatches();
+    onSearch?.(matches === null ? null : new Set(matches.map((n) => n.id)));
+    for (const field of searchFields) fillResults(field.results, matches);
+  }
+
+  for (const field of searchFields) {
+    field.input.oninput = () => {
+      setSearchQuery(field.input.value);
       renderSearch();
-    }
-  };
+    };
+    field.input.onkeydown = (event) => {
+      if (event.key === 'Escape') {
+        event.stopPropagation();
+        setSearchQuery('');
+        renderSearch();
+      }
+    };
+  }
 
   function render() {
     fillGroupOptions();

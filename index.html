@@ -11,6 +11,10 @@
     <main id="graph-container">
       <svg id="graph"></svg>
       <div id="legend"></div>
+      <div id="graph-search">
+        <input id="graph-search-input" class="search-input" type="search" placeholder="Search nodes by tag, description, KISS…" autocomplete="off" />
+        <ul id="graph-search-results" class="search-results hidden"></ul>
+      </div>
       <div id="tooltip" class="hidden"></div>
       <div id="gravity-control">
         <div class="gravity-handle" title="Drag to move">Gravity</div>
@@ -61,8 +65,8 @@
         <section class="panel-section" id="node-section">
           <h2>Nodes <span class="count" id="node-count"></span></h2>
           <div id="search-section">
-            <input id="search-input" type="search" placeholder="Search nodes by tag, description, KISS…" autocomplete="off" />
-            <ul id="search-results" class="hidden"></ul>
+            <input id="search-input" class="search-input" type="search" placeholder="Search nodes by tag, description, KISS…" autocomplete="off" />
+            <ul id="search-results" class="search-results hidden"></ul>
           </div>
           <div class="row">
             <select id="node-select"></select>

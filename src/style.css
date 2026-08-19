@@ -290,7 +290,7 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
 
 /* ---------- Search ---------- */
 
-#search-input {
+.search-input {
   width: 100%;
   background: var(--input-bg);
   color: var(--text);
@@ -301,12 +301,12 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   font-family: inherit;
 }
 
-#search-input:focus {
+.search-input:focus {
   outline: none;
   border-color: var(--accent);
 }
 
-#search-results {
+.search-results {
   list-style: none;
   margin: 8px 0 0;
   padding: 0;
@@ -314,9 +314,10 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   overflow-y: auto;
   border: 1px solid var(--panel-border);
   border-radius: 6px;
+  background: rgba(26, 31, 42, 0.96);
 }
 
-#search-results li {
+.search-results li {
   padding: 5px 8px;
   font-size: 12px;
   cursor: pointer;
@@ -326,16 +327,29 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   gap: 8px;
 }
 
-#search-results li:last-child { border-bottom: none; }
-#search-results li:hover { background: #232b3b; }
-#search-results li.no-matches { color: var(--text-dim); cursor: default; }
-#search-results li.no-matches:hover { background: none; }
+.search-results li:last-child { border-bottom: none; }
+.search-results li:hover { background: #232b3b; }
+.search-results li.no-matches { color: var(--text-dim); cursor: default; }
+.search-results li.no-matches:hover { background: none; }
 
-#search-results .result-group {
+.search-results .result-group {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
+}
+
+#graph-search {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 30;
+  width: min(340px, calc(100vw - 200px));
+  transition: left var(--panel-shift);
+}
+
+#app.panel-open #graph-search {
+  left: calc(var(--panel-width) + 12px);
 }
 
 #link-add-form { flex-shrink: 0; }
@@ -641,6 +655,10 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   }
 
   #app.panel-open #panel-handle {
+    display: none;
+  }
+
+  #app.panel-open #graph-search {
     display: none;
   }
 
