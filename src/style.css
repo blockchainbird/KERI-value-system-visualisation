@@ -662,6 +662,10 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
 .node.dimmed { opacity: 0.25; }
 
 @media (max-width: 800px) {
+  #legend {
+    display: none;
+  }
+
   #panel {
     width: 100%;
   }
