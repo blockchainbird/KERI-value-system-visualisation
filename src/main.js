@@ -28,7 +28,7 @@ function setPanelOpen(open) {
   panel.toggleAttribute('inert', !open);
   panel.setAttribute('aria-hidden', open ? 'false' : 'true');
   panelHandle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  panelHandle.title = open ? 'Close editor' : 'Open editor';
+  panelHandle.title = open ? 'Close more' : 'Open more';
 }
 
 function openPanel() { setPanelOpen(true); }
@@ -94,6 +94,23 @@ function setLevel(next) {
 for (const btn of document.querySelectorAll('#level-toggle [data-level]')) {
   btn.onclick = () => setLevel(btn.dataset.level);
 }
+
+const EDITOR_KEY = 'keri-editor-enabled';
+let editorEnabled = localStorage.getItem(EDITOR_KEY) === 'on';
+
+function setEditorEnabled(on) {
+  editorEnabled = on;
+  localStorage.setItem(EDITOR_KEY, on ? 'on' : 'off');
+  document.getElementById('app').classList.toggle('editor-on', on);
+  for (const btn of document.querySelectorAll('#editor-toggle [data-editor]')) {
+    btn.classList.toggle('is-active', (btn.dataset.editor === 'on') === on);
+  }
+}
+
+for (const btn of document.querySelectorAll('#editor-toggle [data-editor]')) {
+  btn.onclick = () => setEditorEnabled(btn.dataset.editor === 'on');
+}
+setEditorEnabled(editorEnabled);
 
 const GRAVITY_KEY = 'keri-gravity-scale';
 const GRAVITY_POS_KEY = 'keri-gravity-pos';

@@ -558,7 +558,8 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   gap: 8px;
 }
 
-#level-toggle {
+#level-toggle,
+#editor-toggle {
   display: flex;
   border: 1px solid var(--input-border);
   border-radius: 6px;
@@ -566,7 +567,8 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   background: rgba(26, 31, 42, 0.92);
 }
 
-#level-toggle button {
+#level-toggle button,
+#editor-toggle button {
   margin: 0;
   border: none;
   border-radius: 0;
@@ -574,13 +576,19 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
   background: transparent;
 }
 
-#level-toggle button + button {
+#level-toggle button + button,
+#editor-toggle button + button {
   border-left: 1px solid var(--input-border);
 }
 
-#level-toggle button.is-active {
+#level-toggle button.is-active,
+#editor-toggle button.is-active {
   background: #2d4a6a;
   color: #fff;
+}
+
+#app:not(.editor-on) .editor-only {
+  display: none !important;
 }
 
 #app.panel-open #btn-panel-open { display: none; }

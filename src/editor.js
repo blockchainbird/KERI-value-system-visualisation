@@ -85,7 +85,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       desc.title = desc.textContent;
 
       const weightSel = document.createElement('select');
-      weightSel.className = 'link-weight';
+      weightSel.className = 'link-weight editor-only';
       weightSel.innerHTML = [1, 2, 3]
         .map((w) => `<option value="${w}" ${w === link.weight ? 'selected' : ''}>${w}</option>`)
         .join('');
@@ -97,7 +97,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
       const del = document.createElement('button');
       del.textContent = '×';
       del.title = 'Delete link';
-      del.className = 'danger';
+      del.className = 'danger editor-only';
       del.onclick = () => {
         model().links.splice(idx, 1);
         onChange();

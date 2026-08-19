@@ -29,13 +29,17 @@
           <button id="btn-level-beginner" type="button" data-level="beginner">Beginner</button>
           <button id="btn-level-expert" type="button" data-level="expert">Expert</button>
         </div>
-        <button id="btn-panel-open" type="button" title="Open editor">Editor</button>
+        <div id="editor-toggle" role="group" aria-label="Graph editor">
+          <button id="btn-editor-off" type="button" data-editor="off">Editor off</button>
+          <button id="btn-editor-on" type="button" data-editor="on">Editor on</button>
+        </div>
+        <button id="btn-panel-open" type="button" title="Open more">More…</button>
         <button id="btn-zoom-fit" title="Fit graph to view">Fit</button>
       </div>
     </main>
 
-    <button id="panel-handle" type="button" aria-expanded="false" aria-controls="panel" title="Open editor">
-      Editor
+    <button id="panel-handle" type="button" aria-expanded="false" aria-controls="panel" title="Open more">
+      More…
     </button>
 
     <aside id="panel" aria-hidden="true" inert>
@@ -50,7 +54,7 @@
             </a>
           </p>
         </div>
-        <div id="file-section">
+        <div id="file-section" class="editor-only">
           <div class="button-row">
             <button id="btn-load" title="Load a graph JSON file from disk">Load…</button>
             <button id="btn-save" title="Save the current graph to a JSON file">Save…</button>
@@ -58,7 +62,7 @@
           </div>
           <p class="hint" id="file-hint"></p>
         </div>
-        <button id="btn-panel-close" type="button" title="Close editor">Close</button>
+        <button id="btn-panel-close" type="button" title="Close">Close</button>
       </header>
 
       <div id="panel-columns">
@@ -70,10 +74,10 @@
           </div>
           <div class="row">
             <select id="node-select"></select>
-            <button id="btn-add-node" class="small" title="Add a new node">+</button>
-            <button id="btn-del-node" class="small danger" title="Delete selected node and its links">−</button>
+            <button id="btn-add-node" class="small editor-only" title="Add a new node">+</button>
+            <button id="btn-del-node" class="small danger editor-only" title="Delete selected node and its links">−</button>
           </div>
-          <div id="node-form" class="form hidden">
+          <div id="node-form" class="form hidden editor-only">
             <label>Id <input id="node-id" type="text" /></label>
             <label>Label <input id="node-label" type="text" /></label>
             <label>Group <select id="node-group"></select></label>
@@ -103,7 +107,7 @@
 
         <section class="panel-section" id="link-section">
           <h2>Links <span class="count" id="link-count"></span></h2>
-          <div class="form" id="link-add-form">
+          <div class="form editor-only" id="link-add-form">
             <div class="row">
               <select id="link-source"></select>
               <span class="arrow">→</span>
