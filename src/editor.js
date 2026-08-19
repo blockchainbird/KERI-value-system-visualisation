@@ -279,7 +279,14 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     fillNodeOptions(linkSource, linkSource.value || undefined);
     fillNodeOptions(linkTarget, linkTarget.value || undefined);
     if (selectedNodeId && !findNode(selectedNodeId)) selectedNodeId = null;
-    if (selectedNodeId) nodeSelect.value = selectedNodeId;
+    // The <select> shows the first node when nothing is selected; keep clips/form
+    // in sync with that visible value instead of leaving selectedNodeId null.
+    if (!selectedNodeId && nodeSelect.value) {
+      selectedNodeId = nodeSelect.value;
+      onSelectNode?.(selectedNodeId);
+    } else if (selectedNodeId) {
+      nodeSelect.value = selectedNodeId;
+    }
     renderNodeForm();
     renderLinkList();
     renderCounts();
