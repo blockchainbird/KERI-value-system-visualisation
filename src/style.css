@@ -132,6 +132,10 @@ html, body {
   flex-shrink: 0;
 }
 
+#panel-tabs {
+  display: none;
+}
+
 #panel-columns {
   flex: 1;
   min-height: 0;
@@ -629,25 +633,58 @@ button.danger:hover { background: rgba(240, 113, 120, 0.12); }
     flex-wrap: wrap;
   }
 
+  #panel-tabs {
+    display: flex;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--panel-border);
+  }
+
+  #panel-tabs button {
+    flex: 1;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    padding: 10px 8px;
+    background: transparent;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  #panel-tabs button.is-active {
+    border-bottom-color: var(--accent);
+    color: #fff;
+  }
+
   #panel-columns {
-    grid-template-columns: 1fr;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    overflow: hidden;
   }
 
   .panel-section {
-    overflow: visible;
-    min-height: 220px;
+    display: none;
+    overflow: hidden;
+    min-height: 0;
+    flex: 1;
+    border-top: none;
+  }
+
+  .panel-section.is-active {
+    display: flex;
   }
 
   .panel-section + .panel-section {
     border-left: none;
-    border-top: 1px solid var(--panel-border);
+    border-top: none;
   }
 
   #clip-list,
   #link-list {
-    max-height: 280px;
-    flex: none;
+    max-height: none;
+    flex: 1;
   }
 }
 

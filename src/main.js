@@ -55,6 +55,28 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closePanel();
 });
 
+const PANEL_TAB_KEY = 'keri-panel-tab';
+const panelTabIds = ['node-section', 'clips-section', 'link-section'];
+
+function setPanelTab(id) {
+  const tab = panelTabIds.includes(id) ? id : 'node-section';
+  localStorage.setItem(PANEL_TAB_KEY, tab);
+  for (const section of document.querySelectorAll('.panel-section')) {
+    const on = section.id === tab;
+    section.classList.toggle('is-active', on);
+  }
+  for (const btn of document.querySelectorAll('#panel-tabs [data-panel]')) {
+    const on = btn.dataset.panel === tab;
+    btn.classList.toggle('is-active', on);
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+  }
+}
+
+for (const btn of document.querySelectorAll('#panel-tabs [data-panel]')) {
+  btn.onclick = () => setPanelTab(btn.dataset.panel);
+}
+setPanelTab(localStorage.getItem(PANEL_TAB_KEY) ?? 'node-section');
+
 const LEVEL_KEY = 'keri-explanation-level';
 let level = localStorage.getItem(LEVEL_KEY) === 'expert' ? 'expert' : 'beginner';
 
@@ -66,8 +88,14 @@ function syncLevelButtons() {
 syncLevelButtons();
 
 const graph = createGraph(document.getElementById('graph'), {
-  onNodeClick: (id) => editor.selectNode(id),
-  onLinkClick: (source, target) => editor.selectLink(source, target),
+  onNodeClick: (id) => {
+    editor.selectNode(id);
+    setPanelTab('node-section');
+  },
+  onLinkClick: (source, target) => {
+    editor.selectLink(source, target);
+    setPanelTab('link-section');
+  },
   getClipCount: (id) => clipCountByTag.get(id) ?? 0,
   getLevel: () => level,
 });

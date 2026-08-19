@@ -61,8 +61,14 @@
         <button id="btn-panel-close" type="button" title="Close">Close</button>
       </header>
 
+      <nav id="panel-tabs" role="tablist" aria-label="More sections">
+        <button type="button" role="tab" data-panel="node-section" aria-controls="node-section" aria-selected="true">Nodes</button>
+        <button type="button" role="tab" data-panel="clips-section" aria-controls="clips-section" aria-selected="false">Clips</button>
+        <button type="button" role="tab" data-panel="link-section" aria-controls="link-section" aria-selected="false">Links</button>
+      </nav>
+
       <div id="panel-columns">
-        <section class="panel-section" id="node-section">
+        <section class="panel-section is-active" id="node-section" role="tabpanel">
           <h2>Nodes <span class="count" id="node-count"></span></h2>
           <div id="search-section">
             <input id="search-input" class="search-input" type="search" placeholder="Search nodes by tag, description, KISS…" autocomplete="off" />
@@ -95,13 +101,13 @@
           </div>
         </section>
 
-        <section class="panel-section" id="clips-section">
+        <section class="panel-section" id="clips-section" role="tabpanel">
           <h2>Clips <span class="count" id="clip-count"></span></h2>
           <p class="hint" id="clips-hint"></p>
           <ul id="clip-list"></ul>
         </section>
 
-        <section class="panel-section" id="link-section">
+        <section class="panel-section" id="link-section" role="tabpanel">
           <h2>Links <span class="count" id="link-count"></span></h2>
           <div class="form editor-only" id="link-add-form">
             <div class="row">
