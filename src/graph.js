@@ -401,7 +401,7 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
       .attr('fill', (d) => groupColor(d.group));
 
     nodeSel.select('text')
-      .attr('dy', (d) => nodeRadius(d) + 12)
+      .attr('dy', (d) => nodeRadius(d) + 18)
       .text((d) => d.label);
 
     nodeSel
