@@ -34,6 +34,13 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
   const model = () => getModel();
   const findNode = (id) => model().nodes.find((n) => n.id === id);
 
+  function galleryClipHref(clip) {
+    const galleryUrl = clips?.meta?.galleryUrl || '';
+    let href = `${galleryUrl}#${clip.videoId}&t=${clip.start}&e=${clip.end}`;
+    href += `&from=${encodeURIComponent(window.location.href)}`;
+    return href;
+  }
+
   // ---------- rendering ----------
 
   function fillNodeOptions(select, value) {
@@ -170,7 +177,7 @@ export function createEditor({ getModel, onChange, onSelectNode, onSearch, clips
     for (const clip of nodeClips) {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = `${clips.meta.galleryUrl}#${clip.videoId}&t=${clip.start}&e=${clip.end}`;
+      a.href = galleryClipHref(clip);
       a.target = '_blank';
       a.rel = 'noopener';
       a.title = `${clip.quote}\n\nOpens the video gallery at ${formatTime(clip.start)} (from issue #${clip.issue})`;

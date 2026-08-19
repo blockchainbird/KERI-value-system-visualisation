@@ -87,9 +87,11 @@ The script:
   `speaker`, `talk`, `start`, `end`, `quote` plus `tags`).
 
 In the app, selecting a node shows its clips in the **Clips** panel; each entry deep-links into
-the video gallery using its hash mechanism (`<galleryUrl>#<videoId>&t=<start>&e=<end>`), which
-opens the talk at the right moment and stops at the end of the clip. The gallery base URL is
-set in `scripts/fetch-clips.mjs` (`GALLERY_URL`) and stored in the JSON's `meta.galleryUrl`.
+the video gallery using its hash mechanism
+(`<galleryUrl>#<videoId>&t=<start>&e=<end>&from=<thisPageUrl>`), which opens the talk at the
+right moment and stops at the end of the clip. The gallery reads `from` (falling back to
+`document.referrer`) and shows a link back to this page. The gallery base URL is set in
+`scripts/fetch-clips.mjs` (`GALLERY_URL`) and stored in the JSON's `meta.galleryUrl`.
 The graph tooltip also shows each node's clip count.
 
 ## Personas
