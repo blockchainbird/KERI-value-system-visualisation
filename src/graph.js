@@ -322,8 +322,8 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
     })
     .on('end', (event, d) => {
       if (!event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
+      d.fx = event.x;
+      d.fy = event.y;
     });
 
   function update(newData) {
@@ -337,6 +337,8 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
         n.y = old.y;
         n.vx = old.vx;
         n.vy = old.vy;
+        n.fx = old.fx;
+        n.fy = old.fy;
       }
     }
 
@@ -434,6 +436,12 @@ export function createGraph(svgEl, { onNodeClick, onLinkClick, getClipCount, get
         if (!hasFineHover()) return;
         applyHighlight(null);
         if (!pinFromTouch) hideTooltip();
+      })
+      .on('dblclick', (event, d) => {
+        event.stopPropagation();
+        d.fx = null;
+        d.fy = null;
+        simulation.alpha(0.35).restart();
       });
 
     setSelected(selectedId);
