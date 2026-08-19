@@ -11,7 +11,7 @@ to the sheet.
 
 ## Quick start
 
-Live: [dwarshuis.com/test/KERI-value-system-visualisation](https://dwarshuis.com/test/KERI-value-system-visualisation/)
+Live: [https://blockchainbird.github.io/KERI-value-system-visualisation/](https://blockchainbird.github.io/KERI-value-system-visualisation/)
 
 ```bash
 npm install
